@@ -16,9 +16,9 @@ public class DateUtil {
 	 * @param dateStr   日期字符串
 	 * @return  日期
 	 */
-	public static Date toDate(String dateFormat, String dateStr){
+	public static Date toDate(String dateStr){
 		SimpleDateFormat sdf = 
-				new SimpleDateFormat(dateFormat);
+				new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			return sdf.parse(dateStr);
 		} catch (ParseException e) {
@@ -26,6 +26,18 @@ public class DateUtil {
 		}
 		return null;
 	}
+	public static Date toDateTime(String arrivalTime){
+		SimpleDateFormat sdf = 
+				new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+		try {
+			return sdf.parse(arrivalTime);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
 	/**
 	 * 根据某种日期格式把日期转化为字符串
 	 * @param dateFormat  日期格式

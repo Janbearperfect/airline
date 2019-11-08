@@ -2,22 +2,31 @@ package airsystem.entity;
 
 import java.util.Date;
 
+import airsystem.util.DateUtil;
+
 public class FlightScheduler {
-	private String filghtNumber;  //航班编号
+	private int id;
+	private String flightNumber;  //航班编号
 	private Date startDate;			//开始时间
 	private Date endDate;				//结束时间
 	private String fromCity;			//出发机场
 	private String toCity;				//到达机场
-	private Date departureTime;	//离港时间
+	private Date departureTime;	   //离港时间
 	private Date arrivalTime;			//结束时间
 	private String airplane;				//飞机编号
 	private String scheduler;			//班期
 	private int sailLength;				//航程
-	public String getFilghtNumber() {
-		return filghtNumber;
+	public int getId() {
+		return id;
 	}
-	public void setFilghtNumber(String filghtNumber) {
-		this.filghtNumber = filghtNumber;
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getFlightNumber() {
+		return flightNumber;
+	}
+	public void setFlightNumber(String flightNumber) {
+		this.flightNumber = flightNumber;
 	}
 	public Date getStartDate() {
 		return startDate;
@@ -73,6 +82,25 @@ public class FlightScheduler {
 	public void setSailLength(int sailLength) {
 		this.sailLength = sailLength;
 	}
+	public FlightScheduler(int id, String flightNumber, Date startDate, Date endDate, String fromCity, String toCity,
+			Date departureTime, Date arrivalTime, String airplane, String scheduler, int sailLength) {
+		super();
+		this.id = id;
+		this.flightNumber = flightNumber;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.fromCity = fromCity;
+		this.toCity = toCity;
+		this.departureTime = departureTime;
+		this.arrivalTime = arrivalTime;
+		this.airplane = airplane;
+		this.scheduler = scheduler;
+		this.sailLength = sailLength;
+	}
+	public FlightScheduler() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -80,13 +108,14 @@ public class FlightScheduler {
 		result = prime * result + ((airplane == null) ? 0 : airplane.hashCode());
 		result = prime * result + ((arrivalTime == null) ? 0 : arrivalTime.hashCode());
 		result = prime * result + ((departureTime == null) ? 0 : departureTime.hashCode());
+		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
+		result = prime * result + ((flightNumber == null) ? 0 : flightNumber.hashCode());
 		result = prime * result + ((fromCity == null) ? 0 : fromCity.hashCode());
+		result = prime * result + id;
 		result = prime * result + sailLength;
 		result = prime * result + ((scheduler == null) ? 0 : scheduler.hashCode());
-		result = prime * result + ((toCity == null) ? 0 : toCity.hashCode());
-		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
-		result = prime * result + ((filghtNumber == null) ? 0 : filghtNumber.hashCode());
 		result = prime * result + ((startDate == null) ? 0 : startDate.hashCode());
+		result = prime * result + ((toCity == null) ? 0 : toCity.hashCode());
 		return result;
 	}
 	@Override
@@ -113,10 +142,22 @@ public class FlightScheduler {
 				return false;
 		} else if (!departureTime.equals(other.departureTime))
 			return false;
+		if (endDate == null) {
+			if (other.endDate != null)
+				return false;
+		} else if (!endDate.equals(other.endDate))
+			return false;
+		if (flightNumber == null) {
+			if (other.flightNumber != null)
+				return false;
+		} else if (!flightNumber.equals(other.flightNumber))
+			return false;
 		if (fromCity == null) {
 			if (other.fromCity != null)
 				return false;
 		} else if (!fromCity.equals(other.fromCity))
+			return false;
+		if (id != other.id)
 			return false;
 		if (sailLength != other.sailLength)
 			return false;
@@ -125,52 +166,28 @@ public class FlightScheduler {
 				return false;
 		} else if (!scheduler.equals(other.scheduler))
 			return false;
-		if (toCity == null) {
-			if (other.toCity != null)
-				return false;
-		} else if (!toCity.equals(other.toCity))
-			return false;
-		if (endDate == null) {
-			if (other.endDate != null)
-				return false;
-		} else if (!endDate.equals(other.endDate))
-			return false;
-		if (filghtNumber == null) {
-			if (other.filghtNumber != null)
-				return false;
-		} else if (!filghtNumber.equals(other.filghtNumber))
-			return false;
 		if (startDate == null) {
 			if (other.startDate != null)
 				return false;
 		} else if (!startDate.equals(other.startDate))
 			return false;
+		if (toCity == null) {
+			if (other.toCity != null)
+				return false;
+		} else if (!toCity.equals(other.toCity))
+			return false;
 		return true;
-	}
-	public FlightScheduler(String filghtNumber, Date startDate, Date endDate, String fromCity, String toCity,
-			Date departureTime, Date arrivalTime, String airplane, String scheduler, int sailLength) {
-		super();
-		this.filghtNumber = filghtNumber;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.fromCity = fromCity;
-		this.toCity = toCity;
-		this.departureTime = departureTime;
-		this.arrivalTime = arrivalTime;
-		this.airplane = airplane;
-		this.scheduler = scheduler;
-		this.sailLength = sailLength;
-	}
-	public FlightScheduler() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {
-		return "FilghtScheduler [filghtNumber=" + filghtNumber + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", fromCity=" + fromCity + ", toCity=" + toCity + ", DepartureTime=" + departureTime
-				+ ", arrivalTime=" + arrivalTime + ", airplane=" + airplane + ", scheduler=" + scheduler
+		return "FlightScheduler [id=" + id + ", flightNumber=" + flightNumber + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", fromCity=" + fromCity + ", toCity=" + toCity + ", departureTime="
+				+ departureTime + ", arrivalTime=" + arrivalTime + ", airplane=" + airplane + ", scheduler=" + scheduler
 				+ ", sailLength=" + sailLength + "]";
 	}
+	
+	
+	
+
 	
 }

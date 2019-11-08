@@ -1,5 +1,5 @@
 package airsystem.service.prototype;
 
-public class FlightService {
+public interface FlightService {
 
 }
