@@ -1,13 +1,13 @@
 package airsystem.entity;
 
 public class Flight {
-	private int flightId;   //º½°àid
-	private String flightNumber;  //º½°à±àºÅ
-	private int firstClassRemainSeats;  //Í·µÈ²Õ×ùÎ»
-	private int businessClassRemainSeats;  //¹«Îñ²Õ
-	private int economyClassRemainSeats; //¾­¼Ã²Õ
-	private double seasonDiscount;   //ÕÛ¿Û
-	private double price;  //¼Û¸ñ
+	private int flightId;   //èˆªç­id
+	private String flightNumber;  //èˆªç­ç¼–å·
+	private int firstClassRemainSeats;  //å¤´ç­‰èˆ±å‰©ä½™åº§ä½
+	private int businessClassRemainSeats;  //å…¬åŠ¡èˆ±
+	private int economyClassRemainSeats; //ç»æµèˆ±
+	private double seasonDiscount;   //æŠ˜æ‰£
+	private double price;  //ä»·æ ¼
 	public Flight(int flightId, String flightNumber, int firstClassRemainSeats, int businessClassRemainSeats,
 			int economyClassRemainSeats, double seasonDiscount, double price) {
 		super();
