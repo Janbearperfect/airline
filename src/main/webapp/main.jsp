@@ -16,7 +16,7 @@ layui.use('element', function(){
 });
 </script> 
 <%
-String type="1";
+String type="2";
 /* try{
 type=session.getAttribute("utype").toString();
 }catch(Exception e){
