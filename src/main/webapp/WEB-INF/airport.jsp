@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="box">
-	
+	<button type="button" class="btn btn-primary btn-lg add"data-toggle="modal" data-target="#myModal">添加</button>
 	<table class="table table-bordered">
 		<tr>
 			<th>机场编号</th>
@@ -31,10 +31,9 @@
 			<tr>
 		</c:forEach>
 	</table>
-<button type="button" class="btn btn-info add">添加</button>
 </div>
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
     		<h3>修改机场</h3>
 			<div class="formbox">
@@ -51,14 +50,14 @@
 				    <label for="exampleInputPassword1">机场名字</label>
 				    <input type="text" class="form-control airportName" id="exampleInputPassword1" >
 				  </div>
-				  <button type="submit" class="btn btn-success save">保存</button>
+				  <button type="submit" class="btn btn-success save">修改</button>
 			  </form>
 		  </div>
     </div>
   </div>
 </div>
 <div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-md" role="document">
     <div class="modal-content" id="smallmodal">
 			<h2>删除机场</h2>
 			<div class="formbox">
@@ -69,15 +68,38 @@
 			</div>
 			<input type="hidden" class="putid">
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default btn-lg" 
+				<button type="button" class="btn btn-success btn-lg" 
 						data-dismiss="modal">关闭
 				</button>
-				<button type="button" class="btn btn-primary btn-lg confirmdelete">
+				<button type="button" class="btn btn-danger btn-lg confirmdelete">
 					确定
 				</button>
 			</div>
 		</div>
-		 
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <h3>添加机场</h3>
+			<div class="formbox">
+			  <form action="">
+			      <div class="form-group">
+			   		<label for="exampleInputEmail1">机场编号</label>
+			    	<input type="text" class="form-control" id="exampleInputEmail1" name="">
+			  	  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">城市</label>
+				    <input type="text" class="form-control" id="exampleInputPassword1" >
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">机场名字</label>
+				    <input type="text" class="form-control" id="exampleInputPassword1" >
+				  </div>
+				  <button type="submit" class="btn btn-success save">保存</button>
+			  </form>
+		  </div>
     </div>
   </div>
 </div>

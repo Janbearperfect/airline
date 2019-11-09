@@ -8,10 +8,8 @@ $(function(){
 		},"json")
 	})
 	$(".save").click(function(){
-		alert($(".city").val());
 		$.get("updateAirport/"+$(".airportCode").val()+"/"+$(".city").val()+"/"+$(".airportName").val(),function(e){
 			if("success".equals(e)){
-				
 				}
 		})
 	})
@@ -23,7 +21,15 @@ $(function(){
 		$.get("deleteAirport/"+$(".putid").val(),function(e){
 			if("success".equals(e)){
 				location.href="airport";
-				}
+			}
 		})
 	})
+	$(".add").click(function(){
+		alert(a);
+	})
+	
+	
+	
+	
+	
 });

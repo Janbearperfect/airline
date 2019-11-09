@@ -54,4 +54,15 @@ public class AirportController {
 		airportService.updateAirport(airportCode, city, airportName);
 		return "success";
 	}
+	@RequestMapping("/saveAirport")
+	@ResponseBody
+	public String saveAirport() {
+		
+		return "";
+	}
 }
+
+
+
+
+
