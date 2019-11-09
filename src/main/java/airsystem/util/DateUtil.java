@@ -28,7 +28,7 @@ public class DateUtil {
 	}
 	public static Date toDateTime(String arrivalTime){
 		SimpleDateFormat sdf = 
-				new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+				new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		try {
 			return sdf.parse(arrivalTime);
 		} catch (ParseException e) {

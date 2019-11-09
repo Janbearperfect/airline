@@ -21,9 +21,9 @@ public class FlightDaoImpl implements FlightDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	@Override
-	public Flight getFlight(int id) {
+	public Flight getFlight(int flightId) {
 		
-		return jdbcTemplate.queryForObject("select * from flight where flight_id=?", new Object[]{id}, new BeanPropertyRowMapper<Flight>(Flight.class));
+		return jdbcTemplate.queryForObject("select * from flight where flight_id=?", new Object[]{flightId}, new BeanPropertyRowMapper<Flight>(Flight.class));
 	}
 
 	@Override
@@ -45,17 +45,20 @@ public class FlightDaoImpl implements FlightDao{
 	}
 
 	@Override
-	public String delete(int id) {
-		return null;
-	
+	public String updateFlight(double seasonDiscount,double price,int flightId) {
+		// TODO Auto-generated method stub
+		
+		int num= jdbcTemplate.update("update flight set season_discount=?,price=? where flight_id=?", 
+				new Object[] {seasonDiscount,price,flightId});
+		if(num>0) {
+			return "success";
+		}
+		return "faliure";
 		
 	}
 
-	@Override
-	public String saveOrUpdate(Flight flight) {
-		return null;
-		
-		
-	}
+	
+
+
 	
 }

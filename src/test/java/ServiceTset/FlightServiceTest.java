@@ -1,38 +1,27 @@
-package DaoTest;
+package ServiceTset;
 
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import airsystem.config.TestConfig;
-import airsystem.dao.prototype.FlightDao;
 import airsystem.entity.Flight;
-
-
-/**
- * ��������
- * @author ��ʤ��
- *
- */
+import airsystem.service.prototype.FlightService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= {TestConfig.class})
-public class FlightDaoImplTest {
+public class FlightServiceTest {
+     
 	@Autowired
-	private FlightDao f;
+	private FlightService f;
 	
 	@Test
-	public void getFlightTest() {
-		System.out.println(f.getFlight(1));
-	}
-	@Test
-	public void getFlightTest2() {
-		System.out.println(f.getFlight("zst01"));
+	public void test() {
+		System.out.println(f.totalItems());
 	}
 	
 	@Test
@@ -45,11 +34,12 @@ public class FlightDaoImplTest {
 	
 	@Test
 	public void test2() {
-		System.out.println(f.totalItems());
+		f.updateFlight(1.5,454,2);
 	}
 	
 	@Test
-	public void test() {
-	System.out.println(	f.updateFlight(1,645,1));
+	public void test3() {
+		Flight flight=f.getFlight(1);
+		System.out.println(flight);
 	}
 }
