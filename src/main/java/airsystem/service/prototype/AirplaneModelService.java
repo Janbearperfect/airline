@@ -10,10 +10,11 @@ public interface AirplaneModelService {
 	
 	List<AirplaneModel> findAll();
 
+	void save(AirplaneModel am);
 	
     AirplaneModel getAirportModel(String airplane);
 	
-	void saveOrUpdate(AirplaneModel am); 
+	void Update(AirplaneModel am); 
 	
 	void deleteAirportModel(String airplane);
 	

@@ -6,7 +6,7 @@ import airsystem.entity.Branch;
 
 public interface BranchDao {
 	//获取单个营业点
-	Branch getBranch(int id);
+	Branch getBranch(Integer id);
 	
 	//分页获取营业点
 	List<Branch> findBrachs(int offset,int pageSize);
