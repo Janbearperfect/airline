@@ -25,8 +25,8 @@ public class AirportServiceImpl implements AirportService{
 		Iao.saveAirport(airport); 
 	}
 	@Override
-	public void updateAirport(Airport airport) {
-		Iao.updateAirport(airport);;
+	public void updateAirport(String airportCode,String city,String airportName) {
+		Iao.updateAirport(airportCode, city, airportName);
 	}
 	@Override
 	public Airport getAirport(String airportCode) {

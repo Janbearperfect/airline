@@ -35,7 +35,7 @@ public class AirportDaoImpl implements AirportDao{
 		return jdbcTemplate.queryForObject("select * from airport where airport_code=?", new Object[] {airportCode},new BeanPropertyRowMapper<Airport>(Airport.class));
 	}
 	@Override
-	public void updateAirport(Airport airport) {
-		jdbcTemplate.update("update airport set airport_code=?,city=?,airport_name=? where airport_code=?",new Object[] {airport.getAirportCode(),airport.getCity(),airport.getAirportName(),airport.getAirportCode()});
+	public void updateAirport(String airportCode,String city,String airportName) {
+		jdbcTemplate.update("update airport set airport_code=?,city=?,airport_name=? where airport_code=?",new Object[] {airportCode,city,airportName,airportCode});
 	}
 }

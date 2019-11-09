@@ -8,7 +8,7 @@ public interface AirportDao {
 	void deleteAirport(String airportCode);
 	List<Airport> listAirport();
 	void saveAirport(Airport airport);
-	void updateAirport(Airport airport);
+	void updateAirport(String airportCode,String city,String airportName);
 	Airport getAirport(String airportCode);
 }
  

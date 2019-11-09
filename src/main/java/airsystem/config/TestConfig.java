@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Import;
  * 
  * */
 @Configuration
-@ComponentScan({"airsystem.dao","airsystem.service","airsystem.controller"})
+@ComponentScan({"airsystem.dao","airsystem.service"})
 
 @EnableAspectJAutoProxy //启用Spring AOP的功能
 @Import(DBConfig.class)

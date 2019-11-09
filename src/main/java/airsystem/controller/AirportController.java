@@ -1,5 +1,6 @@
 package airsystem.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,17 +29,29 @@ public class AirportController {
 		mv.addObject("airports", airports);
 		return mv; 
 	}
-	@RequestMapping("/saveAirport/{airportCode}")
+	@RequestMapping("/deleteAirport/{airportCode}")
 	@ResponseBody
 	public String airportDelete(@PathVariable("airportCode") String airportCode) {
 		airportService.deleteAirport(airportCode);
 		return "success";
 	}
-	@RequestMapping("/getAirport/{airportCode}")
+	@RequestMapping(value="/getAirport/{airportCode}",produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public String airportgetAirport(@PathVariable("airportCode") String airportCode) {
+	public String getAirport(@PathVariable("airportCode") String airportCode) {
 		Airport airport = airportService.getAirport(airportCode);
-		String air = JSON.toJSONString(airport);
-		return air;
+		return JSON.toJSONString(airport);
+	}
+	@RequestMapping(value="/updateAirport/{airportCode}/{city}/{airportName}")
+	@ResponseBody
+	public String updateAirport(@PathVariable("airportCode") String airportCode,@PathVariable("city") String city,@PathVariable("airportName") String airportName) {
+		try {
+			airportCode = new String(airportCode.getBytes("8859_1"),"utf-8");
+			city = new String(city.getBytes("8859_1"),"utf-8");
+			airportName = new String(airportName.getBytes("8859_1"),"utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		airportService.updateAirport(airportCode, city, airportName);
+		return "success";
 	}
 }

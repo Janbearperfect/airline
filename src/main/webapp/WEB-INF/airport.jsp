@@ -11,6 +11,7 @@
 </head>
 <body>
 <div class="box">
+	
 	<table class="table table-bordered">
 		<tr>
 			<th>机场编号</th>
@@ -18,19 +19,19 @@
 			<th>机场名</th>
 			<th>操作</th>
 		</tr>
-	<c:forEach items="${airports}" var="airport">
+		<c:forEach items="${airports}" var="airport">
 			<tr id="${airport.airportCode}">
 				<td>${airport.airportCode}</td>
 				<td>${airport.city}</td>
 				<td>${airport.airportName}</td>
 				<td>
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">编辑</button>
-					<button type="button" class="btn btn-danger">删除</button>
+					<button type="button" class="btn btn-danger delete"data-toggle="modal" data-target=".bs-example-modal-md">删除</button>
 				</td>
 			<tr>
 		</c:forEach>
 	</table>
-<button type="button" class="btn btn-info">添加</button>
+<button type="button" class="btn btn-info add">添加</button>
 </div>
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg" role="document">
@@ -50,9 +51,33 @@
 				    <label for="exampleInputPassword1">机场名字</label>
 				    <input type="text" class="form-control airportName" id="exampleInputPassword1" >
 				  </div>
-				  <button type="submit" class="btn btn-success">保存</button>
+				  <button type="submit" class="btn btn-success save">保存</button>
 			  </form>
 		  </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" id="smallmodal">
+			<h2>删除机场</h2>
+			<div class="formbox">
+			  <div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">
+					确定要删除？
+				</h4>
+			</div>
+			<input type="hidden" class="putid">
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default btn-lg" 
+						data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary btn-lg confirmdelete">
+					确定
+				</button>
+			</div>
+		</div>
+		 
     </div>
   </div>
 </div>
