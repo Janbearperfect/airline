@@ -1,6 +1,7 @@
 package airsystem.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -57,6 +58,7 @@ public class AirplaneModelController {
 	public void saveAirplane(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		String airplane = new String(request.getParameter("airplane").getBytes("8859_1"),"utf-8");
 		String model = new String(request.getParameter("model").getBytes("8859_1"),"utf-8");
+	
 		Integer max_sail_length=Integer.parseInt(request.getParameter("max_sail_length"));
 		Integer first_class_seats=Integer.parseInt(request.getParameter("first_class_seats"));
 		Integer business_class_seats=Integer.parseInt(request.getParameter("business_class_seats"));
@@ -78,8 +80,9 @@ public class AirplaneModelController {
 	
 	@RequestMapping("/airplaneDelete/{airplane}")
 	@ResponseBody
-	public String branchDelete(@PathVariable("airplane") String airplane) {
-		ams.deleteAirportModel(airplane);
+	public String branchDelete(@PathVariable("airplane") String airplane) throws UnsupportedEncodingException {
+		String ap= new String(airplane.getBytes("8859_1"),"utf-8");
+		ams.deleteAirportModel(ap);
 		return "success";
 	}
 }
