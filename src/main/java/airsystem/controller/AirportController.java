@@ -20,7 +20,9 @@ public class AirportController {
 	private AirportService airportService;
 	@RequestMapping("/main")
 	public void showMain() {
+		
 	}
+	
 	@RequestMapping("/airport")
 	public ModelAndView showAirport() {
 		ModelAndView mv = new ModelAndView("airport");
