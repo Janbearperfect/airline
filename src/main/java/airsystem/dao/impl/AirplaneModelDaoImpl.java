@@ -30,17 +30,20 @@ public class AirplaneModelDaoImpl implements AirplaneModelDao{
 	}
 
 	@Override
-	public void saveOrUpdate(AirplaneModel am) {
-		if(("0").equals(am.getAirplane())) {
-			jdbcTemplate.update("insert into airplane_model values(?,?,?,?,?,?)",
-					new Object[] {am.getAirplane(),am.getModel(),am.getMax_sail_length(),am.getFirst_class_seats(),am.getBusiness_class_seats(),am.getEconomy_class_seats()});
-		}else {
+	public void Update(AirplaneModel am) {
+		
+		
 			jdbcTemplate.update("update airplane_model set model=?,max_sail_length=?,first_class_seats=?,business_class_seats=?,economy_class_seats=? where airplane=?",
 					new Object[] {am.getModel(),am.getMax_sail_length(),am.getFirst_class_seats(),am.getBusiness_class_seats(),am.getEconomy_class_seats(),am.getAirplane()});
-		}
+		
 		
 	}
+	@Override
+	public void save(AirplaneModel am) {
 
+		jdbcTemplate.update("insert into airplane_model values(?,?,?,?,?,?)",
+				new Object[] {am.getAirplane(),am.getModel(),am.getMax_sail_length(),am.getFirst_class_seats(),am.getBusiness_class_seats(),am.getEconomy_class_seats()});
+	}
 	@Override
 	public void deleteAirportModel(String airplane) {
 		jdbcTemplate.update("delete from airplane_model where airplane=?",airplane);

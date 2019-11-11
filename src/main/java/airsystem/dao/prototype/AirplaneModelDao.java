@@ -11,7 +11,8 @@ public interface AirplaneModelDao {
 	
 	List<AirplaneModel> findAll();
 	
-	void saveOrUpdate(AirplaneModel am); 
+	void Update(AirplaneModel am); 
+	void save(AirplaneModel am); 
 	
 	void deleteAirportModel(String airplane);
 	

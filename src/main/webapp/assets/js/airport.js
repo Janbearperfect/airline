@@ -8,6 +8,7 @@ $(function(){
 		},"json")
 	})
 	$(".save").click(function(){
+
 		$.get("updateAirport/"+$(".airportCode").val()+"/"+$(".city").val()+"/"+$(".airportName").val(),function(e){
 			if("success".equals(e)){
 				}

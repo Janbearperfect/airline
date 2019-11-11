@@ -1,36 +1,42 @@
 package airsystem.entity;
 
 public class Ticket {
-    private  int id;
-    private  int  userId;
-    private int flightId;
-    private String idNum;
-    private String orderDate;
-    private int    rank;
-    private int  saleId;
-    private int status;
-    private int price;
-	public Ticket(int id, int userId, int flightId, String idNum, String orderDate, int rank, int saleId, int status,
-			int price) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.flightId = flightId;
-		this.idNum = idNum;
-		this.orderDate = orderDate;
-		this.rank = rank;
-		this.saleId = saleId;
-		this.status = status;
-		this.price = price;
-	}
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Ticket [id=" + id + ", userId=" + userId + ", flightId=" + flightId + ", idNum=" + idNum
-				+ ", orderDate=" + orderDate + ", rank=" + rank + ", saleId=" + saleId + ", status=" + status
-				+ ", price=" + price + "]";
+		return "Ticket [id=" + id + ", userId=" + userId + ", flightId=" + flightId + ", idNumber=" + idNumber
+				+ ", orderDate=" + orderDate + ", classes=" + classes + ", salesId=" + salesId + ", status=" + status
+				+ ", tPrice=" + tPrice + ", passengerType=" + passengerType + "]";
+	}
+	private  int id;
+    private  int  userId;
+    private int flightId;
+    private String idNumber;
+    private String orderDate;
+    private int    classes;
+    private int  salesId;
+    private int status;
+    private double tPrice;
+    private int passengerType;
+    public Ticket() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Ticket(int id, int userId, int flightId, String idNumber, String orderDate, int classes,int passengerType, int salesId, int status,
+			double tPrice) {
+		super();
+		this.id = id;
+		this.userId = userId;
+		this.flightId = flightId;
+		this.idNumber = idNumber;
+		this.orderDate = orderDate;
+		this.classes = classes;
+		this.passengerType=passengerType;
+		this.salesId = salesId;
+		this.status = status;
+		this.tPrice = tPrice;
 	}
 	/**
 	 * @return the id
@@ -69,16 +75,16 @@ public class Ticket {
 		this.flightId = flightId;
 	}
 	/**
-	 * @return the idNum
+	 * @return the idNumber
 	 */
-	public String getIdNum() {
-		return idNum;
+	public String getIdNumber() {
+		return idNumber;
 	}
 	/**
-	 * @param idNum the idNum to set
+	 * @param idNumber the idNumber to set
 	 */
-	public void setIdNum(String idNum) {
-		this.idNum = idNum;
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
 	}
 	/**
 	 * @return the orderDate
@@ -93,28 +99,28 @@ public class Ticket {
 		this.orderDate = orderDate;
 	}
 	/**
-	 * @return the rank
+	 * @return the classes
 	 */
-	public int getRank() {
-		return rank;
+	public int getClasses() {
+		return classes;
 	}
 	/**
-	 * @param rank the rank to set
+	 * @param classes the classes to set
 	 */
-	public void setRank(int rank) {
-		this.rank = rank;
+	public void setClasses(int classes) {
+		this.classes = classes;
 	}
 	/**
-	 * @return the saleId
+	 * @return the salesId
 	 */
-	public int getSaleId() {
-		return saleId;
+	public int getSalesId() {
+		return salesId;
 	}
 	/**
-	 * @param saleId the saleId to set
+	 * @param salesId the salesId to set
 	 */
-	public void setSaleId(int saleId) {
-		this.saleId = saleId;
+	public void setSalesId(int salesId) {
+		this.salesId = salesId;
 	}
 	/**
 	 * @return the status
@@ -129,20 +135,27 @@ public class Ticket {
 		this.status = status;
 	}
 	/**
-	 * @return the price
+	 * @return the tPrice
 	 */
-	public int getPrice() {
-		return price;
+	public double gettPrice() {
+		return tPrice;
 	}
 	/**
-	 * @param price the price to set
+	 * @param tPrice the tPrice to set
 	 */
-	public void setPrice(int price) {
-		this.price = price;
+	public void settPrice(double tPrice) {
+		this.tPrice = tPrice;
 	}
-	public Ticket() {
-		super();
-		// TODO Auto-generated constructor stub
+	/**
+	 * @return the passengerType
+	 */
+	public int getpassengerType() {
+		return passengerType;
 	}
- 
+	/**
+	 * @param passengerType the passengerType to set
+	 */
+	public void setpassengerType(int passengerType) {
+		this.passengerType = passengerType;
+	}
 }

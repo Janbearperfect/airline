@@ -27,10 +27,11 @@ public class AirplaneModelServiceImpl implements AirplaneModelService{
 		return amd.getAirportModel(airplane);
 	}
 	@Override
-	public void saveOrUpdate(AirplaneModel am) {
-		amd.saveOrUpdate(am);
+	public void Update(AirplaneModel am) {
+		amd.Update(am);
 		
 	}
+	
 	@Override
 	public void deleteAirportModel(String airplane) {
 		amd.deleteAirportModel(airplane);
@@ -45,6 +46,10 @@ public class AirplaneModelServiceImpl implements AirplaneModelService{
 	public List<AirplaneModel> findAll() {
 		return amd.findAll();
 		
+	}
+	@Override
+	public void save(AirplaneModel am) {
+		amd.save(am);
 	}
 
 }

@@ -8,6 +8,13 @@ public class Flight {
 	private int economyClassRemainSeats; //经济舱
 	private double seasonDiscount;   //折扣
 	private double price;  //价格
+	public Flight(double seasonDiscount, double price,int flightId) {
+		super();
+		this.flightId = flightId;
+		this.seasonDiscount = seasonDiscount;
+		this.price = price;
+	}
+
 	public Flight(int flightId, String flightNumber, int firstClassRemainSeats, int businessClassRemainSeats,
 			int economyClassRemainSeats, double seasonDiscount, double price) {
 		super();
