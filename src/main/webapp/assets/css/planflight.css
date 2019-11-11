@@ -1,0 +1,34 @@
+header{
+    width: 100%;
+    height: 40px;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+.box{
+    width: 80%;
+    height: auto;
+    margin: 20px auto;
+
+}
+
+td{
+    text-align: center;
+}
+.reminder{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 5px;
+}
+.count{
+    float: left;
+}
+.add{
+    float: right;
+}
+.btn-success{
+    width:60px;
+    height:30px;
+}

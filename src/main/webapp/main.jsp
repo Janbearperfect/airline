@@ -84,7 +84,7 @@ type=session.getAttribute("utype").toString();
          <li class="layui-nav-item">
           <a href="javascript:;"  >信息管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="airport.jsp" target="aaa" >机场管理</a></dd>
+            <dd><a href="airport" target="aaa" >机场管理</a></dd>
             <dd><a href="users.jsp" target="aaa" >用户管理</a></dd>
             <dd><a href="branch.jsp" target="aaa" >营业点管理</a></dd>
             <dd><a href="sales.jsp" target="aaa" >营业员管理</a></dd>
@@ -102,9 +102,9 @@ type=session.getAttribute("utype").toString();
          <li class="layui-nav-item">
           <a href="javascript:;"  >航班管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="planflight.jsp" target="aaa" >航班计划</a></dd>
-            <dd><a href="timeflight.jsp" target="aaa" >实时航班</a></dd>
-            <dd><a href="pastflight.jsp" target="aaa" >往期航班</a></dd>
+            <dd><a href="planflight" target="aaa" >航班计划</a></dd>
+            <dd><a href="timeflight" target="aaa" >实时航班</a></dd>
+            <dd><a href="pastflight" target="aaa" >往期航班</a></dd>
           </dl>
         </li>
 		<li class="layui-nav-item">

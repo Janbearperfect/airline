@@ -30,19 +30,19 @@ public class FlightSchedulerDaoImplTest {
 	}
 	@Test
 	public void findIdTest() {
-		System.out.println(fs.getFlightScheduler(1));
+		System.out.println(fs.getFlightScheduler(5));
 	}
 	@Test
 	public void updateTest() {
-		System.out.println(fs.updateString(1, "from_city", "CHZ"));
+		System.out.println(fs.updateString(18, "zst04", "2019-11-06","2019-11-06", "TYZ", "YCH", "2019-11-06 08:00:00", "2019-11-06 12:00:00", "10002", "100", 200));
 	}
 	@Test
 	public void deleteTest() {
-		System.out.println(fs.deleteFlightScheduler("zst03"));
+		System.out.println(fs.deleteFlightScheduler(10));
 	}
 	@Test 
 	public void saveTest() {
-		System.out.println(fs.saveFlightScheduler("zst02","2019-11-06", "2019-11-6", "TYZ", "YCH", "2019-11-06 08-00-00", "2019-11-06 12-00-00", "10002", "2", 800));
+		System.out.println(fs.saveFlightScheduler("zst08","2019-11-06", "2019-11-6", "TYZ", "YCH", "2019-11-06 08-00-00", "2019-11-06 12-00-00", "10002", "2", 800));
 	}
 	@Test
 	public void findAllTest() {

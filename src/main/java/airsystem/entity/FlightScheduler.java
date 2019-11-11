@@ -16,6 +16,8 @@ public class FlightScheduler {
 	private String airplane;				//飞机编号
 	private String scheduler;			//班期
 	private int sailLength;				//航程
+	private String airportName;     //机场名
+	private String toAirport;     //机场名
 	public int getId() {
 		return id;
 	}
@@ -28,17 +30,19 @@ public class FlightScheduler {
 	public void setFlightNumber(String flightNumber) {
 		this.flightNumber = flightNumber;
 	}
-	public Date getStartDate() {
-		return startDate;
+	public String getStartDate() {
+		return DateUtil.dateToString(startDate);
 	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public FlightScheduler setStartDate(String startDate) {
+		this.startDate = DateUtil.toDate(startDate);
+		return this;
 	}
-	public Date getEndDate() {
-		return endDate;
+	public String getEndDate() {
+		return DateUtil.dateToString(endDate);
 	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+	public FlightScheduler setEndDate(String endDate) {
+		this.endDate = DateUtil.toDate(endDate);
+		return this;
 	}
 	public String getFromCity() {
 		return fromCity;
@@ -57,12 +61,14 @@ public class FlightScheduler {
 	}
 	public void setDepartureTime(Date departureTime) {
 		this.departureTime = departureTime;
+
 	}
 	public Date getArrivalTime() {
 		return arrivalTime;
 	}
 	public void setArrivalTime(Date arrivalTime) {
-		this.arrivalTime = arrivalTime;
+		this.arrivalTime=arrivalTime;
+
 	}
 	public String getAirplane() {
 		return airplane;
@@ -82,8 +88,21 @@ public class FlightScheduler {
 	public void setSailLength(int sailLength) {
 		this.sailLength = sailLength;
 	}
+	public String getAirportName() {
+		return airportName;
+	}
+	public void setAirportName(String airportName) {
+		this.airportName = airportName;
+	}
+	public String getToAirport() {
+		return toAirport;
+	}
+	public void setToAirport(String toAirport) {
+		this.toAirport = toAirport;
+	}
 	public FlightScheduler(int id, String flightNumber, Date startDate, Date endDate, String fromCity, String toCity,
-			Date departureTime, Date arrivalTime, String airplane, String scheduler, int sailLength) {
+			Date departureTime, Date arrivalTime, String airplane, String scheduler, int sailLength, String airportName,
+			String toAirport) {
 		super();
 		this.id = id;
 		this.flightNumber = flightNumber;
@@ -96,6 +115,8 @@ public class FlightScheduler {
 		this.airplane = airplane;
 		this.scheduler = scheduler;
 		this.sailLength = sailLength;
+		this.airportName = airportName;
+		this.toAirport = toAirport;
 	}
 	public FlightScheduler() {
 		super();
@@ -110,11 +131,13 @@ public class FlightScheduler {
 		result = prime * result + ((departureTime == null) ? 0 : departureTime.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((flightNumber == null) ? 0 : flightNumber.hashCode());
+		result = prime * result + ((airportName == null) ? 0 : airportName.hashCode());
 		result = prime * result + ((fromCity == null) ? 0 : fromCity.hashCode());
 		result = prime * result + id;
 		result = prime * result + sailLength;
 		result = prime * result + ((scheduler == null) ? 0 : scheduler.hashCode());
 		result = prime * result + ((startDate == null) ? 0 : startDate.hashCode());
+		result = prime * result + ((toAirport == null) ? 0 : toAirport.hashCode());
 		result = prime * result + ((toCity == null) ? 0 : toCity.hashCode());
 		return result;
 	}
@@ -152,6 +175,11 @@ public class FlightScheduler {
 				return false;
 		} else if (!flightNumber.equals(other.flightNumber))
 			return false;
+		if (airportName == null) {
+			if (other.airportName != null)
+				return false;
+		} else if (!airportName.equals(other.airportName))
+			return false;
 		if (fromCity == null) {
 			if (other.fromCity != null)
 				return false;
@@ -171,6 +199,11 @@ public class FlightScheduler {
 				return false;
 		} else if (!startDate.equals(other.startDate))
 			return false;
+		if (toAirport == null) {
+			if (other.toAirport != null)
+				return false;
+		} else if (!toAirport.equals(other.toAirport))
+			return false;
 		if (toCity == null) {
 			if (other.toCity != null)
 				return false;
@@ -183,8 +216,9 @@ public class FlightScheduler {
 		return "FlightScheduler [id=" + id + ", flightNumber=" + flightNumber + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", fromCity=" + fromCity + ", toCity=" + toCity + ", departureTime="
 				+ departureTime + ", arrivalTime=" + arrivalTime + ", airplane=" + airplane + ", scheduler=" + scheduler
-				+ ", sailLength=" + sailLength + "]";
+				+ ", sailLength=" + sailLength + ", airportName=" + airportName + ", toAirport=" + toAirport + "]";
 	}
+
 	
 	
 	

@@ -34,15 +34,19 @@ public class FlightSchedulerTest {
 	}
 	@Test
 	public void saveTest() {
-		System.out.println(fs.saveFlightScheduler("zst05", "2019-10-02", "2019-10-02", "CHZ", "TYZ", "2019-10-01 13-30-00", "2019-10-01 15-00-00", "10001", "3", 200));		
+		System.out.println(fs.saveFlightScheduler("zst08", "2019-10-02", "2019-10-02", "CHZ", "TYZ", "2019-10-01 13-30-00", "2019-10-01 15-00-00", "10001", "3", 200));		
 	}
 	@Test
 	public void deleteTest() {
-		System.out.println(fs.deleteFlightScheduler("zst04"));
+		System.out.println(fs.deleteFlightScheduler(14));
 	}
 	@Test
 	public void updateTest() {
-		System.out.println(fs.updateString(8, "scheduler", "5"));
+		System.out.println(fs.updateString(8, "scheduler", "5", null, null, null, null, null, null, null, 0));
+	}
+	@Test
+	public void getTest() {
+		System.out.println(fs.getFlightScheduler(1));
 	}
 	
 }

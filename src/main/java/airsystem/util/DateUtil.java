@@ -44,7 +44,7 @@ public class DateUtil {
 	 * @param date  日期
 	 * @return  日期字符串
 	 */
-	public static String dateToString(String dateFormat, Date date){
-		return new SimpleDateFormat(dateFormat).format(date);
+	public static String dateToString(Date date){
+		return new SimpleDateFormat("yyyy-MM-dd").format(date);
 	}
 }

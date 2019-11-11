@@ -1,6 +1,7 @@
 package airsystem.dao.prototype;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import airsystem.entity.FlightScheduler;
@@ -22,10 +23,19 @@ public interface FlightSchedulerDao{
 	
 	List<FlightScheduler> listTimeFlightScheduler(String date);//根据时间查询
 	
+	String getFlightSchedulerDate(String id); // 查询离港时间
+	//查询所有id
+	ArrayList<String> listFlightSchedulerId();
 	
-	String deleteFlightScheduler(String flightNumber);//删除
+	//查询实时航班
+		List<FlightScheduler> listNowFlightDao();
+	//查询往期航班
+		List<FlightScheduler> listOutFlightDao();
 	
-	String updateString(int id,String index,String values); //更新某些字段
+	String deleteFlightScheduler(int id);//删除
+	
+	String updateString(int id,String flightNumber, String startDate, String endDate, String fromCity, String toCity,
+			String departureTime, String arrivalTime, String airplane, String scheduler, int sailLength); //更新
 	
 	
 	

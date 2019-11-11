@@ -1,6 +1,9 @@
 package airsystem.service.impl;
 
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,45 +19,27 @@ public class FlightSchedulerServieImpl implements FlightSchedulerService{
 	@Autowired
 	private FlightSchedulerDao  fsd;
 		//≤È—Øµ±«∞∫Ω∞‡
-//	@Override
-//	public List<FlightScheduler> listNowFlightScheduler() {
-//		List<FlightScheduler> list = fsd.listFlightScheduler();
-//		List<FlightScheduler> flightScheduler;
-//		Date day=new Date();    
-//		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
-//		String date=df.format(day);    
-//		for(int i=0;i<list.size();i++) {
-//			
-//		 
-//		}
-//		
-//		return null;
-//	}
-
-//	@Override
-//	public List<FlightScheduler> listOutFlightScheduler() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 
 	@Override
-	public String saveFlightScheduler(String flightNumber, String startString, String endString, String fromCity,
+	public String saveFlightScheduler(String flightNumber, String startDate, String endDate, String fromCity,
 			String toCity, String departureTime, String arrivalTime, String airplane, String scheduler,
 			int sailLength) {
 		
-		return fsd.saveFlightScheduler(flightNumber, startString, endString, fromCity, toCity, departureTime, arrivalTime, airplane, scheduler, sailLength);
+		return fsd.saveFlightScheduler(flightNumber, startDate, endDate, fromCity, toCity, departureTime, arrivalTime, airplane, scheduler, sailLength);
 	}
 
 	@Override
-	public String deleteFlightScheduler(String flightNumber) {
+	public String deleteFlightScheduler(int id) {
 		
-		return fsd.deleteFlightScheduler(flightNumber);
+		return fsd.deleteFlightScheduler(id);
 	}
 
 	@Override
-	public String updateString(int id, String index, String values) {
+	public String updateString(int id, String flightNumber, String startDate, String endDate, String fromCity, String toCity,
+			String departureTime, String arrivalTime, String airplane, String scheduler, int sailLength) {
 		
-		return fsd.updateString(id, index, values);
+		return fsd.updateString(id,flightNumber, startDate, endDate, fromCity, toCity,
+				departureTime, arrivalTime, airplane, scheduler, sailLength);
 	}
 
 	@Override
@@ -67,6 +52,33 @@ public class FlightSchedulerServieImpl implements FlightSchedulerService{
 	public List<FlightScheduler> listFlightSchedulerService() {
 		// TODO Auto-generated method stub
 		return fsd.listFlightScheduler();
+	}
+
+	@Override
+	public FlightScheduler getFlightScheduler(int id) {
+		return fsd.getFlightScheduler(id);
+	}
+
+	@Override
+	public List<FlightScheduler> listNowFlightService() {
+//		ArrayList<String> list=fsd.listFlightSchedulerId();
+//		
+//		List<FlightScheduler> flightScheduler;
+//		Date day=new Date();    
+//		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+//		String date=df.format(day);    
+//		for(int i=0;i<list.size();i++) {
+//			String flightDate=fsd.getFlightSchedulerDate();
+//			
+//		
+//		}
+		return null;
+	}
+
+	@Override
+	public List<FlightScheduler> listOutFlightService() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
