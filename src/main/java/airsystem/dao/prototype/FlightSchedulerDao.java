@@ -1,7 +1,6 @@
 package airsystem.dao.prototype;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import airsystem.entity.FlightScheduler;
@@ -22,6 +21,7 @@ public interface FlightSchedulerDao{
 	FlightScheduler getFlightScheduler(String number); //根据航班编号查询
 	
 	List<FlightScheduler> listTimeFlightScheduler(String date);//根据时间查询
+	
 	
 	//查询实时航班
 	List<FlightScheduler> listNowFlightDao();

@@ -105,6 +105,7 @@ type=session.getAttribute("utype").toString();
             <dd><a href="planflight" target="aaa" >航班计划</a></dd>
             <dd><a href="timeflight" target="aaa" >实时航班</a></dd>
             <dd><a href="pastflight" target="aaa" >往期航班</a></dd>
+             <dd><a href="queryflight" target="aaa" >查询航班</a></dd>
           </dl>
         </li>
 		<li class="layui-nav-item">
