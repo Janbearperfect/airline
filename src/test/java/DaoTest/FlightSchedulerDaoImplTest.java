@@ -48,12 +48,13 @@ public class FlightSchedulerDaoImplTest {
 	public void findAllTest() {
 		List<FlightScheduler> list=fs.listFlightScheduler();
 		for(FlightScheduler fsr:list) {
-			System.out.println(fsr);
+			int id=fsr.getId();
+			System.out.println(id);
 		}
 	}
 	@Test
 	public void findTimeTest() {
-		List<FlightScheduler> list=fs.listTimeFlightScheduler("2019-11-08");
+		List<FlightScheduler> list=fs.listNowFlightDao();
 		for(FlightScheduler fsr:list) {
 			System.out.println(fsr);
 		}

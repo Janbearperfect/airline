@@ -1,6 +1,9 @@
 package airsystem.dao.impl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -106,42 +109,61 @@ public class FlightSchdulerDaoImpl implements FlightSchedulerDao{
 		return jdbctemplate.query("select * from flight_scheduler where start_date=?", new Object[] {startDate},new BeanPropertyRowMapper<FlightScheduler>(FlightScheduler.class));
 	}
 
-	@Override
-	public String getFlightSchedulerDate(String id) {
-		
-		return jdbctemplate.queryForObject("select departure_time from flight_scheduler where id=?",new Object[] {id},java.lang.String.class);
-	}
-
-/*	@Override
+@Override
 	public List<FlightScheduler> listNowFlightDao() {
+		List<FlightScheduler> flight=new ArrayList();
+		List<FlightScheduler> list=jdbctemplate.query("select * from flight_scheduler left join airport on flight_scheduler.from_city=airport.airport_code", new BeanPropertyRowMapper<FlightScheduler>(FlightScheduler.class));
+		for (FlightScheduler  time: list) {
 		
-		return null;
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			
+			String dateString = formatter.format(time.getDepartureTime());
+		    Date date = null;
+			try {
+				date = formatter.parse(dateString);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			long date2=System.currentTimeMillis();
+			long ts = date.getTime();
+			if(date2<ts) {
+				flight.add(time);
+			}
+			 
+		}
+		return flight;
 	}
 
 	@Override
 	public List<FlightScheduler> listOutFlightDao() {
+		List<FlightScheduler> flight=new ArrayList();
+		List<FlightScheduler> list=jdbctemplate.query("select * from flight_scheduler left join airport on flight_scheduler.from_city=airport.airport_code", new BeanPropertyRowMapper<FlightScheduler>(FlightScheduler.class));
+		for (FlightScheduler  time: list) {
+		
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			
+			String dateString = formatter.format(time.getDepartureTime());
+		    Date date = null;
+			try {
+				date = formatter.parse(dateString);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			long date2=System.currentTimeMillis();
+			long ts = date.getTime();
+			if(date2>ts) {
+				flight.add(time);
+			}
+			 
+		}
+		return flight;
 		
 		
-		return null;
-	}*/
-
-	@Override
-	public ArrayList<String> listFlightSchedulerId() {
-		return null;
-//		return jdbctemplate.query("select id from flight_scheduler",new BeanPropertyRowMapper<String>(FlightScheduler.class));
 	}
 
-	@Override
-	public List<FlightScheduler> listNowFlightDao() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<FlightScheduler> listOutFlightDao() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
 }
+
+	
+	

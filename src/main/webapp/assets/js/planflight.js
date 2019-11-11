@@ -10,7 +10,7 @@ $(function(){
 	    return Y + M + D + h + m + s;
 	}
 	//查看
-    $(".btn-primary").click(function(){
+    $(".see").click(function(){
         var value = $(this).parents("tr").attr("id");
         $.get("getplanflight/"+value,function(e){
         	$(".flightId").val(value);
@@ -40,5 +40,8 @@ $(function(){
     	    			}
     	    	})
     	    })
-    
+    //添加
+    $(".sumbit").click(function(){
+    	$('#sumbitform').reset();
+    })
 });

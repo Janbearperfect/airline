@@ -98,4 +98,22 @@ public class FlightSchedulerController {
 		 return "success";
 	}
 	
+	//查询实时航班
+	@RequestMapping("/timeflight")
+	@ResponseBody
+	public ModelAndView listNowFlightScheduler(){
+		ModelAndView mv=new ModelAndView("timeflight");
+		List<FlightScheduler> flightSchedulers=fss.listNowFlightService();
+		mv.addObject("flightSchedulers",flightSchedulers);
+		return mv;
+	}
+	//查询实时航班
+	@RequestMapping("/pastflight")
+	@ResponseBody
+	public ModelAndView listOutFlightScheduler(){
+		ModelAndView mv=new ModelAndView("pastflight");
+		List<FlightScheduler> flightSchedulers=fss.listOutFlightService();
+		mv.addObject("flightSchedulers",flightSchedulers);
+		return mv;
+	}
 }

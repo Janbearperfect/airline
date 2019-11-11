@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>航空计划表</title>
+<title>实时航班</title>
 <link rel="stylesheet" href="/airline/assets/css/bootstrap.css">
 <link rel="stylesheet" href="/airline/assets/css/planflight.css">
 </head>
 <body>
- <header>航班计划表</header>
+ <header>实时航班</header>
     <div class="box">
         <div class="reminder">
             <div class="count"><i></i>&nbsp;&nbsp;条</div>

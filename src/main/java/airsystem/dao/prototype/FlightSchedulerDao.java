@@ -23,14 +23,10 @@ public interface FlightSchedulerDao{
 	
 	List<FlightScheduler> listTimeFlightScheduler(String date);//根据时间查询
 	
-	String getFlightSchedulerDate(String id); // 查询离港时间
-	//查询所有id
-	ArrayList<String> listFlightSchedulerId();
-	
 	//查询实时航班
-		List<FlightScheduler> listNowFlightDao();
+	List<FlightScheduler> listNowFlightDao();
 	//查询往期航班
-		List<FlightScheduler> listOutFlightDao();
+	List<FlightScheduler> listOutFlightDao();
 	
 	String deleteFlightScheduler(int id);//删除
 	

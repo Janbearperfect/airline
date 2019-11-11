@@ -61,24 +61,14 @@ public class FlightSchedulerServieImpl implements FlightSchedulerService{
 
 	@Override
 	public List<FlightScheduler> listNowFlightService() {
-//		ArrayList<String> list=fsd.listFlightSchedulerId();
-//		
-//		List<FlightScheduler> flightScheduler;
-//		Date day=new Date();    
-//		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
-//		String date=df.format(day);    
-//		for(int i=0;i<list.size();i++) {
-//			String flightDate=fsd.getFlightSchedulerDate();
-//			
-//		
-//		}
-		return null;
+		
+		return fsd.listNowFlightDao();
 	}
 
 	@Override
 	public List<FlightScheduler> listOutFlightService() {
 		// TODO Auto-generated method stub
-		return null;
+		return fsd.listOutFlightDao();
 	}
 
 }
