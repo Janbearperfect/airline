@@ -7,6 +7,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.alibaba.druid.pool.DruidDataSource;
 
@@ -16,6 +19,7 @@ import com.alibaba.druid.pool.DruidDataSource;
  * 2.利用IOC功能注入配置信息
  * */
 @Configuration
+@EnableTransactionManagement
 @PropertySource("classpath:jdbc.properties")
 public class DBConfig {
 	@Value("${jdbc.driverClass}")
@@ -46,5 +50,10 @@ public class DBConfig {
 		
 	}
 	
-	//DataSource Bean
+	//配置事务管理器
+	@Bean(name="transactionManager")
+	public PlatformTransactionManager createTransactionManager(DataSource ds) {
+		return new DataSourceTransactionManager(ds);
+	}
+	
 }
