@@ -88,7 +88,7 @@ type=session.getAttribute("utype").toString();
             <dd><a href="users" target="aaa" >用户管理</a></dd>
             <dd><a href="branch" target="aaa" >营业点管理</a></dd>
             <dd><a href="sales" target="aaa" >营业员管理</a></dd>
-              <dd><a href="airplane" target="aaa" >机务管理</a></dd>
+              <dd><a href="airplaneModel" target="aaa" >机务管理</a></dd>
           </dl>
         </li>
          <li class="layui-nav-item">

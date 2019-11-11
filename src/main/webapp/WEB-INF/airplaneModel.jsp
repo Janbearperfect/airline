@@ -22,6 +22,7 @@
 		<th>头等舱座位数</th>
 		<th>商务舱座位数</th>
 		<th>经济舱座位数</th>
+		<th>操作</th>
 	</tr>
 	<c:forEach items="${ams}" var="ams">
 				<tr attr="${ams.airplane}">

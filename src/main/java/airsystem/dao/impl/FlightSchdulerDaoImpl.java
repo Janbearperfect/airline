@@ -28,7 +28,8 @@ public class FlightSchdulerDaoImpl implements FlightSchedulerDao{
 	public List<FlightScheduler> listFlightScheduler() {
 		return jdbctemplate.query("select * from flight_scheduler", new BeanPropertyRowMapper<FlightScheduler>(FlightScheduler.class));
 	}
-
+	
+	
 	@Override
 	public String deleteFlightScheduler(String flightNumber) {
 		int success=jdbctemplate.update("delete from flight_scheduler where flight_number=?",new Object[] {flightNumber});
@@ -55,6 +56,7 @@ public class FlightSchdulerDaoImpl implements FlightSchedulerDao{
 		return jdbctemplate.queryForObject("select * from flight_scheduler", Integer.class);
 	}
 
+	
 	@Override
 	public List<FlightScheduler> listFind(int offset, int pageSize) {
 		
