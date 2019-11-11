@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
+
 import airsystem.entity.Branch;
 import airsystem.service.prototype.BranchService;
 
@@ -22,10 +24,6 @@ import airsystem.service.prototype.BranchService;
 public class BranchController {
 	@Autowired
 	private BranchService branch;
-	
-	
-
-	
 
 	@RequestMapping("/branch")
 	public  ModelAndView getBranch() {
@@ -34,6 +32,13 @@ public class BranchController {
 		
 		mv.addObject("brs",brs);
 		return mv;
+	}
+
+	@RequestMapping(value ="/saleBranch",produces="application/json; charset=utf-8")
+	@ResponseBody
+	public  String getSaleBranch() {
+		List<Branch> brs=branch.findAll();
+		return JSON.toJSONString(brs);
 	}
 	
 	@RequestMapping("/branchUpdate")
