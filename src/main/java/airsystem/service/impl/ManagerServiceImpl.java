@@ -13,9 +13,9 @@ public class ManagerServiceImpl implements ManagerService{
 	private ManagerDao md;
 	
 	@Override
-	public Manager findManager(String name) {
+	public Manager findManager(String number) {
 		
-		return md.findManager(name);
+		return md.findManager(number);
 	}
 
 }

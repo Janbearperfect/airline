@@ -16,7 +16,7 @@ public class MnagerDaoImpl implements ManagerDao{
 	
 	@Override
 	public Manager findManager(String name) {
-		return jdbcTemplate.queryForObject("select * from manager where mname=?",new Object[] {name},new BeanPropertyRowMapper<Manager>(Manager.class));
+		return jdbcTemplate.queryForObject("select * from admin where number=?",new Object[] {name},new BeanPropertyRowMapper<Manager>(Manager.class));
 		
 	}
 

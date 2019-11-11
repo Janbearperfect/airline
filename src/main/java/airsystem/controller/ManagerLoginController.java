@@ -24,9 +24,9 @@ public class ManagerLoginController {
 	
 	@RequestMapping("/checkManagerLogin")
 	public void checkManagerLogin(HttpServletRequest request,HttpServletResponse reponse) throws IOException {
-		String name=new String(request.getParameter("mname").getBytes("8859_1"),"utf-8");
+		String num=new String(request.getParameter("mname").getBytes("8859_1"),"utf-8");
 		String password=new String(request.getParameter("password").getBytes("8859_1"),"utf-8");
-		Manager manager=ms.findManager(name);
+		Manager manager=ms.findManager(num);
 		if(password.equals(manager.getPassword())) {
 			reponse.sendRedirect("main");
 		}else {
