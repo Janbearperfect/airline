@@ -47,7 +47,9 @@ public class BranchServiceImpl implements BranchService{
 		
 		return branch.findAll();
 	}
-
-
+	@Override
+	public int getBranchId(String name) {
+		return branch.getBranchId(name);
+	}
 
 }

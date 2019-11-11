@@ -17,4 +17,5 @@ public interface BranchDao {
 	
 	int totalItem();
 	List<Branch> findAll();
+	int getBranchId(String name);
 }

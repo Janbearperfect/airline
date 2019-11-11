@@ -58,8 +58,9 @@ public class BranchDaoImpl implements BranchDao{
 		// TODO Auto-generated method stub
 		return jdbcTemplate.query("select * from branch", new BeanPropertyRowMapper<Branch>(Branch.class));
 	}
-
-	
-	
+	@Override
+	public int getBranchId(String name) {
+		return jdbcTemplate.queryForObject("select id from branch where name=?", new Object[] {name},Integer.class);
+	}
 	
 }
