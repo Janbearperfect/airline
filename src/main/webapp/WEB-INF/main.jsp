@@ -85,24 +85,24 @@ type=session.getAttribute("utype").toString();
           <a href="javascript:;"  >信息管理</a>
           <dl class="layui-nav-child">
             <dd><a href="airport" target="aaa" >机场管理</a></dd>
-            <dd><a href="users.jsp" target="aaa" >用户管理</a></dd>
-            <dd><a href="branch.jsp" target="aaa" >营业点管理</a></dd>
-            <dd><a href="sales.jsp" target="aaa" >营业员管理</a></dd>
-              <dd><a href="airplane.jsp" target="aaa" >机务管理</a></dd>
+            <dd><a href="users" target="aaa" >用户管理</a></dd>
+            <dd><a href="branch" target="aaa" >营业点管理</a></dd>
+            <dd><a href="sales" target="aaa" >营业员管理</a></dd>
+              <dd><a href="airplane" target="aaa" >机务管理</a></dd>
           </dl>
         </li>
          <li class="layui-nav-item">
           <a href="javascript:;"  >票务管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="sellticket.jsp" target="aaa" >已售机票</a></dd>
-            <dd><a href="endorseticket.jsp" target="aaa" >改签机票</a></dd>
-            <dd><a href="unsubscribeticket.jsp" target="aaa" >退订机票</a></dd>
+            <dd><a href="ticket/sellticket" target="aaa" >已售机票</a></dd>
+            <dd><a href="ticket/changeticket" target="aaa" >改签机票</a></dd>
+            <dd><a href="ticket/refundticket" target="aaa" >退订机票</a></dd>
           </dl>
         </li>
          <li class="layui-nav-item">
           <a href="javascript:;"  >航班管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="planflight" target="aaa" >航班计划</a></dd>
+            <dd><a href="flight/flightview" target="aaa" >航班计划</a></dd>
             <dd><a href="timeflight" target="aaa" >实时航班</a></dd>
             <dd><a href="pastflight" target="aaa" >往期航班</a></dd>
              <dd><a href="queryflight" target="aaa" >查询航班</a></dd>
