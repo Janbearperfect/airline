@@ -1,0 +1,347 @@
+/*头部信息*/
+header{
+    width: 100%;
+    height: 96px;
+}
+body{
+    height: 2000px;
+}
+.container-xj {
+    padding: 4px;
+    width: 80%;
+    height: 92px;
+    margin: 0px auto;
+}
+.header-row-xj{
+    width: 100%;
+    height: 31px;
+}
+.header-row-a-xj{
+    margin-left: 900px;
+}
+.header-row-login-xj{
+
+    height: 27px;
+
+}
+.header-row-register-xj{
+
+    height: 27px;
+}
+.header-main-xj{
+    width: 100%;
+    height: 61px;
+}
+.header-main-xj h1{
+    float: left;
+    margin-right: 20px;
+}
+.header-main-xj ul{
+   margin-top: 20px;
+    float: left;
+    height: 25px;
+}
+.header-main-xj ul li{
+    height: 25px;
+    color: #0078d2;
+    line-height: 25px;
+    font-size: 21px;
+    float: left;
+
+}
+.header-main-xj ul li:nth-child(2){
+    margin-left: 150px;
+    margin-right: 150px;
+}
+.header-main-xj ul li:nth-child(3){
+    margin-right: 50px;
+}
+/*主要信息*/
+main{
+
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+.main-img-box-xj{
+    width: 1100px;
+    height:590px ;
+    overflow: hidden;
+    position: relative;
+}
+.main-img-container-xj{
+    width: 100%;
+    height:590px ;
+    position: absolute;
+}
+.main-img-container-xj .img-container-xj:nth-child(1){
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 590px;
+    background-repeat: no-repeat;
+    background-image: url("/airline/assets/img/main-1.jpg");
+    z-index: 1;
+}
+
+
+.main-img-container-xj .img-container-xj:nth-child(2){
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 590px;
+    background-repeat: no-repeat;
+    background-image: url("/airline/assets/img/main-4.jpg");
+
+}
+.search-xj{
+    position: absolute;
+    width: 87.5%;
+    height: 350px;
+    left: 68px;
+    top:405px;
+    z-index: 3;
+    border-bottom: 1px solid #666666;
+}
+.search-header-xj{
+   width: 100%;
+    height: 52px;
+}
+.search-header-li-xj{
+    width: 33.2%;
+    height: 100%;
+    background: transparent;
+    float: left;
+    border-right: 1px solid #D0DAE0;
+     cursor: pointer;
+}
+.search-header-li-xj span{
+    font-size: 24px;
+    color: #00467f;
+    text-align: center;
+    font-weight: 400;
+    margin-left: 90px;
+    line-height: 40px;
+
+
+}
+.search-bottom-box-xj{
+width: 100%;
+    overflow: hidden;
+    height: 280px;
+}
+.search-bottom-xj{
+    width: 100%;
+    height: 280px;
+}
+.oneWay-xj{
+    width: 50px;
+    height: 25px;
+    padding: 4px 10px;
+    background-color: #0078d2;
+    border-radius: 5%;
+    font-size: 14px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 19px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.type-xj{
+    width: 262px;
+    height: 57px;
+    float: left;
+    margin-right: 20px;
+
+}
+.form-group{
+    margin-bottom: 40px;
+}
+.search-bottom-xj label{
+    color: #666666;
+}
+.button-search{
+    margin-top: 110px;
+    margin-left: 20px;
+    width: 70px;
+    color: #cccccc;
+
+}
+.button-search :hover{
+    background-color: #0078d2;
+}
+.search-book-xj{
+    color: #9da6ab;
+    line-height: 24px;
+    font-size: 22px;
+    margin-left: 30px;
+}
+.button-book{
+    color: white;
+    background-color: #0078d2;
+    text-align: center;
+    width: 232px;
+    height: 33px;
+    line-height: 33px;
+    margin-top: 45px;
+    margin-left: 60px;
+}
+.section-one-xj{
+    width: 1010px;
+    height: 161px;
+    margin: 250px auto 0;
+
+}
+.section-one-xj .section-feature-xj{
+    width: 321px;
+
+    float: left;
+    position: relative;
+}
+.section-news-xj{
+    color: #627a88;
+    margin-left: 10px;
+    font-size: 24px;
+}
+.section-line-xj{
+    margin-left: 10px;
+    color: #0078d2;
+}
+.section-line-xj li{
+    height: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.section-plan-xj{
+    font-size: 22px;
+    margin-left: 10px;
+    color: #627a88;
+}
+.section-text1-xj{
+   position: absolute;
+    left: 170px;
+    top: 50px;
+    cursor: pointer;
+}
+.section-text2-xj{
+    position: absolute;
+    left: 170px;
+    top: 80px;
+    color: #0078d2;
+    cursor: pointer;
+}
+.section-img1-xj{
+    margin-left: 10px;
+    cursor: pointer;
+}
+.section-wait-xj{
+    margin-left: 30px;
+    color: #627a88;
+    font-size: 22px;
+}
+.section-img2-xj{
+    margin-left: 30px;
+}
+.section-text3-xj{
+    position: absolute;
+    left: 190px;
+    top: 50px;
+}
+.section-text4-xj{
+    position: absolute;
+    left: 190px;
+    top: 90px;
+    color: #0078d2;
+}
+.section-two-xj{
+    width: 1010px;
+    height: 356px;
+    padding: 40px 0 0 0;
+    margin: 0 auto;
+}
+.section2-feature-xj{
+    width: 321px;
+    height: 300px;
+    float: left;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.section2-img-xj{
+    width: 100%;
+    height: 165px;
+}
+.section2-line-xj{
+   color: #627a88;
+    font-size: 24px;
+    line-height: 30px;
+}
+.section-two-xj h2{
+    color: #00467f;
+    margin: 0 0 20px;
+}
+.end-zst{
+    height: 442px;
+    margin-top: 50px;
+    background: #d0dae0;
+}
+.end-content-zst{
+    width: 1240px;
+    height: 370px;
+    padding-top: 40px;
+    margin-left: 90px;
+}
+.end-content-first-zst{
+    float: left;
+    width: 283px;
+    height: 291px;
+    margin-left: 30px;
+}
+.end-content-first-zst span{
+    width: 100%;
+    height: 31px;
+    font-size: 20px;
+    color:  #36495a;
+}
+.content-border-zst{
+    margin: 10px 0;
+    width: 260px;
+    height: 2px;
+    background: #0d33496e;
+}
+.end-content-first-zst ul{
+    margin-top: 20px;
+    width: 100%;
+    height: 207px;
+}
+.end-content-first-zst ul li{
+    width: 100%;
+    height: 25px;
+
+}
+.end-content-first-zst ul li a{
+    width: 100%;
+    height: 100%;
+    float: left;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #36495a;
+
+}
+.end-content-first-zst ul li a:hover{
+    color: #0D3349;
+}
+.bottom-border-zst{
+    width: 100%;
+    height: 2px;
+    background:#0d33496e ;
+    float: left;
+    margin-top: 20px;
+}
+
+
+
+
