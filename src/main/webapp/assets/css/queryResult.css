@@ -1,0 +1,133 @@
+header{
+    width: 100%;
+    height: 40px;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+.main-list-zst{
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    margin-top: 20px;
+    margin-bottom:15px;
+}
+.main-list-title-zst{
+    width: 80%;
+    height: 44px;
+    margin: auto;
+    border-bottom:1px solid #99CCFF ;
+}
+.main-list-title-zst span{
+    float: left;
+    width: 212px;
+    height: 34px;
+    border: 1px solid #1a21296e;
+    line-height: 34px;
+    text-align: center;
+    margin-top: 4px;
+}
+.main-list-title-zst ul{
+    margin-left: 200px;
+    float: left;
+}
+.main-list-title-zst li{
+    float: left;
+    width: 168px;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+    color: #ffffff;
+    background: #0D8BBD;
+    margin-right: 2px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.list{
+    width: 80%;
+    height: auto;
+    margin:10px auto;
+
+}
+.list li{
+    width: 100%;
+    height: 120px;
+}
+.list-name{
+   width: 100px;
+    height: 100%;
+    float: left;
+    font-size: 18px;
+    text-align: center;
+    margin-left: 15px;
+   font-weight: bold;
+   padding-top:15px;
+}
+.name-airplane{
+    width: 40px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.list-model{
+    width: 100px;
+    height: auto;
+    font-size: 14px;
+    text-align: center;
+    border-bottom: 1px dashed #36495a;
+    font-weight: 400;
+}
+.list-date{
+    float: left;
+    width: 260px;
+    height: 100%;
+}
+.date{
+    width: 100%;
+    height: 30px;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+}
+.city{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    color:#26a3bfa8;
+}
+.list-length{
+    width: 60px;
+    height: 100px;
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    line-height: 100px;
+}
+.list-first{
+    width:130px;
+    height: 100%;
+    float: left;
+    margin-left: 25px;
+}
+.first-count{
+    width: 130px;
+    height: auto;
+    font-size: 15px;
+    margin-top: 30px;
+
+}
+.first-price{
+    width: 50px;
+    height: auto;
+    margin-top: 10px;
+    font-size: 16px;
+    margin-left: 20px;
+    font-weight: bold;
+    color: #ec8d1ced;
+}

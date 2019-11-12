@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSON;
 
 import airsystem.entity.FlightScheduler;
+import airsystem.entity.QueryFlight;
 import airsystem.service.prototype.FlightSchedulerService;
+import airsystem.service.prototype.QueryFlightService;
 
 /**
  *航班计划
@@ -29,6 +30,8 @@ import airsystem.service.prototype.FlightSchedulerService;
 public class FlightSchedulerController {
 	@Autowired
 	private FlightSchedulerService fss;
+	@Autowired
+	private QueryFlightService qfs;
 	
 	@RequestMapping("/planflight")
 	@ResponseBody
@@ -107,13 +110,33 @@ public class FlightSchedulerController {
 		mv.addObject("flightSchedulers",flightSchedulers);
 		return mv;
 	}
-	//查询实时航班
+	//查询往期航班
 	@RequestMapping("/pastflight")
 	@ResponseBody
 	public ModelAndView listOutFlightScheduler(){
 		ModelAndView mv=new ModelAndView("pastflight");
 		List<FlightScheduler> flightSchedulers=fss.listOutFlightService();
 		mv.addObject("flightSchedulers",flightSchedulers);
+		return mv;
+	}
+	
+	//查询航班
+	@RequestMapping("/queryResult")
+	@ResponseBody
+	public ModelAndView  listQueryFlight(HttpServletRequest request,HttpServletResponse response){
+		String fromCity=request.getParameter("from");
+		String toCity=request.getParameter("to");
+		String startDate=request.getParameter("date");
+		ModelAndView mv=new ModelAndView("queryResult");
+		List<QueryFlight> queryflights=qfs.listqueryFlight(fromCity, toCity, startDate);
+		mv.addObject("queryflights",queryflights);
+		return mv;
+	}
+	
+	
+	@RequestMapping("/queryflight")
+	public ModelAndView queryFlight(){
+		ModelAndView mv=new ModelAndView("queryflight");
 		return mv;
 	}
 }
