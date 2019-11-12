@@ -102,10 +102,11 @@ type=session.getAttribute("utype").toString();
          <li class="layui-nav-item">
           <a href="javascript:;"  >航班管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="flight/flightview" target="aaa" >航班计划</a></dd>
+          <dd><a href="planflight" target="aaa" >航班计划</a></dd>
             <dd><a href="timeflight" target="aaa" >实时航班</a></dd>
             <dd><a href="pastflight" target="aaa" >往期航班</a></dd>
-             <dd><a href="queryflight" target="aaa" >查询航班</a></dd>
+            <dd><a href="flight/flightview" target="aaa" >航班状况</a></dd>
+             <dd><a href="queryflight" target="aaa" >航班查询</a></dd>
           </dl>
         </li>
 		<li class="layui-nav-item">
