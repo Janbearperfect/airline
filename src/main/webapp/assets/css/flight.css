@@ -315,3 +315,12 @@ header{
 	background-color:#2B5CBD;
 	color:white;
 }
+img{
+	float:left;
+	height:60px;
+	width:60px;
+	margin-top:2px
+}
+.title-hxt{
+  cursor: pointer;
+}
