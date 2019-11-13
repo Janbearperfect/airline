@@ -65,21 +65,21 @@
         <div class="search-bottom-box-xj">
              <div class="search-bottom-xj" >
                  <div class="oneWay-xj">单程</div>
-                 <form action="">
+                 <form action="commitChooseView">
 
                      <div class="form-group type-xj" style="margin-bottom: 30px;margin-left: 10px">
                          <label for="exampleInputName2">从</label>
-                         <input type="text" class="form-control" id="exampleInputName2" placeholder="城市或机场">
+                         <input type="text" class="form-control" id="exampleInputName2" placeholder="城市或机场" name="fromCity">
                      </div>
 
                      <div class="form-group type-xj" style="margin-bottom: 30px">
                          <label for="exampleInputEmail2">前往</label>
-                         <input type="text" class="form-control" id="exampleInputEmail2" placeholder="城市或机场">
+                         <input type="text" class="form-control" id="exampleInputEmail2" placeholder="城市或机场" name="toCity">
                      </div>
 
                      <div class="form-group type-xj" style="margin-bottom: 30px">
                          <label for="exampleInputEmail2">成人（12+）</label>
-                         <select class="form-control">
+                         <select class="form-control" name="adult">
                              <option>1</option>
                              <option>2</option>
                              <option>3</option>
@@ -90,12 +90,12 @@
 
                      <div class="form-group type-xj" style="margin-bottom: 30px;margin-left: 10px">
                          <label for="exampleInputName2">出发日期</label>
-                         <input type="date" class="form-control" id="exampleInputName4" >
+                         <input type="date" class="form-control" id="exampleInputName4"  name="goDate">
                      </div>
 
                      <div class="form-group type-xj" style="margin-bottom: 30px">
                          <label for="exampleInputEmail2">婴儿（1-24月）</label>
-                         <select class="form-control">
+                         <select class="form-control" name ="baby">
                              <option>0</option>
                              <option>1</option>
                              <option>2</option>
@@ -107,7 +107,7 @@
 
                      <div class="form-group type-xj" style="margin-bottom: 30px">
                          <label for="exampleInputEmail2">儿童（2-11）</label>
-                         <select class="form-control">
+                         <select class="form-control" name="child">
                              <option>0</option>
                              <option>1</option>
                              <option>2</option>

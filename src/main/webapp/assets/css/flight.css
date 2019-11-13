@@ -221,25 +221,25 @@ header{
     margin-top: 20px;
 }
 .planeinfo{
+	float:left;
 	margin-top:10px;
 	width:885px;
 	height:300px;
-	border-top:1px solid black;
-	border-bottom:1px solid black;
+	border-bottom:1px solid gray;
 }
 .info-left-hxt{
 	float:left;
 	height:100%;
-	width:400px;
-	border:1px solid black;
+	width:300px;
+	
 }
 .info-right-hxt{
 	margin-top:40px;
 	margin-left:20px;
 	float:left;
 	height:200px;
-	width:200px;
-	border:1px solid black;
+	width:150px;
+	border:1px solid #2B5CBD;
 }
 .priceSpan-hxt{
 	font-size:35px;
@@ -311,7 +311,7 @@ header{
 	float:right;
 	width:150px;
 	height:50px;
-	margin-right:100px;
+	
 	background-color:#2B5CBD;
 	color:white;
 }
@@ -323,4 +323,52 @@ img{
 }
 .title-hxt{
   cursor: pointer;
+
+}
+.hxt-1{
+	margin-left:20px;
+}
+.hxt-s{
+	float:left;
+	font-size:30px;
+	color:gray;
+	margin-left:20px;
+	margin-top:20px
+}
+.in-right-hxt{
+	margin-left:20px;
+}
+.hxt-ss{
+	float:left;
+	margin-left:20px;
+	margin-top:20px
+	
+}
+.hxt-s-1{
+	float:left;
+	margin-left:40px;
+	font-size:20px;
+	color:#2B5CBD;
+	margin-top:70px;
+}
+.contain-h{
+	width:1100px;
+	border:1px solid black;
+	
+}
+.people-info{
+	float:left;
+	width:100px;
+	height:100px;
+	border:1px solid black;
+}
+.show-info-h{
+	color:white;
+    margin-top:10px;
+	height:200px;
+	width:200px;
+	margin-left:5px;
+	background-color:#2B5CBD;
+	display:none;
+
 }

@@ -43,4 +43,6 @@ public interface FlightSchedulerDao{
 	List<FlightScheduler> listFind(int offset,int pageSize);
 	//
 	Pager<FlightScheduler> listPage(int offset,int pageSize);
+	
+
 }
