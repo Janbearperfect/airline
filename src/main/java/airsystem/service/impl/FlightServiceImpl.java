@@ -47,5 +47,6 @@ public class FlightServiceImpl implements FlightService{
 		// TODO Auto-generated method stub
 		return flightDao.getFlight(flightId);
 	}
+	
 
 }

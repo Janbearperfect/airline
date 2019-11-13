@@ -32,4 +32,5 @@ public interface FlightSchedulerService {
 	List<FlightScheduler> listNowFlightService();
 	//查询往期航班
 	List<FlightScheduler> listOutFlightService();
+	
 }

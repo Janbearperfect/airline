@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*,airsystem.entity.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,29 +44,38 @@
         <div class="main-select-zst">选择航班</div>
         <div class="main-info-zst">
             <span class="info-depart-zst">出发</span>
-            <i class="info-place-zst">太原武宿机场</i>
+            <i class="info-place-zst">${fromCity}</i>
             <span class="info-arrive-zst">到</span>
-            <i class="info-place-zst">运城关公机场</i>
+            <i class="info-place-zst">${toCity}</i>
         </div>
         <div class="main-date-zst">
-            <i class="date-year-zst">2019</i>
+            <i class="date-year-zst">${date[0]}</i>
             <span>年</span>
-            <i class="date-month-zst">11</i>
+            <i class="date-month-zst">${date[1]}</i>
             <span>月</span>
-            <i class="date-day-zst">05</i>
+            <i class="date-day-zst">${date[2]}</i>
             <span>日</span>
         </div>
         <div class="main-list-zst">
             <div class="main-list-title-zst">
-                <span>排序依据</span>
+                <span class="p-info" style=" cursor: pointer;">乘客</span>
                 <ul>
                     <li class="title-hxt">经济舱</li>
-                    <li class="title-hxt">公务舱</li>
+                    <li class="title-hxt">商务舱</li>
+                    
                     <li class="title-hxt">头等舱</li>
                 </ul>
             </div>
             
             <!-- 隐藏 -->
+             <div class="show-info-h">
+             	<div style="font-size:20px;text-align:center;">信息</div><br>
+             	<div style="margin:10px"><span style="font-size:20px;" id="baby"><%out.print(request.getAttribute("baby")); %></span>婴儿</div>
+             	<div style="margin:10px"><span style="font-size:20px;" id="child"><%out.print(request.getAttribute("child")); %></span>儿童</div>
+             	<div style="margin:10px"><span style="font-size:20px;" id="adult"><%out.print(request.getAttribute("adult")); %></span>成人</div>
+             </div>
+             
+             
             <div class="hidden-htx" style="display:none">
             <div class="priceSpan-hxt">票价比较</div>
             <div class="hidden-c-hxt">
@@ -93,20 +103,44 @@
          
             </div>
             </div>
+           
+         
                   <!-- 航班部分 -->
-            <div class="planeinfo">
-            <div class="info-left-hxt"></div>
-            <div class="info-right-hxt"></div>
-            <div class="info-right-hxt"></div>
-            </div>
-        </div>
-   
+             <%
+              List<PiaoObject> list=(List<PiaoObject>)request.getAttribute("piao");
+              List<QueryFlight> qf=(List<QueryFlight>)request.getAttribute("qfs");
+              
+              List<PiaoObject> l = (List<PiaoObject>)list;
+              
+              List<QueryFlight> qfs = (List<QueryFlight>)qf;
+              for(int i=0;i<l.size();i++){
+            %>
+	            <div class="planeinfo">
+		            <div class="info-left-hxt">
+		            	<div><span class="hxt-s"><%out.print(l.get(i).getDeparture_time()); %>----><%out.print(l.get(i).getArrival_time()); %></span></div>
+		            	<div class="hxt-ss">
+		            	    <span>(<%out.print(qfs.get(i).getFromCity()); %>)</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		            	    <span>(<%out.print(qfs.get(i).getToCity()); %>)</span><br><br><br><br>
+		            		<span >航班编号:<%out.print(qfs.get(i).getFlightNumber()); %></span><br><br>
+		            		<span>型号:<%out.print(qfs.get(i).getModel()); %></span><br><br>
+		            		<span>到达日期:<%out.print(l.get(i).getEnd_date()); %></span>
+		            	</div>
+		            </div>
+		            <div class="in-right-hxt" attr="<%=qfs.get(i).getFlightNumber()%>">
+		            <div class="info-right-hxt" attr="经济舱" style="margin-left:75px;"><span class="hxt-s-1">$<%out.print(qfs.get(i).getPrice()); %></span></div>
+		            <div class="info-right-hxt" attr="商务舱"><span class="hxt-s-1">$<%out.print(qfs.get(i).getPrice()*1.5); %></span></div>
+		            <div class="info-right-hxt" attr="头等舱"><span class="hxt-s-1">$<%out.print(qfs.get(i).getPrice()*2); %></span></div>
+		            </div>
+	             </div>
+            <%} %>
+         <button class="continue">继续</button>
     </div>
-    
-   <button class="continue">继续</button>
-    
+       
+   
+       
 <!--底部-->
-    <div class="end-zst">
+    <div class="end-zst" style="float:left;">
+    
         <div class="end-content-zst">
             <div class="end-content-first-zst">
                 <span>帮助</span>

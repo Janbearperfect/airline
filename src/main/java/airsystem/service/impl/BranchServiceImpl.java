@@ -37,6 +37,7 @@ public class BranchServiceImpl implements BranchService{
 	public void deleteBranch(int id) {
 		branch.deleteBranch(id);
 		
+		
 	}
 	@Override
 	public int totalItem() {
