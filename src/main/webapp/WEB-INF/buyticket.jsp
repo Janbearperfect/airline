@@ -58,7 +58,7 @@
         <div class="ticket-main-list-zst">
             <form action="pushTicket" id="form" >
             <!--成人  -->
-             	<c:forEach   begin="0" end="${numbers.adultNumber-1}" var="i" >
+             	<c:forEach   begin="1" end="${numbers.adultNumber}" var="i" >
                 <div>
                     <div class="main-people-zst" id="people">
                         <div class="list-first-zst" >
@@ -99,7 +99,7 @@
                 </div>
                 </c:forEach>
                <!-- 儿童 -->
-                 <c:forEach   begin="0" end="${numbers.childNumber-1}" var="i" >
+                 <c:forEach   begin="1" end="${numbers.childNumber}" var="i" >
                 <div>
                     <div class="main-people-zst" id="people">
                         <div class="list-first-zst" >
@@ -140,7 +140,7 @@
                 </div>
                 </c:forEach>
                 <!-- 婴儿 -->
-                <c:forEach   begin="0" end="${numbers.badyNumber-1}" var="i" >
+                <c:forEach   begin="1" end="${numbers.badyNumber}" var="i" >
                 <div>
                     <div class="main-people-zst" id="people">
                         <div class="list-first-zst" >
