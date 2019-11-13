@@ -63,9 +63,9 @@
                             <p>第二件行李:免费(最大为50LB 23KG/62LI 158LCM)</p>
                         </div>
                         <div class="small-bappage-info">
-                            <p>${} - Dallas</p>
+                           
                             <div>随身携带行李,2 免费(随身行李 最大为40 LI 101LCM 或 随身行李 最大为 45 LI 115LCM)</div>
-                            <p>Dallas - ${}</p>
+                           
                             <div>随身携带行李,2 免费(随身行李 最大为40 LI 101LCM 或 随身行李 最大为 45 LI 115LCM)</div>
                         </div>
                     </div>
