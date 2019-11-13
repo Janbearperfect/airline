@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="ticket-main-list-zst">
-            <form action="ticket/pushTicket" id="form" >
+            <form action="pushTicket" id="form" >
             <!--成人  -->
              	<c:forEach   begin="0" end="${numbers.adultNumber-1}" var="i" >
                 <div>
@@ -75,8 +75,8 @@
                                 航班编号 <input type="text" name="flightId" size="10" autocomplete="off" class="name-zst" readonly="readonly" value="${numbers.flightNumber}">
                             </div>
                         </div>
-                        <div class="list-first-zst">
-                            <div class="first-type-zst">
+                        <div class="list-two-zst">
+                            <div class="first-card-zst">
                                 <select name="uek" size="1">
                                     <option value="idcard" selected="selected">身份证</option>
                                     <option value="ui">护照</option>
@@ -116,8 +116,8 @@
                                 航班编号 <input type="text" name="flightId" size="10" autocomplete="off" class="name-zst" readonly="readonly" value="${numbers.flightNumber}">
                             </div>
                         </div>
-                        <div class="list-first-zst">
-                            <div class="first-type-zst">
+                        <div class="list-two-zst">
+                            <div class="first-card-zst">
                                 <select name="uek" size="1">
                                     <option value="idcard" selected="selected">身份证</option>
                                     <option value="ui">护照</option>
@@ -156,8 +156,8 @@
                                 航班编号 <input type="text" name="flightId" size="10" autocomplete="off" class="name-zst" readonly="readonly" value="${numbers.flightNumber}">
                             </div>
                         </div>
-                        <div class="list-first-zst">
-                            <div class="first-type-zst">
+                        <div class="list-two-zst">
+                            <div class="first-card-zst">
                                 <select name="uek" size="1">
                                     <option value="idcard" selected="selected">身份证</option>
                                     <option value="ui">护照</option>

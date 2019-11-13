@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 
 import airsystem.dao.prototype.FlightSchedulerDao;
 import airsystem.entity.FlightScheduler;
-import airsystem.util.Pager;
 
 
 /**
@@ -65,12 +64,12 @@ public class FlightSchdulerDaoImpl implements FlightSchedulerDao{
 		return jdbctemplate.query("select * from flight_scheduler limit ?,?", new Object[] {offset,pageSize},new BeanPropertyRowMapper<FlightScheduler>(FlightScheduler.class));
 	}
 
-	@Override
+/*	@Override
 	public Pager<FlightScheduler> listPage(int offset, int pageSize) {
 		Pager<FlightScheduler> pager = new Pager<FlightScheduler>();
 		pager.setData(listFind(offset,pageSize));
 		return pager;
-	}
+	}*/
 
 	@Override
 	public String updateString(int id,String flightNumber, String startDate, String endDate, String fromCity, String toCity,

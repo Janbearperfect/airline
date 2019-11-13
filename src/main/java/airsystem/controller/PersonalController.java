@@ -19,7 +19,7 @@ public class PersonalController {
 	@RequestMapping("/buyticket/{adultNumber}/{bady}/{child}/{flightNumber}/{classes}/{tprice}")
 	@ResponseBody
 	public ModelAndView listPassengerInfo(@PathVariable("adultNumber")int adult,@PathVariable("bady")int bady,@PathVariable("child")int child,@PathVariable("flightNumber")String flightNumber,@PathVariable("classes")String classes,@PathVariable("tprice")String tprice){
-		double price=Double.parseDouble(tprice.substring(0, tprice.length()-1));
+		double price=Double.parseDouble(tprice.substring(1,tprice.length()));
 		PassengerInfo pif=new PassengerInfo(adult,bady,child, flightNumber,classes, price);
 		ModelAndView mv=new ModelAndView("buyticket");
 		mv.addObject("numbers",pif);

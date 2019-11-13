@@ -4,7 +4,6 @@ package airsystem.dao.prototype;
 import java.util.List;
 
 import airsystem.entity.FlightScheduler;
-import airsystem.util.Pager;
 
 /**
  * 航空计划表接口
@@ -42,7 +41,7 @@ public interface FlightSchedulerDao{
 	//分页查询
 	List<FlightScheduler> listFind(int offset,int pageSize);
 	//
-	Pager<FlightScheduler> listPage(int offset,int pageSize);
+/*	Pager<FlightScheduler> listPage(int offset,int pageSize);*/
 	
 
 }

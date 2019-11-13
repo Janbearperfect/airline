@@ -169,10 +169,23 @@ header{
     height: 50px;
     padding-left: 20px;
      line-height: 50px; 
- 
+
+}
+.list-two-zst{
+    width: 90%;
+    height: 50px;
+    padding-left: 20px;
+     line-height: 50px; 
+ 	position: relative;
 }
 .first-type-zst{
-    float: left;    
+    float: left;
+}
+.first-card-zst{
+    float: left;
+    position: absolute;
+    top:17px;
+    left:20px;    
 }
 .first-name-zst{
 	width:180px;
@@ -180,7 +193,7 @@ header{
     float: left;
 }
 .first-id-zst{
-    margin-left:60px;
+    margin-left:160px;
     float: left;
 }
 .first-classes-zst{

@@ -18,6 +18,7 @@ header{
     height: 44px;
     margin: auto;
     border-bottom:1px solid #99CCFF ;
+    position: relative;
 }
 .main-list-title-zst span{
     float: left;
@@ -31,6 +32,9 @@ header{
 .main-list-title-zst ul{
     margin-left: 200px;
     float: left;
+     position: absolute;
+     right:10px;
+     top:0;
 }
 .main-list-title-zst li{
     float: left;

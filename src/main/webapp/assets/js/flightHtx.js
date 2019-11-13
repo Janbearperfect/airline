@@ -46,7 +46,7 @@ window.onload=function(){
 		if(adultNumber==undefined || bady==undefined || child==undefined ||classes==undefined ||tprice==undefined ||flightNumber==undefined){
 			alert("请选择服务");
 		}else{
-			location.href="yticket/"+adultNumber+"/"+bady+"/"+child+"/"+flightNumber+"/"+classes+"/"+tprice;
+			location.href="buyticket/"+adultNumber+"/"+bady+"/"+child+"/"+flightNumber+"/"+classes+"/"+tprice;
 		}
 		
 		

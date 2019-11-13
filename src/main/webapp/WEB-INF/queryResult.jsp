@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="/airline/assets/css/base.css">
 </head>
 <body>
+<a href="queryflight">《 返回</a>
  <header>航班信息查询</header>
 <div class="main-list-zst">
     <div class="main-list-title-zst">
