@@ -13,9 +13,9 @@ import airsystem.entity.TicketBo;
 public interface TicketDao {
   List<TicketBo> listTicket();
   int countTicketTotal();
- 
   List<TicketBo> listTicketChange();
   int countTicketChangeTotal();
   List<TicketBo> listTicketRefund();
   int countTicketRefundTotal();
+  boolean saveTicket(Ticket ticket);
 }

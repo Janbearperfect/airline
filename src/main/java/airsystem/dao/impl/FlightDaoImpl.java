@@ -2,9 +2,9 @@ package airsystem.dao.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import airsystem.dao.prototype.FlightDao;
@@ -55,6 +55,30 @@ public class FlightDaoImpl implements FlightDao{
 		}
 		return "faliure";
 		
+	}
+
+	@Override
+	public void updateFlightSeat(int flightId, int classes, int num) {
+		if(classes==1) {
+			int total = jdbcTemplate.queryForObject("select first_class_remain_seats from flight where flight_id=?", new Object[] {flightId},Integer.class);
+			int change = total-num;
+			jdbcTemplate.update("update flight set first_class_remain_seats=? where flight_id=?",new Object[] {change,flightId});
+		}
+		if(classes==2) {
+			int total = jdbcTemplate.queryForObject("select business_class_remain_seats from flight where flight_id=?", new Object[] {flightId},Integer.class);
+			int change = total-num;
+			jdbcTemplate.update("update flight set business_class_remain_seats=? where flight_id=?",new Object[] {change,flightId});
+		}
+		if(classes==3) {
+			int total = jdbcTemplate.queryForObject("select economy_class_remain_seats from flight where flight_id=?", new Object[] {flightId},Integer.class);
+			int change = total-num;
+			jdbcTemplate.update("update flight set economy_class_remain_seats=? where flight_id=?",new Object[] {change,flightId});
+		}
+	}
+
+	@Override
+	public int searchFlightId(String flightNumber) {
+		return jdbcTemplate.queryForObject("select flight_id from flight where flight_number=?", new Object[] {flightNumber} , Integer.class);
 	}
 
 	

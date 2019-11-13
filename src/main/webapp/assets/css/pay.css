@@ -1,7 +1,7 @@
 a{
     /*text-decoration: none;*/
     color: blue;
-    font-size: 14px;
+    font-size: 16px;
 }
 header{
     width: 100%;
@@ -111,7 +111,7 @@ header{
     width: 300px;
     height: 752px;
     float: left;
-    margin-left: 5px;
+    margin-left: 20px;
     /*border: 1px solid black;*/
 }
 h2{
@@ -182,7 +182,24 @@ h2{
     color: #36495a;
 }
 h1{
-    color: #00467f;
+    color: #076cbf;
+    margin-bottom: 20px;
+}
+.cancel-refund{
+    margin-bottom: 20px;
+}
+.checkbox .top{
+    margin-bottom: 10px;
+}
+.checkbox .bottom{
+    margin-top: 10px;
+}
+.checkbox .bottom .check{
+    width: 20px;
+    height:20px;
+    float: left;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 .last{
     width: 1200px;
@@ -207,9 +224,20 @@ h1{
     cursor: pointer;
     font-size: 20px;
 }
-.payspan:hover{
-    text-decoration: black;
+.paybutton:hover{
+    background-color: #01b5ff;
 }
+
+/*右边*/
+.main-right .header{
+    font-size: 24px;
+}
+.main-right h3{
+    font-weight: 300;
+}
+
+
+
 /*底部*/
 .end-zst{
     width: 100%;

@@ -46,5 +46,10 @@ public class TicketDaoTest {
     public void test3() {
     	System.out.println(tdao.countTicketTotal());
     }
+    @Test
+    public void test4() {
+    	Ticket ticket = new Ticket(1,1,"140525",2,3,1,120.0,1);
+    	System.out.println(tdao.saveTicket(ticket));
+    }
     
 }

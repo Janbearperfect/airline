@@ -47,8 +47,15 @@ public class TicketServiceImpl implements TicketService{
 	}
 	@Override
 	public int countTicketRefund() {
-		// TODO Auto-generated method stub
 		return ticketDao.countTicketRefundTotal();
+	}
+	@Override
+	public boolean saveTicket(Ticket ticket) {
+		if(ticketDao.saveTicket(ticket)) {
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 }

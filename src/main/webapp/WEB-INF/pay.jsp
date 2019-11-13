@@ -1,10 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="airsystem.entity.Airport"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>航班查询</title>
     <link rel="stylesheet" href="/airline/assets/css/base.css">
-    <link rel="stylesheet" href="/airline/assets/css/flight.css">
+    <link rel="stylesheet" href="/airline/assets/css/pay.css">
 </head>
 <body>
     <!--导航栏-->
@@ -39,8 +42,8 @@
                 <h2>您希望以什么方式支付行程费用？</h2>
                 <div class="pay">
                     <ul>
-                        <li><input type="radio"><img src="card-alipay.png" alt="" width="113" height="30"></li>
-                        <li><input type="radio"><img src="UnionPay_logo.png" alt="" width="47.5" height="30"></li>
+                        <li><input type="radio"><img src="/airline/assets/img/card-alipay.png" alt="" width="113" height="30"></li>
+                        <li><input type="radio"><img src="/airline/assets/img/UnionPay_logo.png" alt="" width="47.5" height="30"></li>
                         <li><input type="radio"><span class="CDcard">信用卡</span></li>
                     </ul>
                 </div>
@@ -63,9 +66,7 @@
                             <p>第二件行李:免费(最大为50LB 23KG/62LI 158LCM)</p>
                         </div>
                         <div class="small-bappage-info">
-                            <p>${} - Dallas</p>
                             <div>随身携带行李,2 免费(随身行李 最大为40 LI 101LCM 或 随身行李 最大为 45 LI 115LCM)</div>
-                            <p>Dallas - ${}</p>
                             <div>随身携带行李,2 免费(随身行李 最大为40 LI 101LCM 或 随身行李 最大为 45 LI 115LCM)</div>
                         </div>
                     </div>
@@ -106,7 +107,7 @@
     </div>
     <div class="wrapper-yzy last"></div>
     <div class="quickpay">
-        <div class="paybutton"> <span class="payspan">立即支付</span></div>
+        <a href="saveTicket"><div class="paybutton"> <span class="payspan">立即支付</span></div></a>
     </div>
 <!--底部-->
     <div class="end-zst">
@@ -164,5 +165,7 @@
 
 
     </div>
+    <script src="/airline/assets/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/airline/assets/js/pay.js"></script>
 </body>
 </html>

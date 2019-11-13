@@ -25,7 +25,7 @@ public class TicketDaoImpl implements TicketDao{
 		
 		return jdbcTemplate.query("select flight_number,name,order_date,classes,passenger_type,sales_id,t_price FROM ticket_order LEFT JOIN flight ON ticket_order.flight_id=flight.flight_id LEFT JOIN user ON user.id=ticket_order.user_id WHERE status=1 or status=2 "
 				,new Object[] {},
-				new BeanPropertyRowMapper(TicketBo.class));
+				new BeanPropertyRowMapper<TicketBo>(TicketBo.class));
 	}
 
 	@Override
@@ -33,14 +33,14 @@ public class TicketDaoImpl implements TicketDao{
 		
 		return jdbcTemplate.query("select flight_number,name,order_date,classes,passenger_type,sales_id,t_price FROM ticket_order LEFT JOIN flight ON ticket_order.flight_id=flight.flight_id LEFT JOIN user ON user.id=ticket_order.user_id WHERE status=2 ;",
 				
-				new Object[] {},new BeanPropertyRowMapper(TicketBo.class));
+				new Object[] {},new BeanPropertyRowMapper<TicketBo>(TicketBo.class));
 	}
 
 	@Override
 	public List<TicketBo> listTicketRefund() {
        return jdbcTemplate.query("select flight_number,name,order_date,classes,passenger_type,sales_id,t_price FROM ticket_order LEFT JOIN flight ON ticket_order.flight_id=flight.flight_id LEFT JOIN user ON user.id=ticket_order.user_id WHERE  status=3  ",
 				
-				new Object[] {},new BeanPropertyRowMapper(TicketBo.class));
+				new Object[] {},new BeanPropertyRowMapper<TicketBo>(TicketBo.class));
 	}
 
 	@Override
@@ -60,6 +60,17 @@ public class TicketDaoImpl implements TicketDao{
 	public int countTicketRefundTotal() {
 		return jdbcTemplate.queryForObject("select count(*)  from ticket_order WHERE status=3",
 				new Object[] {},Integer.class);
+	}
+
+	@Override
+	public boolean saveTicket(Ticket ticket) {
+		int num = jdbcTemplate.update("insert into ticket_order(user_id,flight_id,ID_number,classes,passenger_type,sales_id,status,t_price) values(?,?,?,?,?,?,?,?)",
+				new Object[] {ticket.getUserId(),ticket.getFlightId(),ticket.getIdNumber(),ticket.getClasses(),ticket.getpassengerType(),ticket.getSalesId(),ticket.getStatus(),ticket.gettPrice()});
+		if(num>0) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 }

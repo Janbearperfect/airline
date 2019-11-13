@@ -52,4 +52,8 @@ public class FlightDaoImplTest {
 	public void test() {
 	System.out.println(	f.updateFlight(1,645,1));
 	}
+	@Test
+	public void test3() {
+		f.updateFlightSeat(1, 3, 2);
+	}
 }

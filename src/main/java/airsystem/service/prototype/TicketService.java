@@ -22,6 +22,6 @@ public interface TicketService {
 	int countTicket();
 	int countTicketChange();
 	int countTicketRefund();
-	
+	boolean saveTicket(Ticket ticket);
 	
 }

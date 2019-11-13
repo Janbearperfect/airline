@@ -48,4 +48,14 @@ public class FlightServiceImpl implements FlightService{
 		return flightDao.getFlight(flightId);
 	}
 
+	@Override
+	public void updateFlightSeat(int flightId, int classes, int num) {
+		flightDao.updateFlightSeat(flightId, classes, num);
+	}
+
+	@Override
+	public int searchFlightId(String flightNumber) {
+		return flightDao.searchFlightId(flightNumber);
+	}
+
 }

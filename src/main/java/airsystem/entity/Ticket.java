@@ -38,6 +38,18 @@ public class Ticket {
 		this.status = status;
 		this.tPrice = tPrice;
 	}
+	public Ticket(int userId, int flightId, String idNumber, int classes, int salesId, int status, double tPrice,
+			int passengerType) {
+		super();
+		this.userId = userId;
+		this.flightId = flightId;
+		this.idNumber = idNumber;
+		this.classes = classes;
+		this.salesId = salesId;
+		this.status = status;
+		this.tPrice = tPrice;
+		this.passengerType = passengerType;
+	}
 	/**
 	 * @return the id
 	 */
