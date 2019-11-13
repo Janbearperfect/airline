@@ -29,4 +29,5 @@ public class QueryFlightServiceImpl implements QueryFlightService{
 		
 		return qfd.getQueryFlight(id);
 	}
+	
 }
