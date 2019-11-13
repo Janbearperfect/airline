@@ -43,5 +43,6 @@ public class SalesSericeImpl implements SalesService {
 		return saleDao.listSales(branchId);
 	}
 
+	
 
 }	

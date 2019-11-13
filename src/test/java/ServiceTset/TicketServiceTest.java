@@ -47,4 +47,26 @@ public class TicketServiceTest {
 	public void test3() {
 		System.out.println(ticketService.countTicketRefund());
 	}
+	@Test
+	public void test4() {
+		List<Ticket> list=ticketService.searchSelfAllTicket(0);
+		for (Ticket ticket : list) {
+			System.out.println(ticket);
+		}
+	}
+	@Test
+	public void test5() {
+		List<Ticket> list=ticketService.searchSelfChangeTicket(0);
+		for (Ticket ticket : list) {
+			System.out.println(ticket);
+		}
+	}
+	@Test
+	public void test6() {
+		List<Ticket> list=ticketService.searchSelfRefundTicket(0);
+		for (Ticket ticket : list) {
+			System.out.println(ticket);
+		}
+	}
+	
 }

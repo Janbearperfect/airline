@@ -13,8 +13,8 @@ import airsystem.dao.prototype.FlightSchedulerDao;
 import airsystem.entity.FlightScheduler;
 
 /**
- * º½¿Õ¼Æ»®±í²âÊÔ
- * @author ÕÔÊ¤ÌÎ
+ * ï¿½ï¿½ï¿½Õ¼Æ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @author ï¿½ï¿½Ê¤ï¿½ï¿½
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,40 +23,6 @@ public class FlightSchedulerDaoImplTest {
 	@Autowired
 	private FlightSchedulerDao fs;
 	
-	@Test
-	public void findTest() {
-		System.out.println(fs.getFlightScheduler("zst02"));
-		
-	}
-	@Test
-	public void findIdTest() {
-		System.out.println(fs.getFlightScheduler(5));
-	}
-	@Test
-	public void updateTest() {
-		System.out.println(fs.updateString(18, "zst04", "2019-11-06","2019-11-06", "TYZ", "YCH", "2019-11-06 08:00:00", "2019-11-06 12:00:00", "10002", "100", 200));
-	}
-	@Test
-	public void deleteTest() {
-		System.out.println(fs.deleteFlightScheduler(10));
-	}
-	@Test 
-	public void saveTest() {
-		System.out.println(fs.saveFlightScheduler("zst08","2019-11-06", "2019-11-6", "TYZ", "YCH", "2019-11-06 08-00-00", "2019-11-06 12-00-00", "10002", "2", 800));
-	}
-	@Test
-	public void findAllTest() {
-		List<FlightScheduler> list=fs.listFlightScheduler();
-		for(FlightScheduler fsr:list) {
-			int id=fsr.getId();
-			System.out.println(id);
-		}
-	}
-	@Test
-	public void findTimeTest() {
-		List<FlightScheduler> list=fs.listNowFlightDao();
-		for(FlightScheduler fsr:list) {
-			System.out.println(fsr);
-		}
-	}
+	
+	
 }

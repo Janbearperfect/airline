@@ -31,6 +31,7 @@ public class AirplaneModelController {
 		return mv;
 	}
 	
+	
 	@RequestMapping("/airplaneUpdate")
 	public void updateAirplane(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		String airplane = new String(request.getParameter("airplane").getBytes("8859_1"),"utf-8");

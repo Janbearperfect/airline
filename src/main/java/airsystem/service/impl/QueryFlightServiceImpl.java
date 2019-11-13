@@ -21,7 +21,6 @@ public class QueryFlightServiceImpl implements QueryFlightService{
 
 	@Override
 	public List<QueryFlight> listqueryFlight(String fromCity, String toCity, String startDate) {
-		System.out.println("2222");
 		return qfd.listQueryFlight(fromCity, toCity, startDate);
 	}
 
@@ -30,4 +29,5 @@ public class QueryFlightServiceImpl implements QueryFlightService{
 		
 		return qfd.getQueryFlight(id);
 	}
+	
 }

@@ -18,4 +18,7 @@ public interface TicketDao {
   List<TicketBo> listTicketRefund();
   int countTicketRefundTotal();
   boolean saveTicket(Ticket ticket);
+  List<Ticket> searchSelfAllTicket(int userId);
+  List<Ticket> searchSelfChangeTicket(int userId);
+  List<Ticket> searchSelfRefundTicket(int userId);
 }

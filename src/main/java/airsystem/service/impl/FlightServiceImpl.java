@@ -47,6 +47,7 @@ public class FlightServiceImpl implements FlightService{
 		// TODO Auto-generated method stub
 		return flightDao.getFlight(flightId);
 	}
+	
 
 	@Override
 	public void updateFlightSeat(int flightId, int classes, int num) {

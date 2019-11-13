@@ -51,5 +51,26 @@ public class TicketDaoTest {
     	Ticket ticket = new Ticket(1,1,"140525",2,3,1,120.0,1);
     	System.out.println(tdao.saveTicket(ticket));
     }
+    @Test
+    public void test5() {
+    	List<Ticket> tickets = tdao.searchSelfAllTicket(0);
+    	for (Ticket t : tickets) {
+			System.out.println(t);
+		}
+    }
+    @Test
+    public void test6() {
+    	List<Ticket> tickets = tdao.searchSelfChangeTicket(0);
+    	for (Ticket t : tickets) {
+			System.out.println(t);
+		}
+    }
+    @Test
+    public void test7() {
+    	List<Ticket> tickets = tdao.searchSelfRefundTicket(0);
+    	for (Ticket t : tickets) {
+			System.out.println(t);
+		}
+    }
     
 }

@@ -49,6 +49,7 @@ public class TicketServiceImpl implements TicketService{
 	public int countTicketRefund() {
 		return ticketDao.countTicketRefundTotal();
 	}
+
 	@Override
 	public boolean saveTicket(Ticket ticket) {
 		if(ticketDao.saveTicket(ticket)) {
@@ -57,5 +58,18 @@ public class TicketServiceImpl implements TicketService{
 			return false;
 		}
 	}
+	@Override
+	public List<Ticket> searchSelfAllTicket(int userId) {
+		return ticketDao.searchSelfAllTicket(userId);
+	}
+	@Override
+	public List<Ticket> searchSelfChangeTicket(int userId) {
+		return ticketDao.searchSelfChangeTicket(userId);
+	}
+	@Override
+	public List<Ticket> searchSelfRefundTicket(int userId) {
+		return ticketDao.searchSelfRefundTicket(userId);
+	}
+
 
 }

@@ -48,20 +48,15 @@ public class TicketController {
 	   ModelAndView mv=new ModelAndView("changeticket");
 	   List<TicketBo> listTicket=ticketService.listPagedChange();
 	  mv.addObject("ticket", listTicket);
-	  
 	 return mv;		
 	}
-	
-	
 	@RequestMapping("/refundticket")
 	public ModelAndView listRefundTicketView() {
 	   ModelAndView mv=new ModelAndView("refundticket");
 	   List<TicketBo> listTicket=ticketService.listPagedRefund();
 	  mv.addObject("ticket", listTicket);
-	  
 	 return mv;		
 	}
-	
 	@RequestMapping("/pushTicket")
 	public ModelAndView pushTicket(HttpServletRequest request , HttpServletResponse response , HttpSession session) {
 		String[] names = request.getParameterValues("name");
@@ -102,15 +97,15 @@ public class TicketController {
 			tickets.add(ticket);
 		}
 		ModelAndView mv = new ModelAndView("pay");
-		mv.addObject("tickets", tickets);
+//		mv.addObject("tickets", tickets);
 		session.setAttribute("tickets", tickets);
 		return mv;
 	}
 	@RequestMapping("/saveTicket")
 	@ResponseBody
 	public String saveTicket(HttpServletRequest request , HttpServletResponse response , HttpSession session) {
+		@SuppressWarnings("unchecked")
 		List<Ticket> tickets = (List<Ticket>) session.getAttribute("tickets");
-		System.out.println(tickets.get(0));
 		for(int i=0 ; i<tickets.size();i++) {
 			Ticket ticket = new Ticket();
 			ticket.setUserId(tickets.get(i).getUserId());
@@ -120,22 +115,37 @@ public class TicketController {
 			ticket.setpassengerType(tickets.get(i).getpassengerType());
 			ticket.setSalesId(tickets.get(i).getSalesId());
 			if(ticketService.saveTicket(tickets.get(i))) {
-				flightService.updateFlightSeat(tickets.get(i).getFlightId(), tickets.get(i).getClasses(), 1);
+				flightService.updateFlightSeat(tickets.get(i).getFlightId(), tickets.get(i).getClasses(),1);
 			}else {
 				return "failure";
 			}
 		}
-		
-//		List<Ticket> tickets = (List<Ticket>) request.getAttribute("tickets");
-//		System.out.println(tickets);
-//		for(int i=0;i<tickets.size();i++) {
-//			if(ticketService.saveTicket(tickets.get(i))) {
-//				flightService.updateFlightSeat(tickets.get(i).getFlightId(), tickets.get(i).getClasses(), 1);
-//			}else {
-//				return "failure";
-//			}
-//		}
 		return "success";
+	}
+	
+	@RequestMapping("/searchSelfAllTicket")
+	public ModelAndView searchSelfAllTicket(HttpSession session) {
+		int userId = (int) session.getAttribute("userId");
+		ModelAndView mv = new ModelAndView();
+		List<Ticket> allTickets  = ticketService.searchSelfAllTicket(userId);
+		mv.addObject("allTickets" , allTickets);
+		return mv;
+	}
+	@RequestMapping("/searchSelfChangeTicket")
+	public ModelAndView searchSelfChangeTicket(HttpSession session) {
+		int userId = (int) session.getAttribute("userId");
+		ModelAndView mv = new ModelAndView();
+		List<Ticket> changeTickets  = ticketService.searchSelfChangeTicket(userId);
+		mv.addObject("changeTickets" , changeTickets);
+		return mv;
+	}
+	@RequestMapping("/searchSelfRefundTicket")
+	public ModelAndView searchSelfRefundTicket(HttpSession session) {
+		int userId = (int) session.getAttribute("userId");
+		ModelAndView mv = new ModelAndView();
+		List<Ticket> refundTickets  = ticketService.searchSelfRefundTicket(userId);
+		mv.addObject("refundTickets" , refundTickets);
+		return mv;
 	}
 	
 }

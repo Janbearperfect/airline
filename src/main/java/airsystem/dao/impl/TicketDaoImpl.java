@@ -73,4 +73,22 @@ public class TicketDaoImpl implements TicketDao{
 		}
 	}
 
+	@Override
+	public List<Ticket> searchSelfAllTicket(int userId) {
+		return jdbcTemplate.query("select * from ticket_order where user_id=?" ,
+				new Object[] {userId} , new BeanPropertyRowMapper<Ticket>(Ticket.class));
+	}
+
+	@Override
+	public List<Ticket> searchSelfChangeTicket(int userId) {
+		return jdbcTemplate.query("select * from ticket_order where user_id=? and status=2", 
+				new Object[] {userId} , new BeanPropertyRowMapper<Ticket>(Ticket.class));
+	}
+
+	@Override
+	public List<Ticket> searchSelfRefundTicket(int userId) {
+		return jdbcTemplate.query("select * from ticket_order where user_id=? and status=3", 
+				new Object[] {userId} , new BeanPropertyRowMapper<Ticket>(Ticket.class));
+	}
+
 }
