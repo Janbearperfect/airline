@@ -26,7 +26,7 @@
 		 <c:forEach items="${ticket}" var="ticket">
 		     <tr>
 		          <td>${ticket.flightNumber}</td>
-		          <td>${ticket.name}</td>
+		          <td>${ticket.uname}</td>
 		          <td>${ticket.orderDate}</td>
 		        
 		          <td>

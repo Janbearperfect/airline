@@ -23,7 +23,7 @@ public class TicketDaoImpl implements TicketDao{
 	@Override
 	public List<TicketBo> listTicket() {
 		
-		return jdbcTemplate.query("select flight_number,name,order_date,classes,passenger_type,sales_id,t_price FROM ticket_order LEFT JOIN flight ON ticket_order.flight_id=flight.flight_id LEFT JOIN user ON user.id=ticket_order.user_id WHERE status=1 or status=2 "
+		return jdbcTemplate.query("select flight_number,uname,order_date,classes,passenger_type,sales_id,t_price FROM ticket_order LEFT JOIN flight ON ticket_order.flight_id=flight.flight_id LEFT JOIN user ON user.id=ticket_order.user_id WHERE status=1 or status=2 "
 				,new Object[] {},
 				new BeanPropertyRowMapper<TicketBo>(TicketBo.class));
 	}
@@ -31,14 +31,14 @@ public class TicketDaoImpl implements TicketDao{
 	@Override
 	public List<TicketBo> listTicketChange() {
 		
-		return jdbcTemplate.query("select flight_number,name,order_date,classes,passenger_type,sales_id,t_price FROM ticket_order LEFT JOIN flight ON ticket_order.flight_id=flight.flight_id LEFT JOIN user ON user.id=ticket_order.user_id WHERE status=2 ;",
+		return jdbcTemplate.query("select flight_number,uname,order_date,classes,passenger_type,sales_id,t_price FROM ticket_order LEFT JOIN flight ON ticket_order.flight_id=flight.flight_id LEFT JOIN user ON user.id=ticket_order.user_id WHERE status=2 ;",
 				
 				new Object[] {},new BeanPropertyRowMapper<TicketBo>(TicketBo.class));
 	}
 
 	@Override
 	public List<TicketBo> listTicketRefund() {
-       return jdbcTemplate.query("select flight_number,name,order_date,classes,passenger_type,sales_id,t_price FROM ticket_order LEFT JOIN flight ON ticket_order.flight_id=flight.flight_id LEFT JOIN user ON user.id=ticket_order.user_id WHERE  status=3  ",
+       return jdbcTemplate.query("select flight_number,uname,order_date,classes,passenger_type,sales_id,t_price FROM ticket_order LEFT JOIN flight ON ticket_order.flight_id=flight.flight_id LEFT JOIN user ON user.id=ticket_order.user_id WHERE  status=3  ",
 				
 				new Object[] {},new BeanPropertyRowMapper<TicketBo>(TicketBo.class));
 	}

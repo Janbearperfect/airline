@@ -112,9 +112,9 @@ type=session.getAttribute("utype").toString();
 		<li class="layui-nav-item">
           <a href="javascript:;">财务管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="dailyfinancial.jsp"  target="aaa">每日财报</a></dd>
-            <dd><a href="quarterfinancial.jsp"  target="aaa">季度财报</a></dd>
-            <dd><a href="yearlyfinancial.jsp"  target="aaa">年度财报</a></dd>
+            <dd><a href="dailyfinancial"  target="aaa">每日财报</a></dd>
+            <dd><a href="quarterfinancial"  target="aaa">季度财报</a></dd>
+            <dd><a href="yearlyfinancial"  target="aaa">年度财报</a></dd>
           </dl>
         </li>
          

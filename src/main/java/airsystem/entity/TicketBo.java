@@ -5,17 +5,17 @@ import java.util.Date;
 import airsystem.util.DateUtil;
 
 public class TicketBo {
-    private String name;
+    private String uname;
     private String flightNumber;
     private Date orderDate;
     private int classes;
     private int passengerType;
     private int  salesId;
     private double tPrice;
-	public TicketBo(String name, String flightNumber, Date orderDate, int classes, int passengerType, int salesId,
+	public TicketBo(String uname, String flightNumber, Date orderDate, int classes, int passengerType, int salesId,
 			double tPrice) {
 		super();
-		this.name = name;
+		this.uname = uname;
 		this.flightNumber = flightNumber;
 		this.orderDate = orderDate;
 		this.classes = classes;
@@ -30,20 +30,24 @@ public class TicketBo {
 	/**
 	 * @return the name
 	 */
-	public String getName() {
-		return name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	/**
 	 * @return the flightNumber
 	 */
 	public String getFlightNumber() {
 		return flightNumber;
+	}
+	/**
+	 * @return the uname
+	 */
+	public String getUname() {
+		return uname;
+	}
+	/**
+	 * @param uname the uname to set
+	 */
+	public void setUname(String uname) {
+		this.uname = uname;
 	}
 	/**
 	 * @param flightNumber the flightNumber to set
@@ -116,7 +120,7 @@ public class TicketBo {
 	 */
 	@Override
 	public String toString() {
-		return "TicketBo [name=" + name + ", flightNumber=" + flightNumber + ", orderDate=" + orderDate + ", classes="
+		return "TicketBo [uname=" + uname + ", flightNumber=" + flightNumber + ", orderDate=" + orderDate + ", classes="
 				+ classes + ", passengerType=" + passengerType + ", salesId=" + salesId + ", tPrice=" + tPrice + "]";
 	}
 	
