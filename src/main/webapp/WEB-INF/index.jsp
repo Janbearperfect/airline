@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*,airsystem.entity.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+     <link rel="stylesheet" href="/airline/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/airline/assets/css/base.css">
     <link rel="stylesheet" href="/airline/assets/css/index.css">
-    <link rel="stylesheet" href="/airline/assets/css/bootstrap.css">
+   
   
   
 </head>
@@ -16,12 +19,22 @@
 <header>
     <div class="container-xj">
         <div class="header-row-xj">
-            <a href="" class="header-row-a-xj">
-                <span class="header-row-login-xj">登录</span>
+        <%
+        String ifLogin=session.getAttribute("login").toString();
+        if("yes".equals(ifLogin)){
+        %>
+        <span>欢迎：<%out.print(session.getAttribute("uname")); %></span>&nbsp<a href="#">个人中心</a>&nbsp&nbsp&nbsp<a href="exitUser">退出</a>
+        <% }
+        if("no".equals(ifLogin)){ %>
+         <a href="#" class="header-row-a-xj">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">登陆</button>
             </a>
-            <a href="header-row-a-xj">
-                <span class="header-row-register-xj">注册</span>
+            <a href="#">
+                <span class="header-row-register-xj"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">注册</button></span>
             </a>
+        <%} %>
+           
+            
         </div>
         <div class="header-main-xj">
             <h1>
@@ -264,7 +277,79 @@
 
 
 </div>
+
+
+
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+    		
+			<div class="formbox">
+			  <form action="index" id="login" >
+			      <div class="form-group" style="margin-top:80px;">
+			   		<label for="exampleInputEmail1">用户名</label>
+			    	<input type="text" class="form-control branchId"  name="userNum"  id="uPhone">
+			  	  </div>
+				  <div class="form-group" >
+				    <label for="exampleInputPassword1">密码</label>
+				    <input type="password" class="form-control branchName"   name="userPass" >
+				  </div>
+				
+				  <button type="submit" class="btn btn-success" >登陆</button>
+			  </form>
+		  </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-2" >
+			<div class="formbox" style="margin-top:20px;">
+		
+			  <form action="regCommit" id="signupForm" >
+			  
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">昵称</label>
+				    <input type="text" class="form-control branchName"  name="name">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">性别:</label><br>
+				    男<input type="radio"  name="sex" value="男">&nbsp
+				    女<input type="radio"  name="sex" value="女">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">出生年月</label>
+				    <input type="date" class="form-control branchTele" name="age">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">地址</label>
+				    <input type="text" class="form-control BranchPro"  name="address">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">手机号</label>
+				    <input type="text" class="form-control BranchPro"  id="phonenum" name="phone">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">密码</label>
+				    <input type="password" class="form-control BranchPro"  id="password" name="password">
+				  </div>
+				   <div class="form-group">
+				    <label for="exampleInputPassword1">确认密码</label>
+				    <input type="password" class="form-control BranchPro"  id="confirm_password" name="confirm_password">
+				  </div>
+				  <button type="submit" class="btn btn-success zhuce">注册</button>
+			  </form>
+		  </div>
+    </div>
+  </div>
+</div>
+
 </body>
 <script type="text/javascript" src="/airline/assets/js/jquery-1.9.1.js"></script>
+<script src="/airline/assets/js/bootstrap.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/airline/assets/js/index.js"></script>
 </html>

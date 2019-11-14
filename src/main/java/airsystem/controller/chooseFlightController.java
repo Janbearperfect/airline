@@ -1,10 +1,13 @@
 package airsystem.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,16 +16,48 @@ import org.springframework.web.servlet.ModelAndView;
 
 import airsystem.entity.PiaoObject;
 import airsystem.entity.QueryFlight;
+import airsystem.entity.UserL;
 import airsystem.service.prototype.QueryFlightService;
+import airsystem.service.prototype.UserService;
 
 @Controller
 public class chooseFlightController {
 	@Autowired
 	private QueryFlightService qf;
 	
+	@Autowired
+	private UserService us;
+	
 	@RequestMapping("/index")
-	public void chooseFlightMainView() {
+	public void chooseFlightMainView(HttpSession session,HttpServletRequest request) {
+		String phone=request.getParameter("userNum");
+		String password=request.getParameter("userPass");
+		if(phone !=null) {
+			
+			UserL user = us.findUser(phone);
 		
+			
+			if(user.getPassword().equals(password)) {
+				session.setAttribute("login", "yes");
+				session.setAttribute("phone", phone);
+				session.setAttribute("uname", user.getUname());
+				session.setAttribute("userId", user.getId());
+				
+			}else {
+				session.setAttribute("login", "no");
+			}
+			
+		}else {
+			session.setAttribute("login", "no");
+		}
+	}
+	@RequestMapping("/exitUser")
+	public void exitUser(HttpSession session,HttpServletResponse response) throws IOException {
+		Enumeration em = session.getAttributeNames();
+		session.removeAttribute(em.nextElement().toString());
+		session.setAttribute("login", "no");
+		
+		response.sendRedirect("index");
 	}
 	
 	@RequestMapping("/commitChooseView")

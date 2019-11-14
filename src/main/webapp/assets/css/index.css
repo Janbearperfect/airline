@@ -342,6 +342,21 @@ width: 100%;
     margin-top: 20px;
 }
 
+.formbox{
+	width:300px;
+	margin:auto;
+}
+.modal-content{
+	width:500px;
+	height:400px;
+	margin:auto;
+}
 
-
-
+.modal-2{
+	width:500px;
+	height:1000px;
+	margin:auto;
+}
+label.error{
+	color:red;
+}

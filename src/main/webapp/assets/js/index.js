@@ -131,3 +131,115 @@ window.onload=function () {
     tabs(".search-header-li-xj",".search-bottom-xj")
 
 }
+
+
+
+$("#signupForm").validate({
+    rules: {
+    
+      name: {
+        required: true,
+        minlength: 2,
+        maxlength:10
+      },
+      password: {
+        required: true,
+        minlength: 5
+      },
+      confirm_password: {
+        required: true,
+        minlength: 5,
+        equalTo: "#password"
+      },
+      sex:{
+    	  required: true,
+      },
+      age:{
+    	  required: true,
+      },
+      address:{
+    	  required: true,
+      },
+      phone:{
+    	  required: true,
+    	  minlength: 5,
+    	  number:true,
+    	  remote:{
+    		  url:"yZreg",
+    		  data:{phone: function(){return $("#phonenum").val()}},
+    		 
+    	  },
+    	 
+    	
+      }
+      
+    },
+    
+    messages: {
+    	name: {
+        required: "请输入用户名",
+        minlength: "用户名必需由两个字符组成",
+        maxlength: "密码长度不能大于 10 ",
+      },
+      password: {
+        required: "请输入密码",
+        minlength: "密码长度不能小于 5 个字母"
+      },
+      confirm_password: {
+        required: "请输入密码",
+        minlength: "密码长度不能小于 5 ",
+        equalTo: "两次密码输入不一致"
+      },
+      sex:{
+    	  required: "请选择性别",
+      },
+      age:{
+    	  required: "请选择生日",
+      },
+      address:{
+    	  required: "请填写地址",
+      },
+      phone:{
+    	  required: "请填手机号",
+    	  minlength: "手机长度不能小于 5 个数字",
+    	  number:"请输入合法的数字",
+    	  remote:"手机号已被注册",
+      }
+      
+     }
+    
+    })
+   
+    
+    $("#login").validate({
+    rules: {
+    
+    	userNum: {
+        required: true,
+        remote:{
+  		  url:"yZphone",
+  		  data:{phone: function(){return $("#uPhone").val()}},
+  		 
+  	      },
+  	  
+    },
+   	userPass: {
+        required: true,
+    },
+     
+      
+    },
+    
+    messages: {
+    	userNum: {
+        required: "请输入用户名",
+        remote:"用户名不存在"
+      },
+      userPass:{
+          required: "请输入密码",
+          
+        },
+     
+     }
+    
+    })
