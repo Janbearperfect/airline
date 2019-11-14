@@ -43,8 +43,8 @@ public class PassengerInfo {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public PassengerInfo(int adultNumber, int badyNumber, int childNumber, String flightNumber, String classes,
-			double price) {
+	public PassengerInfo(int adultNumber, int badyNumber, int childNumber,  String classes,
+			double price,String flightNumber) {
 		super();
 		this.adultNumber = adultNumber;
 		this.badyNumber = badyNumber;
