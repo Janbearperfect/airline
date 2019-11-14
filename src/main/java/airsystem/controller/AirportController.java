@@ -1,7 +1,9 @@
 package airsystem.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,19 +48,20 @@ public class AirportController {
 	@RequestMapping(value="/updateAirport/{airportCode}/{city}/{airportName}")
 	@ResponseBody
 	public String updateAirport(@PathVariable("airportCode") String airportCode,@PathVariable("city") String city,@PathVariable("airportName") String airportName) {
-		try {
-			airportCode = new String(airportCode.getBytes("8859_1"),"utf-8");
-			city = new String(city.getBytes("8859_1"),"utf-8");
-			airportName = new String(airportName.getBytes("8859_1"),"utf-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			airportCode = new String(airportCode.getBytes("8859_1"),"utf-8");
+//			city = new String(city.getBytes("8859_1"),"utf-8");
+//			airportName = new String(airportName.getBytes("8859_1"),"utf-8");
+//		} catch (UnsupportedEncodingException e) {
+//			e.printStackTrace();
+//		}
 		airportService.updateAirport(airportCode, city, airportName);
 		return "success";
 	}
 	@RequestMapping("/saveAirport")
 	@ResponseBody
-	public String saveAirport() {
+	public String saveAirport(HttpServletRequest request , HttpServletResponse response) {
+		String airportCode  = request.getParameter("");
 		
 		return "";
 	}

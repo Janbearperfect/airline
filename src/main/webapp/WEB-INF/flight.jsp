@@ -195,6 +195,14 @@
 
 
     </div>
+    <form action='buyticket' name='form1' style='display:none'>
+    <input type='hidden' name='adultNumber' class="h-adult">
+    <input type='hidden' name='baby' class="h-baby">
+    <input type='hidden' name='child' class="h-child">
+    <input type='hidden' name='classes' class="h-class">
+    <input type='hidden' name='tprice' class="h-tp">
+    <input type='hidden' name='flightNumber' class="h-f">
+    </form>
 </body>
 <script src="/airline/assets/js/jquery-1.9.1.js"></script>
 <script src="/airline/assets/js/flightHtx.js"></script>

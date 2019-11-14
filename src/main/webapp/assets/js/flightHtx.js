@@ -46,7 +46,13 @@ window.onload=function(){
 		if(adultNumber==undefined || bady==undefined || child==undefined ||classes==undefined ||tprice==undefined ||flightNumber==undefined){
 			alert("请选择服务");
 		}else{
-			location.href="buyticket/"+adultNumber+"/"+bady+"/"+child+"/"+flightNumber+"/"+classes+"/"+tprice;
+			$(".h-adult").val(adultNumber);  
+			$(".h-baby").val(bady);  
+			$(".h-child").val(child);  
+			$(".h-class").val(classes);  
+			$(".h-tp").val(tprice);  
+			$(".h-f").val(flightNumber);  
+			document.form1.submit();
 		}
 		
 		

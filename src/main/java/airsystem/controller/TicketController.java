@@ -22,7 +22,7 @@ import airsystem.service.prototype.TicketService;
  * 票务管理controller类
  * */
 @Controller
-@RequestMapping("/ticket")
+
 public class TicketController {
 	
 	@Autowired
@@ -83,7 +83,7 @@ public class TicketController {
 				classes = 3;
 			}
 			ticket.setClasses(classes);
-			int passengerType = Integer.parseInt(request.getParameter("type"+i));
+			int passengerType = Integer.parseInt(request.getParameter("type"+(i+1)));
 			ticket.setpassengerType(passengerType);
 			int salesId = 0;
 			if(request.getSession().getAttribute("salesId")!=null) {
@@ -97,7 +97,6 @@ public class TicketController {
 			tickets.add(ticket);
 		}
 		ModelAndView mv = new ModelAndView("pay");
-//		mv.addObject("tickets", tickets);
 		session.setAttribute("tickets", tickets);
 		return mv;
 	}
