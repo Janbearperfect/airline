@@ -1,5 +1,8 @@
 package airsystem.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +19,16 @@ import airsystem.entity.PassengerInfo;
 @Controller
 public class PersonalController {
 	
-	@RequestMapping("/buyticket/{adultNumber}/{bady}/{child}/{flightNumber}/{classes}/{tprice}")
+	@RequestMapping("/buyticket")
 	@ResponseBody
-	public ModelAndView listPassengerInfo(@PathVariable("adultNumber")int adult,@PathVariable("bady")int bady,@PathVariable("child")int child,@PathVariable("flightNumber")String flightNumber,@PathVariable("classes")String classes,@PathVariable("tprice")String tprice){
-		double price=Double.parseDouble(tprice.substring(1,tprice.length()));
+	public ModelAndView listPassengerInfo(HttpServletRequest request,HttpServletResponse response){
+		int adult=Integer.parseInt(request.getParameter("adultNumber"));
+		int bady=Integer.parseInt(request.getParameter("bady"));
+		int child=Integer.parseInt(request.getParameter("child"));
+		String flightNumber=request.getParameter("flightNUmber");
+		String classes=request.getParameter("classes");
+		String prices=request.getParameter("tprice");
+		double price=Double.parseDouble(prices.substring(1,prices.length()));
 		PassengerInfo pif=new PassengerInfo(adult,bady,child, flightNumber,classes, price);
 		ModelAndView mv=new ModelAndView("buyticket");
 		mv.addObject("numbers",pif);

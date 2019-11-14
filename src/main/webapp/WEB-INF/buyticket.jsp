@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="ticket-main-list-zst">
-            <form action="pushTicket" id="form" >
+            <form action="pushTicket" id="form">
             <!--成人  -->
              	<c:forEach   begin="1" end="${numbers.adultNumber}" var="i" >
                 <div>
