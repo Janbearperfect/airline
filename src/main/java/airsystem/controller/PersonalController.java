@@ -23,19 +23,24 @@ public class PersonalController {
 	@ResponseBody
 	public ModelAndView listPassengerInfo(HttpServletRequest request,HttpServletResponse response){
 		int adult=Integer.parseInt(request.getParameter("adultNumber"));
-		int bady=Integer.parseInt(request.getParameter("bady"));
+		int bady=Integer.parseInt(request.getParameter("baby"));
+
 		int child=Integer.parseInt(request.getParameter("child"));
-		String flightNumber=request.getParameter("flightNUmber");
+
+		String flightNumber=request.getParameter("flightNumber");
+
 		String classes=request.getParameter("classes");
-		String prices=request.getParameter("tprice");
-		double price=Double.parseDouble(prices.substring(1,prices.length()));
-		PassengerInfo pif=new PassengerInfo(adult,bady,child, flightNumber,classes, price);
+
+		String tprice=request.getParameter("tprice");
+
+		double price=Double.parseDouble(tprice.substring(1,tprice.length()));
+		PassengerInfo pif=new PassengerInfo(adult,bady,child, classes, price,flightNumber);
 		ModelAndView mv=new ModelAndView("buyticket");
 		mv.addObject("numbers",pif);
 		System.out.println(adult);
 		return mv;
 	}
-	@RequestMapping("/buyticket")
+	@RequestMapping("/buyticketinfo")
 	public String showBuyTicket(){
 	
 		return "buyticket";
