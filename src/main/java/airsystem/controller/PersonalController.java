@@ -23,8 +23,8 @@ public class PersonalController {
 	@ResponseBody
 	public ModelAndView listPassengerInfo(HttpServletRequest request,HttpServletResponse response){
 		int adult=Integer.parseInt(request.getParameter("adultNumber"));
-		int bady=Integer.parseInt(request.getParameter("badyNumber"));
-		int child=Integer.parseInt(request.getParameter("childNumber"));
+		int bady=Integer.parseInt(request.getParameter("bady"));
+		int child=Integer.parseInt(request.getParameter("child"));
 		String flightNumber=request.getParameter("flightNUmber");
 		String classes=request.getParameter("classes");
 		String prices=request.getParameter("tprice");
