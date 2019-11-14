@@ -10,15 +10,15 @@
 <link rel="stylesheet" href="/airline/assets/css/base.css">
 </head>
 <body>
-<a href="queryflight">《 返回</a>
+<a href="queryflight" style="color:#333333">《 返回</a>
  <header>航班信息查询</header>
 <div class="main-list-zst">
     <div class="main-list-title-zst">
         <span>排序依据</span>
         <ul>
-            <li>经济舱</li>
-            <li>公务舱</li>
             <li>头等舱</li>
+            <li>商务务舱</li>
+            <li>经济舱</li>
         </ul>
     </div>
     <div class="list">
