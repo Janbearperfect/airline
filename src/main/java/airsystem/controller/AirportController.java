@@ -61,9 +61,15 @@ public class AirportController {
 	@RequestMapping("/saveAirport")
 	@ResponseBody
 	public String saveAirport(HttpServletRequest request , HttpServletResponse response) {
-		String airportCode  = request.getParameter("");
-		
-		return "";
+		Airport airport = new Airport();
+		String airportCode  = request.getParameter("airportCode");
+		String city = request.getParameter("city");
+		String airportName = request.getParameter("airportName");
+		airport.setAirportCode(airportCode);
+		airport.setCity(city);
+		airport.setAirportName(airportName);
+		airportService.saveAirport(airport);
+		return "success";
 	}
 }
 

@@ -30,14 +30,13 @@ $(function(){
 	})
 	$(".confirmdelete").click(function(){
 		$.get("deleteSale/"+$(".putid").val(),function(e){
-			if("success".equals(e)){
+			if(e.replace("/\s/g","").equals("success")){
 				location.href="sales";
 			}
 		})
 	})
 	$(".add").click(function(){
 		$.get("saleBranch",function(e){
-			console.log(e);
 			var opts;
 			for(var i=0;i<e.length;i++){
 				opts+="<option>"+e[i].name+"</option>";
@@ -47,7 +46,9 @@ $(function(){
 	})
 	$(".ok").click(function(){
 		$.get("saveSale/"+$(".number1").val()+"/"+$(".name1").val()+"/"+$(".password1").val()+"/"+$("select").val(),function(e){
-			location.href="sales";
+			if(e.replace("/\s/g","").equals("success")){
+				location.href="sales";
+			}
 		})
 	})
 	

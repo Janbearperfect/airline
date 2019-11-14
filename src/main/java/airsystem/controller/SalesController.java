@@ -53,7 +53,7 @@ public class SalesController {
 	@ResponseBody
 	public String saveAirport(@PathVariable("number") String number,@PathVariable("password") String password,@PathVariable("name") String name,@PathVariable("branchId") String branchId) {
 	    int Id = branchService.getBranchId(branchId);
-	    Sales sale = new Sales(number,name,password,Id);
+	    Sales sale = new Sales(name,number,password,Id);
 		salesService.saveSale(sale);
 		return "success";
 	}

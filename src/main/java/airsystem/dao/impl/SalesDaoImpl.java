@@ -13,7 +13,7 @@ public class SalesDaoImpl implements SalesDao {
 	private JdbcTemplate jdbcTemplate;
 	@Override
 	public void saveSale(Sales sale) {
-		jdbcTemplate.update("insert into sales(name,number,password,branch_id) values(?,?,?,?)", new Object[] {sale.getSaleName(),sale.getNumber(),sale.getPassword(),sale.getBranchId()});
+		jdbcTemplate.update("insert into sales(sale_name,number,password,branch_id) values(?,?,?,?)", new Object[] {sale.getSaleName(),sale.getNumber(),sale.getPassword(),sale.getBranchId()});
 	}
 	@Override
 	public void deleteSale(int id) {
