@@ -32,7 +32,9 @@ type=session.getAttribute("utype").toString();
     <%}else if(type.equals("1")){ %>
     <div class="layui-logo">航空售票系统</div>
 
-    <%} %>
+    <%}else if(type.equals("3")){ %>
+    <div class="layui-logo">航空管理系统</div>
+    <%} %> 
     
     <ul class="layui-nav layui-layout-left">
       <li class="layui-nav-item"><a href="">用户</a></li>
@@ -94,9 +96,9 @@ type=session.getAttribute("utype").toString();
          <li class="layui-nav-item">
           <a href="javascript:;"  >票务管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="ticket/sellticket" target="aaa" >已售机票</a></dd>
-            <dd><a href="ticket/changeticket" target="aaa" >改签机票</a></dd>
-            <dd><a href="ticket/refundticket" target="aaa" >退订机票</a></dd>
+            <dd><a href="sellticket" target="aaa" >已售机票</a></dd>
+            <dd><a href="changeticket" target="aaa" >改签机票</a></dd>
+            <dd><a href="refundticket" target="aaa" >退订机票</a></dd>
           </dl>
         </li>
          <li class="layui-nav-item">

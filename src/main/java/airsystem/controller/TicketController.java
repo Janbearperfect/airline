@@ -22,7 +22,7 @@ import airsystem.service.prototype.TicketService;
  * 票务管理controller类
  * */
 @Controller
-@RequestMapping("/ticket")
+
 public class TicketController {
 	
 	@Autowired
