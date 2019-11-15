@@ -1,0 +1,19 @@
+$(function(){
+	$(".login").click(function(){
+		var val = $('input[name="type"]:checked').val();
+		$.ajax({
+			url:"checkManagerLogin",
+			data:{mname:$(".name").val(),password:$(".password").val(),type:val},
+			type:"post",
+			dateType:"string",
+			success:function(e){
+				console.log(e.trim());
+				if(e=="success"){
+					location.href="main";
+				}else{
+					alert("请输入正确的密码")
+				}
+			}
+		})
+	})
+});

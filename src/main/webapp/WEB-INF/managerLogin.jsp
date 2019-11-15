@@ -5,12 +5,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>管理员登陆</title>
+<link rel="stylesheet" href="/airline/assets/css/bootstrap.css">
+<link rel="stylesheet" href="/airline/assets/css/managerLogin.css">
 </head>
 <body>
-	<form action="checkManagerLogin">
-	<span>用户名</span><input type="text"  name="mname"><br>
-	<span>密码</span><input type="password"  name="password"><br>
-	  <button type="submit" >登陆</button>
-	</form>
+<div class="container">
+<form action="">
+  <div class="form-group">
+    <label for="exampleInputEmail1">用户名</label>
+    <input type="text" class="form-control name" id="exampleInputEmail1" placeholder="请输入用户名或工号"  name="mname">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">密码</label>
+    <input type="password" class="form-control password" id="exampleInputPassword1" placeholder="请输入密码" name="password">
+  </div>
+      管理员：<input type="radio" name="type" value="1">
+      营业点：<input type="radio" name="type" value="2">
+      营业员：<input type="radio" name="type" value="3">
+  <button type="button" class="btn btn-default login">登录</button>
+</form>
+</div>
+<script type="text/javascript" src="/airline/assets/js/jquery-1.9.1.js"></script>
+<script src="/airline/assets/js/managerLogin.js"></script>
 </body>
 </html>
