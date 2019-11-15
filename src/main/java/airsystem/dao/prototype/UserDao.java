@@ -8,4 +8,6 @@ public interface UserDao {
 	void saveUser(UserL user);
 	
 	int isHavePhone(String phone);
+	
+	void updateUser(UserL user);
 }

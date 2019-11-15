@@ -23,7 +23,7 @@
         String ifLogin=session.getAttribute("login").toString();
         if("yes".equals(ifLogin)){
         %>
-        <span>欢迎：<%out.print(session.getAttribute("uname")); %></span>&nbsp<a href="#">个人中心</a>&nbsp&nbsp&nbsp<a href="exitUser">退出</a>
+        <span>欢迎：<%out.print(session.getAttribute("uname")); %></span>&nbsp&nbsp&nbsp<a href="personalCenter">个人中心</a>&nbsp&nbsp&nbsp<a href="#">我的订单</a>&nbsp&nbsp&nbsp<a href="exitUser">退出</a>
         <% }
         if("no".equals(ifLogin)){ %>
          <a href="#" class="header-row-a-xj">

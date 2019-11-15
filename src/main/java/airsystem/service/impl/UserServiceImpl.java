@@ -30,4 +30,10 @@ public class UserServiceImpl implements UserService{
 		return userDao.isHavePhone(phone);
 	}
 
+	@Override
+	public void updateUser(UserL user) {
+		userDao.updateUser(user);
+		
+	}
+
 }

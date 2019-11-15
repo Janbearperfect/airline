@@ -42,6 +42,7 @@ public class chooseFlightController {
 				session.setAttribute("phone", phone);
 				session.setAttribute("uname", user.getUname());
 				session.setAttribute("userId", user.getId());
+				session.setAttribute("user", user);
 				
 			}else {
 				session.setAttribute("login", "no");

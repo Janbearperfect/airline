@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public void saveUser(UserL user) {
 		JdbcTemplate.update("insert into user(phone,password,uname,sex,age,address) values(?,?,?,?,?,?)",
-				new Object[] {user.getPhone(),user.getPassword(),user.getUname(),user.getSex(),user.getAge(),user.getAddress()});
+				new Object[] {user.getPhone(),user.getPassword(),user.getUname(),user.getSex(),user.getAge(),user.getAddress(),user.getId()});
 		
 	}
 
@@ -31,6 +31,13 @@ public class UserDaoImpl implements UserDao{
 	public int isHavePhone(String phone) {
 		
 		return JdbcTemplate.queryForObject("select count(*) from user where phone=?",new Object[] {phone},Integer.class);
+	}
+
+	@Override
+	public void updateUser(UserL user) {
+		JdbcTemplate.update("update user set uname=?,sex=?,age=?,address=? where id=?",
+				new Object[] {user.getUname(),user.getSex(),user.getAge(),user.getAddress(),user.getId()});
+		
 	}
 
 }
