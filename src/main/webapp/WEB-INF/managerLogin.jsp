@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-<form action="">
+<form action="" id="form">
   <div class="form-group">
     <label for="exampleInputEmail1">用户名</label>
     <input type="text" class="form-control name" id="exampleInputEmail1" placeholder="请输入用户名或工号"  name="mname">

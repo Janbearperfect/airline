@@ -1,7 +1,9 @@
 package airsystem.controller;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,6 +26,8 @@ public class ManagerLoginController {
 	public void managerLogin() {
 	}
 	
+	
+	
 	@RequestMapping("/checkManagerLogin")
 	@ResponseBody
 	public String checkManagerLogin(HttpServletRequest request,HttpServletResponse reponse,HttpSession session) throws IOException {
@@ -33,7 +37,6 @@ public class ManagerLoginController {
 		int type = Integer.parseInt(request.getParameter("type"));
 		if(type==1) {
 			Manager manager=ms.findManager(num);
-			System.out.println(manager);
 			if(password.equals(manager.getPassword())&&num.equals(manager.getNumber())) {
 				session.setAttribute("adminId", manager.getId());
 				session.setAttribute("name", manager.getName());
@@ -45,8 +48,9 @@ public class ManagerLoginController {
 			}
 		}else if(type==2) {
 			Branch branch = ms.findBranch(num);
-			System.out.println(branch);
+			System.out.println(branch.getId());
 			if(password.equals(branch.getbPassword())) {
+				
 				session.setAttribute("adminId", branch.getId());
 				session.setAttribute("name", branch.getName());
 				session.setAttribute("type", 2);
@@ -67,5 +71,12 @@ public class ManagerLoginController {
 				return "failure";
 			}
 		}
+	}
+	@RequestMapping("/removeSession")
+	@ResponseBody
+	public String removeSession(HttpSession session) {
+		Enumeration em = session.getAttributeNames();
+		session.removeAttribute(em.nextElement().toString());
+		return "success";
 	}
 }
