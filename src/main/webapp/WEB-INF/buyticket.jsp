@@ -85,7 +85,7 @@
 
                             </div>
                             <div class="first-id-zst">
-                                证件号码<input type="text" name="ID" size="20" autocomplete="off">
+                                证件号码<input type="text" name="ID" size="20" autocomplete="off" id="idcard">
                             </div>
                             <div class="first-classes-zst">
                                 舱位等级<input type="text" name="classes" size="10" autocomplete="off" class="name-zst" readonly="readonly" value="${numbers.classes}">
@@ -126,7 +126,7 @@
 
                             </div>
                             <div class="first-id-zst">
-                                证件号码<input type="text" name="ID" size="20" autocomplete="off">
+                                证件号码<input type="text" name="ID" size="20" autocomplete="off"  id="idcard">
                             </div>
                             <div class="first-classes-zst">
                                 舱位等级<input type="text" name="classes" size="10" autocomplete="off" class="name-zst" readonly="readonly" value="${numbers.classes}">
@@ -166,7 +166,7 @@
 
                             </div>
                             <div class="first-id-zst">
-                                证件号码<input type="text" name="ID" size="20" autocomplete="off">
+                                证件号码<input type="text" name="ID" size="20" autocomplete="off"  id="idcard">
                             </div>
                             <div class="first-classes-zst">
                                 舱位等级<input type="text" name="classes" size="10" autocomplete="off" class="name-zst" readonly="readonly" value="${numbers.classes}">

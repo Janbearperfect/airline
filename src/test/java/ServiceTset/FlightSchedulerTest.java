@@ -46,7 +46,7 @@ public class FlightSchedulerTest {
 	}
 	@Test
 	public void getTest() {
-		System.out.println(fs.getFlightScheduler(1));
+		System.out.println(fs.getFlightScheduler(18));
 	}
 	
 }

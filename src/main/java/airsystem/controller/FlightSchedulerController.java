@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSON;
 
 import airsystem.entity.FlightScheduler;
+import airsystem.entity.PersonalTicket;
 import airsystem.entity.QueryFlight;
 import airsystem.service.prototype.FlightSchedulerService;
 import airsystem.service.prototype.QueryFlightService;
@@ -133,10 +134,28 @@ public class FlightSchedulerController {
 		return mv;
 	}
 	
-	
 	@RequestMapping("/queryflight")
 	public ModelAndView queryFlight(){
 		ModelAndView mv=new ModelAndView("queryflight");
 		return mv;
 	}
+	
+	//验证个人身份信息
+	@RequestMapping("/personalInfo")
+	@ResponseBody
+	public String personalInfo(HttpServletRequest request) {
+		String flag=request.getParameter("ID");
+		return qfs.getPersonalInfo(flag);
+	}
+	
+	//查询个人未出行航班
+	@RequestMapping("")
+	@ResponseBody
+	public String listPersonal(HttpServletRequest request){
+		String IDNumber=request.getParameter("IDNumber");
+		List<PersonalTicket> list=qfs.listPersonalFutureTicket(IDNumber);
+		return JSON.toJSONString(list);
+	}
+	
+	
 }

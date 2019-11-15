@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import airsystem.config.TestConfig;
 import airsystem.dao.prototype.QueryFlightDao;
-import airsystem.entity.Airport;
+import airsystem.entity.PersonalTicket;
 import airsystem.entity.QueryFlight;
 
 /**
@@ -29,6 +29,13 @@ public class QueryFlightDaoTest {
 		List<QueryFlight> list=qf.listQueryFlight("Ì«Ô­", "ÔË³Ç", "2019-11-06");
 		for (QueryFlight queryFlight : list) {
 			System.out.println(queryFlight);
+		}
+	}
+	@Test
+	public void listquert() {
+		List<PersonalTicket> list=qf.listPersonalFutureTicket("111222");
+		for (PersonalTicket personalTicket : list) {
+			System.out.println(personalTicket);
 		}
 	}
 

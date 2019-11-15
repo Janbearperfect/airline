@@ -133,7 +133,7 @@
 		            </div>
 	             </div>
             <%} %>
-         <button class="continue">继续</button>
+         <button  class="continue">继续</button>
     </div>
        
    

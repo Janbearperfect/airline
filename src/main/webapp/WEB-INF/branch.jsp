@@ -17,6 +17,8 @@
 	<table class="table table-bordered">
 		<tr>
 		<th>营业点ID</th>
+		<th>营业点编号</th>
+		<th>密码</th>
 		<th>名字</th>
 		<th>地址</th>
 		<th>电话</th>
@@ -25,7 +27,9 @@
 	</tr>
 	<c:forEach items="${brs}" var="brs">
 			<tr attr="${brs.id}">
-				<td>${brs.id}</td>				
+				<td>${brs.id}</td>	
+				<td>${brs.bNumber}</td>
+				<td>${brs.bPassword}</td>			
 				<td>${brs.name}</td>				
 				<td>${brs.address}</td>				
 				<td>${brs.telephone}</td>				
@@ -43,32 +47,46 @@
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-    		
-			<div class="formbox">
-			  <form action="branchUpdate">
-			      <div class="form-group">
-			   		<label for="exampleInputEmail1">营业点ID</label>
-			    	<input type="text" class="form-control branchId" id="exampleInputEmail1" name="branchId" readOnly>
-			  	  </div>
-				  <div class="form-group">
-				    <label for="exampleInputPassword1">名字</label>
-				    <input type="text" class="form-control branchName" id="exampleInputPassword1"  name="branchName">
-				  </div>
-				  <div class="form-group">
-				    <label for="exampleInputPassword1">地址</label>
-				    <input type="text" class="form-control branchAddress" id="exampleInputPassword1"  name="branchAddress">
-				  </div>
-				  <div class="form-group">
-				    <label for="exampleInputPassword1">电话</label>
-				    <input type="text" class="form-control branchTele" id="exampleInputPassword1" name="branchTele">
-				  </div>
-				  <div class="form-group">
-				    <label for="exampleInputPassword1">省份</label>
-				    <input type="text" class="form-control BranchPro" id="exampleInputPassword1" name="BranchPro">
-				  </div>
-				  <button type="submit" class="btn btn-success">保存</button>
-			  </form>
-		  </div>
+			  <form class="form-inline" style="margin-left:30px;margin-top: 20px" action="branchUpdate">
+                    <div class="form-group">
+                        <label for="exampleInputName2" style="width=100px;height=100%">营业点ID</label>
+                        <input type="text" class="form-control branchId" id="flightNumber" name="branchId" readOnly>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail2">营业点编号</label>
+                        <input type="text" class="form-control branchNumber" id="airplane" name="branchNumber">
+                         <label for="exampleInputEmail2">密码</label>
+                        <input type="text" class="form-control branchPassword" id="startDate" name="branchPassword">
+                    </div>
+                    <div style="width: 100%;height: 10px"></div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail2">营业点名称</label>
+                        <input type="text" class="form-control branchName" id="fromCity" name="branchName">
+                    </div>
+                    <div style="width: 100%;height: 10px"></div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail2">营业点地址</label>
+                        <input type="text" class="form-control  branchAddress" id="fromAirport"  name="branchAddress">
+                    </div>
+                    <br>
+                    <div style="width: 100%;height: 10px"></div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail2">电话</label>
+                        <input type="datetime_local" class="form-control branchTele" id="departureTime" name="branchTele">
+                    </div>
+                    <br>
+                    <div style="width: 100%;height: 10px"></div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail2" style="width: 55px;text-align: center">省份</label>
+                        <input type="text" class="form-control BranchPro" id="scheduler" name="BranchPro">
+                    </div>
+
+            
+                    <br>
+                    <div style="width: 100%;height: 10px"></div>
+                        <button type="submit" class="btn btn-success" style="margin-left: 460px;margin-bottom: 20px">修改</button>
+                </form>
+
     </div>
   </div>
 </div>
@@ -102,24 +120,28 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 			<div class="formbox">
-			<div class="ad"><span>添加机场</span></div>
+			<div class="ad"><span>添加营业点</span></div>
 			  <form action="addBranch">
 			  
 				  <div class="form-group">
 				    <label for="exampleInputPassword1">名字</label>
-				    <input type="text" class="form-control branchName" id="exampleInputPassword1"  name="branchName">
+				    <input type="text" class="form-control branchName1" id="exampleInputPassword1"  name="branchName1">
+				  </div>
+				    <div class="form-group">
+				    <label for="exampleInputPassword1">编号</label>
+				    <input type="text" class="form-control branchNumber1" id="exampleInputPassword1"  name="branchNumber1">
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputPassword1">地址</label>
-				    <input type="text" class="form-control branchAddress" id="exampleInputPassword1"  name="branchAddress">
+				    <input type="text" class="form-control branchAddress1" id="exampleInputPassword1"  name="branchAddress1">
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputPassword1">电话</label>
-				    <input type="text" class="form-control branchTele" id="exampleInputPassword1" name="branchTele">
+				    <input type="text" class="form-control branchTele1" id="exampleInputPassword1" name="branchTele1">
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputPassword1">省份</label>
-				    <input type="text" class="form-control BranchPro" id="exampleInputPassword1" name="BranchPro">
+				    <input type="text" class="form-control BranchPro1" id="exampleInputPassword1" name="BranchPro1">
 				  </div>
 				  <button type="submit" class="btn btn-success">保存</button>
 			  </form>

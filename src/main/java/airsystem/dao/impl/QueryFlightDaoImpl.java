@@ -12,10 +12,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import airsystem.dao.prototype.QueryFlightDao;
-import airsystem.entity.Airport;
+import airsystem.entity.PersonalTicket;
 import airsystem.entity.QueryFlight;
 /**
- * 查询航班
+ * 航班信息
  * @author 赵胜涛
  *
  */
@@ -67,9 +67,62 @@ public class QueryFlightDaoImpl implements QueryFlightDao{
 	}
 
 	@Override
-	public QueryFlight getQueryFlight(int id) {
-		
-		return null;
+	public String getPersonalInfo(String IDNumber) {
+		int count =jdbcTemplate.queryForObject("select count(*) from user_info where ID_number =?", new Object[] {IDNumber}, Integer.class);
+		if(count!=0) {
+			return "true";
+		}
+		return "false";
 	}
+
+
+	@Override
+	public List<PersonalTicket> listPersonalFutureTicket(String IDNumber) {
+		List<PersonalTicket> listTicket=new ArrayList<>();
+		List<PersonalTicket>list= jdbcTemplate.query("select ticket_order.id,ticket_order.ID_number,flight.flight_number,user_info.name,ticket_order.order_date,ticket_order.classes,ticket_order.passenger_type,ticket_order.status,ticket_order.t_price,flight_scheduler.departure_time,flight_scheduler.arrival_time,flight_scheduler.sail_length,flight_scheduler.from_city,flight_scheduler.to_city from ticket_order left join user_info on ticket_order.ID_number=user_info.ID_number left join flight on ticket_order.flight_id=flight.flight_id left join flight_scheduler on flight.flight_number =flight_scheduler.flight_number where ticket_order.ID_number=? and NOW()<flight_scheduler.departure_time;", new Object[]{IDNumber},new BeanPropertyRowMapper<PersonalTicket>(PersonalTicket.class));
+		for (PersonalTicket personalTicket : list) {
+			personalTicket.setFromCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getFromCity()},java.lang.String.class));
+			personalTicket.setToCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getToCity()},java.lang.String.class));
+			listTicket.add(personalTicket);
+		}
+		return listTicket;
+	}
+
+	@Override
+	public List<PersonalTicket> listPersonalBeforeTicket(String IDNumber) {
+		List<PersonalTicket> listTicket=new ArrayList<>();
+		List<PersonalTicket>list=jdbcTemplate.query("select ticket_order.id,flight.flight_number,user_info.name,ticket_order.order_date,ticket_order.classes,ticket_order.passenger_type,ticket_order.status,ticket_order.t_price,flight_scheduler.departure_time,flight_scheduler.arrival_time,flight_scheduler.sail_length,flight_scheduler.from_city,flight_scheduler.to_city from ticket_order left join user_info on ticket_order.ID_number=user_info.ID_number left join flight on ticket_order.flight_id=flight.flight_id left join flight_scheduler on flight.flight_number =flight_scheduler.flight_number where ticket_order.ID_number=? and NOW()>flight_scheduler.departure_time;", new Object[]{IDNumber},new BeanPropertyRowMapper<PersonalTicket>(PersonalTicket.class));
+		 for (PersonalTicket personalTicket : list) {
+				personalTicket.setFromCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getFromCity()},java.lang.String.class));
+				personalTicket.setToCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getToCity()},java.lang.String.class));
+				listTicket.add(personalTicket);
+			}
+			return listTicket;
+	}
+
+	@Override
+	public List<PersonalTicket> listPersonalFutureTicketId(int userId) {
+		List<PersonalTicket> listTicket=new ArrayList<>();
+		List<PersonalTicket>list=jdbcTemplate.query("select ticket_order.id,ticket_order.ID_number,flight.flight_number,user_info.name,ticket_order.order_date,ticket_order.classes,ticket_order.passenger_type,ticket_order.status,ticket_order.t_price,flight_scheduler.departure_time,flight_scheduler.arrival_time,flight_scheduler.sail_length,flight_scheduler.from_city,flight_scheduler.to_city.from ticket_order left join user_info on ticket_order.ID_number=user_info.ID_number left join flight on ticket_order.flight_id=flight.flight_id left join flight_scheduler on flight.flight_number =flight_scheduler.flight_number where ticket_order.user_id=? and NOW()<flight_scheduler.departure_time;", new Object[]{userId},new BeanPropertyRowMapper<PersonalTicket>(PersonalTicket.class));
+		 for (PersonalTicket personalTicket : list) {
+				personalTicket.setFromCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getFromCity()},java.lang.String.class));
+				personalTicket.setToCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getToCity()},java.lang.String.class));
+				listTicket.add(personalTicket);
+			}
+			return listTicket;
+	}
+
+	@Override
+	public List<PersonalTicket> listPersonalBeforeTicketId(int userId) {
+		List<PersonalTicket> listTicket=new ArrayList<>();
+		List<PersonalTicket>list=jdbcTemplate.query("select ticket_order.id,ticket_order.ID_number,flight.flight_number,user_info.name,ticket_order.order_date,ticket_order.classes,ticket_order.passenger_type,ticket_order.status,ticket_order.t_price,flight_scheduler.departure_time,flight_scheduler.arrival_time,flight_scheduler.sail_length,flight_scheduler.from_city,flight_scheduler.to_city from ticket_order left join user_info on ticket_order.ID_number=user_info.ID_number left join flight on ticket_order.flight_id=flight.flight_id left join flight_scheduler on flight.flight_number =flight_scheduler.flight_number where ticket_order.user_id=? and NOW()>flight_scheduler.departure_time;", new Object[]{userId},new BeanPropertyRowMapper<PersonalTicket>(PersonalTicket.class));
+		 for (PersonalTicket personalTicket : list) {
+				personalTicket.setFromCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getFromCity()},java.lang.String.class));
+				personalTicket.setToCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getToCity()},java.lang.String.class));
+				listTicket.add(personalTicket);
+			}
+			return listTicket;
+	}
+
 
 }

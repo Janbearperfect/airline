@@ -41,24 +41,25 @@ public class BranchController {
 		return JSON.toJSONString(brs);
 	}
 	
-	@RequestMapping("/branchUpdate")
+	@RequestMapping(value="/branchUpdate",produces="application/json;charset=utf-8")
 	public void branchUpdate(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		
         Integer branchId=Integer.parseInt(request.getParameter("branchId"));
-		String branchName=new String(request.getParameter("branchName").getBytes("8859_1"),"utf-8");
-		String branchAddress=new String(request.getParameter("branchAddress").getBytes("8859_1"),"utf-8");
-		String branchTele=new String(request.getParameter("branchTele").getBytes("8859_1"),"utf-8");
-		String BranchPro=new String(request.getParameter("BranchPro").getBytes("8859_1"),"utf-8");
-		
+        String branchNumber=new String(request.getParameter("branchNumber"));
+		String branchName=new String(request.getParameter("branchName"));
+		String branchAddress=new String(request.getParameter("branchAddress"));
+		String branchTele=new String(request.getParameter("branchTele"));
+		String BranchPro=new String(request.getParameter("BranchPro"));
+		String branchPassword="123456";
 		Branch b = new Branch();
 		b.setId(branchId);
+		b.setbNumber(branchNumber);
+		b.setbPassword(branchPassword);
 		b.setName(branchName);
 		b.setAddress(branchAddress);
 		b.setTelephone(branchTele);
 		b.setProvince(BranchPro);
-		
 		branch.saveOrUpdateBranch(b);
-		
 		response.sendRedirect("branch");
 	}
 	@RequestMapping("/delete/{id}")
@@ -70,13 +71,14 @@ public class BranchController {
 	
 	@RequestMapping("/addBranch")
 	public void addBranch(HttpServletRequest request,HttpServletResponse response) throws IOException {
-		    
-			String branchName=new String(request.getParameter("branchName").getBytes("8859_1"),"utf-8");
-			String branchAddress=new String(request.getParameter("branchAddress").getBytes("8859_1"),"utf-8");
-			String branchTele=new String(request.getParameter("branchTele").getBytes("8859_1"),"utf-8");
-			String BranchPro=new String(request.getParameter("BranchPro").getBytes("8859_1"),"utf-8");
+		    String branchNumber=new String(request.getParameter("branchNumber1"));
+			String branchName=new String(request.getParameter("branchName1"));
+			String branchAddress=new String(request.getParameter("branchAddress1"));
+			String branchTele=new String(request.getParameter("branchTele1"));
+			String BranchPro=new String(request.getParameter("BranchPro1"));
 			Branch b = new Branch();
 			b.setId(0);
+			b.setbNumber(branchNumber);
 			b.setName(branchName);
 			b.setAddress(branchAddress);
 			b.setTelephone(branchTele);

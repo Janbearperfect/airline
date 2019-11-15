@@ -1,7 +1,4 @@
-
-	$(".list-submit").click(function(){
-		location.href="http://localhost:8888/airline/ticket/pushTicket";
-	})
+$(function(){
 $().ready(function() {
 		// 在键盘按下并释放及提交后验证提交表单
 		  $("#form").validate({
@@ -9,14 +6,27 @@ $().ready(function() {
 		      name: "required",
 		      ID: {
 		        required: true,
-		      }
+			    remote: {
+			        url: "personalInfo",     //后台处理程序
+			        type: "post",               //数据发送方式
+			        dataType: "json",           //接受数据格式   
+			        data: {                     //要传递的数据
+			            ID: function() {
+			                return $("#idcard").val();
+			                
+			            }
+			        }
+			    }
+		      },
+		      
 		    },
 		    messages: {
-		      name: "!",
-		  
+		      name: "&nbsp; !!!",
 		      ID: {
-		        required: "!",
+		        required: "&nbsp; !!!",
+		        remote:"&nbsp; !!!"
 		      }
 		    },
 		    })
 		});
+})

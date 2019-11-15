@@ -33,11 +33,11 @@ public class BranchDaoImpl implements BranchDao{
 	@Override
 	public void saveOrUpdateBranch(Branch branch) {
 		if(branch.getId()==0) {
-			jdbcTemplate.update("insert into branch(name,address,telephone,province) values(?,?,?,?)",
-					             new Object[] {branch.getName(),branch.getAddress(),branch.getTelephone(),branch.getProvince()});
+			jdbcTemplate.update("insert into branch(name,address,telephone,province,bnumber,bpassword) values(?,?,?,?,?,?)",
+					             new Object[] {branch.getName(),branch.getAddress(),branch.getTelephone(),branch.getProvince(),branch.getbNumber(),"123456"});
 		}else {
-			jdbcTemplate.update("update branch set name=?,address=?,telephone=?,province=? where id=?",
-					             new Object[] {branch.getName(),branch.getAddress(),branch.getTelephone(),branch.getProvince(),branch.getId()});
+			jdbcTemplate.update("update branch set name=?,address=?,telephone=?,province=?, bnumber=?,bpassword=? where id=?",
+					             new Object[] {branch.getName(),branch.getAddress(),branch.getTelephone(),branch.getProvince(),branch.getbNumber(),branch.getbPassword(),branch.getId()});
 		}
 		
 	}
