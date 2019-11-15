@@ -26,6 +26,8 @@
 </form>
 </div>
 <script type="text/javascript" src="/airline/assets/js/jquery-1.9.1.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 <script src="/airline/assets/js/managerLogin.js"></script>
 </body>
 </html>

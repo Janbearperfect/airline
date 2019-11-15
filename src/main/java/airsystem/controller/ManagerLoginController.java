@@ -37,6 +37,8 @@ public class ManagerLoginController {
 			if(password.equals(manager.getPassword())&&num.equals(manager.getNumber())) {
 				session.setAttribute("adminId", manager.getId());
 				session.setAttribute("name", manager.getName());
+				session.setAttribute("type", 1);
+				session.setAttribute("login", "yes");
 				return "success";
 			}else {
 				return "failure";
@@ -47,6 +49,8 @@ public class ManagerLoginController {
 			if(password.equals(branch.getbPassword())) {
 				session.setAttribute("adminId", branch.getId());
 				session.setAttribute("name", branch.getName());
+				session.setAttribute("type", 2);
+				session.setAttribute("login", "yes");
 				return "success";
 			}else {
 				return "failure";
@@ -56,6 +60,8 @@ public class ManagerLoginController {
 			if(password.equals(sale.getPassword())&&num.equals(sale.getNumber())) {
 				session.setAttribute("adminId", sale.getId());
 				session.setAttribute("name", sale.getName());
+				session.setAttribute("type", 3);
+				session.setAttribute("login", "yes");
 				return "success";
 			}else {
 				return "failure";
