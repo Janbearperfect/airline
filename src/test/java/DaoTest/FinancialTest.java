@@ -29,7 +29,7 @@ public class FinancialTest {
 	
 	@Test
 	public void test2() {
-		List<FinancialType> list=f.listFinancialType();
+		List<FinancialType> list=f.listFinancialType(1);
 		for (FinancialType financialType : list) {
 			System.out.println(financialType);
 		}
@@ -37,6 +37,49 @@ public class FinancialTest {
 	
 	@Test
 	public void test3() {
-		System.out.println(f.financialTotal());
+		System.out.println(f.financialTotal(1));
+	}
+	@Test
+	public void test4() {
+		List<FinancialClasses> list=f.listFinancialClass(1);
+		for (FinancialClasses financialClasses : list) {
+			System.out.println(financialClasses);
+		}		
+	}
+	@Test
+	public void test5() {
+		List<FinancialClasses> list=f.listFinancialClassQuarter(1);
+		for (FinancialClasses financialClasses : list) {
+			System.out.println(financialClasses);
+		}
+	}
+	@Test
+	public void Test6() {
+		List<FinancialType> list=f.listFinancialTypeQuarter(1);
+		for (FinancialType financialType : list) {
+			System.out.println(financialType);
+		}
+	}
+	@Test
+	public void test7() {
+		System.out.println(f.financialQuarterTotal(1));
+	}
+	@Test
+	public void test8() {
+		List<FinancialClasses> list=f.listFinancialClassYear(1);
+		for (FinancialClasses financialClasses : list) {
+			System.out.println(financialClasses);
+		}
+	}
+	@Test
+	public void test9() {
+		List<FinancialType> list=f.listFinancialTypeYear(1);
+		for (FinancialType financialType : list) {
+			System.out.println(financialType);
+		}
+	}
+	@Test
+	public void test10() {
+		System.out.println(f.financialYearTotal(1));
 	}
 }

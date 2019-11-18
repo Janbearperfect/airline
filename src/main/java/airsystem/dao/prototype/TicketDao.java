@@ -21,4 +21,10 @@ public interface TicketDao {
   List<Ticket> searchSelfAllTicket(int userId);
   List<Ticket> searchSelfChangeTicket(int userId);
   List<Ticket> searchSelfRefundTicket(int userId);
+  List<TicketBo> listTicket(int branchId);
+  int countTicketTotal(int branchId);
+  List<TicketBo> listTicketChange(int branchId);
+  int countTicketChangeTotal(int branchId);
+  List<TicketBo> listTicketRefund(int branchId);
+  int countTicketRefundTotal(int branchId);
 }

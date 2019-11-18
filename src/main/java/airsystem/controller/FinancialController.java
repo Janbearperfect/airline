@@ -3,6 +3,8 @@ package airsystem.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,35 +25,62 @@ public class FinancialController {
 	private FinancialService financialService;
 	
 	@RequestMapping(value="/dailyfinancial",produces = "application/json; charset=utf-8")
-	public ModelAndView listFinancialView() {
+	public ModelAndView listFinancialView(HttpSession session) {
 		ModelAndView mv=new ModelAndView("dailyfinancial");
-		List<FinancialClasses> list=financialService.listFinancialClass();
-		mv.addObject("classes",list);
-		List<FinancialType> list1=financialService.listFinancialType();
-		mv.addObject("type",list1);
-		double num=financialService.financialTotal();
+		List<FinancialClasses> list=null;
+		List<FinancialType> list1=null;
+		double num=0;
+		if((int)session.getAttribute("type")==1) {
+			list=financialService.listFinancialClass();
+			list1=financialService.listFinancialType();
+			num=financialService.financialTotal();
+		}else {
+			list=financialService.listFinancialClass((int)session.getAttribute("adminId"));
+			list1=financialService.listFinancialType((int)session.getAttribute("adminId"));
+			num=financialService.financialTotal((int)session.getAttribute("adminId"));
+		}		
+		mv.addObject("classes",list);	
+		mv.addObject("type",list1);	
 		mv.addObject("num",num);
 		return  mv;
 	}
 	@RequestMapping(value="/quarterfinancial",produces = "application/json; charset=utf-8")
-	public ModelAndView quarterfinancial() {
+	public ModelAndView quarterfinancial(HttpSession session) {
+		List<FinancialClasses> list=null;
+		List<FinancialType> list1=null;
+		double num=0;
 		ModelAndView mv=new ModelAndView("quarterfinancial");
-		List<FinancialClasses> list=financialService.listFinancialClassQuarter();
+		if((int)session.getAttribute("type")==1) {
+			list=financialService.listFinancialClassQuarter();
+			list1=financialService.listFinancialTypeQuarter();
+			num=financialService.financialQuarterTotal();
+		}else {
+			list=financialService.listFinancialClassQuarter((int)session.getAttribute("adminId"));
+			list1=financialService.listFinancialTypeQuarter((int)session.getAttribute("adminId"));
+			num=financialService.financialQuarterTotal((int)session.getAttribute("adminId"));
+		}
 		mv.addObject("classes",list);
-		List<FinancialType> list1=financialService.listFinancialTypeQuarter();
 		mv.addObject("type",list1);
-		double num=financialService.financialQuarterTotal();
 		mv.addObject("num",num);
 		return mv;
 	}
 	@RequestMapping(value="/yearlyfinancial",produces = "application/json; charset=utf-8")
-	public ModelAndView yearlyfinancial() {
-		ModelAndView mv=new ModelAndView("yearlyfinancial");
-		List<FinancialClasses> list=financialService.listFinancialClassYear();
-		mv.addObject("classes",list);
-		List<FinancialType> list1=financialService.listFinancialTypeYear();
+	public ModelAndView yearlyfinancial(HttpSession session) {
+		List<FinancialClasses> list=null;
+		List<FinancialType> list1=null;
+		double num=0;
+		if((int)session.getAttribute("type")==1) {
+			list=financialService.listFinancialClassYear();
+			list1=financialService.listFinancialTypeYear();
+			num=financialService.financialYearTotal();
+		}else {
+			list=financialService.listFinancialClassYear((int)session.getAttribute("adminId"));
+			list1=financialService.listFinancialTypeYear((int)session.getAttribute("adminId"));
+			num=financialService.financialYearTotal((int)session.getAttribute("adminId"));
+		}
+		ModelAndView mv=new ModelAndView("yearlyfinancial");	
+		mv.addObject("classes",list);	
 		mv.addObject("type",list1);
-		double num=financialService.financialYearTotal();
 		mv.addObject("num",num);
 		return mv;
 	}

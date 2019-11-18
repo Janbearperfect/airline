@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -16,6 +17,7 @@ import airsystem.entity.TicketBo;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= {TestConfig.class})
 public class TicketDaoTest {
+	
     @Autowired
 	private TicketDao tdao;
 	
@@ -73,4 +75,39 @@ public class TicketDaoTest {
 		}
     }
     
+    @Test
+    public void test8() {
+    	List<TicketBo> list=tdao.listTicket(1);
+    	for (TicketBo ticketBo : list) {
+			System.out.println(ticketBo);
+		}
+    }
+    
+    @Test
+    public void test9() {
+    	List<TicketBo> list=tdao.listTicketChange(1);
+    	for (TicketBo ticketBo : list) {
+			System.out.println(ticketBo);
+		}
+    }
+    
+    @Test
+    public void test10() {
+    	List<TicketBo> list=tdao.listTicketRefund(1);
+    	for (TicketBo ticketBo : list) {
+    		System.out.println(ticketBo);
+		}
+    }
+    @Test
+    public void test11() {
+    	System.out.println(tdao.countTicketTotal(1));
+    }
+    @Test
+    public void test12() {
+    	System.out.println(tdao.countTicketChangeTotal(1));
+    }
+    @Test
+    public void test13() {
+    	System.out.println(tdao.countTicketRefundTotal(1));
+    }
 }

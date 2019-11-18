@@ -12,6 +12,7 @@
 <body>
 <div id="viewone" ></div>
 <div id="viewtwo" ></div>
+
  <div class="container">
  <table class="table table-bordered">
 		 <tr>
@@ -22,6 +23,7 @@
 		    
 		 </tr>
 		  <tr>
+		 
 		 <c:forEach items="${type}" var="type">
 		    
 		          <td>${type.price}元</td>
@@ -49,7 +51,7 @@
 		       <td>${num}元</td> 
 		      </tr>
 </table> 
-		 
+
 </body>
 <script src="/airline/assets/js/jquery-1.9.1.js"></script>
 

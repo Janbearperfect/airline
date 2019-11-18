@@ -78,6 +78,69 @@ public class FinancialDaoImpl implements FinancialDao{
 		return jdbcTemplate.queryForObject("SELECT SUM(t_price) AS tprice FROM ticket_order where  YEAR(order_date)=Year(now()) and `status`=1 or  YEAR(order_date)=Year(now()) and `status`=2;\r\n" + 
 				"", new Object[] {},Integer.class);
 	}
+
+	@Override
+	public List<FinancialClasses> listFinancialClass(int branchId) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.query("SELECT classes AS classes,SUM(t_price) AS price FROM ticket_order  LEFT JOIN sales ON sales.id=ticket_order.sales_id LEFT JOIN branch ON branch.id=sales.branch_id where  to_days(order_date) = to_days(now()) AND branch.id=? and `status`=1  or TO_DAYS(order_date)=TO_DAYS(NOW()) AND branch.id=? and`status`=2 GROUP BY classes",
+				new Object[] {branchId,branchId},new BeanPropertyRowMapper(FinancialClasses.class));
+	}
+
+	@Override
+	public List<FinancialType> listFinancialType(int branchId) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.query("SELECT passenger_type AS type,SUM(t_price) AS price FROM ticket_order  LEFT JOIN sales ON sales.id=ticket_order.sales_id LEFT JOIN branch ON branch.id=sales.branch_id where  to_days(order_date) = to_days(now()) AND branch.id=? and `status`=1  or TO_DAYS(order_date)=TO_DAYS(NOW()) AND branch.id=? and`status`=2 GROUP BY passenger_type",
+				new Object[] {branchId,branchId},new BeanPropertyRowMapper(FinancialType.class));
+	}
+
+	@Override
+	public double financialTotal(int branchId) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.queryForObject("SELECT SUM(t_price) AS tprice FROM ticket_order LEFT JOIN sales ON sales.id=ticket_order.sales_id LEFT JOIN branch ON branch.id=sales.branch_id where  to_days(order_date) = to_days(now()) AND branch.id=? and `status`=1 or TO_DAYS(order_date)=TO_DAYS(NOW()) AND branch.id=? and `status`=2",
+				new Object[] {branchId,branchId},Integer.class);
+	}
+
+	@Override
+	public List<FinancialClasses> listFinancialClassQuarter(int branchId) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.query("SELECT classes AS classes,SUM(t_price) AS price FROM ticket_order  LEFT JOIN sales ON sales.id=ticket_order.sales_id LEFT JOIN branch ON branch.id=sales.branch_id where  QUARTER(order_date)=QUARTER(now()) and YEAR(order_date)=Year(now()) AND branch.id=? and `status`=1  or QUARTER(order_date)=QUARTER(now()) and YEAR(order_date)=Year(now()) AND branch.id=? and`status`=2 GROUP BY classes",
+				new Object[] {branchId,branchId},new BeanPropertyRowMapper(FinancialClasses.class));
+	}
+
+	@Override
+	public List<FinancialType> listFinancialTypeQuarter(int branchId) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.query("SELECT passenger_type AS type,SUM(t_price) AS price FROM ticket_order  LEFT JOIN sales ON sales.id=ticket_order.sales_id LEFT JOIN branch ON branch.id=sales.branch_id where  QUARTER(order_date)=QUARTER(now()) and YEAR(order_date)=Year(now()) AND branch.id=? and `status`=1  or QUARTER(order_date)=QUARTER(now()) and YEAR(order_date)=Year(now()) AND branch.id=? and`status`=2 GROUP BY passenger_type",
+				new Object[] {branchId,branchId},new BeanPropertyRowMapper(FinancialType.class));
+	}
+
+	@Override
+	public double financialQuarterTotal(int branchId) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.queryForObject("SELECT SUM(t_price) AS tprice FROM ticket_order LEFT JOIN sales ON sales.id=ticket_order.sales_id LEFT JOIN branch ON branch.id=sales.branch_id where  QUARTER(order_date)=QUARTER(now()) and YEAR(order_date)=Year(now()) AND branch.id=? and `status`=1 or QUARTER(order_date)=QUARTER(now()) and YEAR(order_date)=Year(now()) AND branch.id=? and `status`=2",
+				new Object[] {branchId,branchId},Integer.class);
+	}
+
+	@Override
+	public List<FinancialClasses> listFinancialClassYear(int branchId) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.query("SELECT classes AS classes,SUM(t_price) AS price FROM ticket_order  LEFT JOIN sales ON sales.id=ticket_order.sales_id LEFT JOIN branch ON branch.id=sales.branch_id where   YEAR(order_date)=Year(now()) AND branch.id=? and `status`=1  or YEAR(order_date)=Year(now()) AND branch.id=? and`status`=2 GROUP BY classes",
+				new Object[] {branchId,branchId},new BeanPropertyRowMapper(FinancialClasses.class));
+	}
+
+	@Override
+	public List<FinancialType> listFinancialTypeYear(int branchId) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.query("SELECT passenger_type AS type,SUM(t_price) AS price FROM ticket_order  LEFT JOIN sales ON sales.id=ticket_order.sales_id LEFT JOIN branch ON branch.id=sales.branch_id where   YEAR(order_date)=Year(now()) AND branch.id=? and `status`=1  or  YEAR(order_date)=Year(now()) AND branch.id=? and`status`=2 GROUP BY passenger_type",
+				new Object[] {branchId,branchId},new BeanPropertyRowMapper(FinancialType.class));
+	}
+
+	@Override
+	public double financialYearTotal(int branchId) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.queryForObject("SELECT SUM(t_price) AS tprice FROM ticket_order LEFT JOIN sales ON sales.id=ticket_order.sales_id LEFT JOIN branch ON branch.id=sales.branch_id where   YEAR(order_date)=Year(now()) AND branch.id=? and `status`=1 or  YEAR(order_date)=Year(now()) AND branch.id=? and `status`=2",
+				new Object[] {branchId,branchId},Integer.class);
+	}
 	
 
 

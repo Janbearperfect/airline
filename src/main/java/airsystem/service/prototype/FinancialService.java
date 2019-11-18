@@ -6,6 +6,7 @@ import airsystem.entity.FinancialClasses;
 import airsystem.entity.FinancialType;
 
 public interface FinancialService {
+	//所有财务
 	List<FinancialClasses> listFinancialClass();
     List<FinancialType> listFinancialType();
     double financialTotal();
@@ -15,4 +16,14 @@ public interface FinancialService {
     List<FinancialClasses> listFinancialClassYear();
     List<FinancialType> listFinancialTypeYear();
     double financialYearTotal();
+    //营业点财务
+    List<FinancialClasses> listFinancialClass(int branchId);
+    List<FinancialType> listFinancialType(int branchId);
+    double financialTotal(int branchId);
+    List<FinancialClasses> listFinancialClassQuarter(int branchId);
+    List<FinancialType> listFinancialTypeQuarter(int branchId);
+    double financialQuarterTotal(int branchId);
+    List<FinancialClasses> listFinancialClassYear(int branchId);
+    List<FinancialType> listFinancialTypeYear(int branchId);
+    double financialYearTotal(int branchId);
 }

@@ -23,7 +23,7 @@ public class FinancialTest {
 	
 	@Test
 	public void test1() {
-		List<FinancialClasses> list=f.listFinancialClass();
+		List<FinancialClasses> list=f.listFinancialClass(2);
 		for (FinancialClasses financialClasses : list) {
 			System.out.println(financialClasses);
 		}
@@ -42,7 +42,7 @@ public class FinancialTest {
 	
 	@Test
 	public void test4() {
-		List<FinancialClasses> list=f.listFinancialClassQuarter();
+		List<FinancialClasses> list=f.listFinancialClassQuarter(2);
 		for (FinancialClasses financialClasses : list) {
 			System.out.println(financialClasses);
 		}

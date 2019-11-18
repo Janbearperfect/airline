@@ -10,30 +10,30 @@
  <script type="text/javascript" src="/airline/assets/js/jquery-1.9.1.js"></script>
  <script src="/airline/assets/js/main.js"></script>
  <script src="/airline/assets/layui/layui.js"></script>
- <script src="/airline/assets/js/main.js"></script>
  <script>
 layui.use('element', function(){
   var element = layui.element;
 });
 </script> 
 <%
-String type="2";
-/* try{
-type=session.getAttribute("utype").toString();
+String type="";
+  try{
+type=session.getAttribute("type").toString();
 }catch(Exception e){
-	response.sendRedirect("../login.jsp");
-} */
+	response.sendRedirect("main");
+}  
+  
 %>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
   <div class="layui-header">
-  	<% if(type.equals("2")){ %>
+  	<% if(type.equals("1")){ %>
     <div class="layui-logo">航空后台管理系统</div>
-    <%}else if(type.equals("1")){ %>
+    <%}else if(type.equals("3")){ %>
     <div class="layui-logo">航空售票系统</div>
 
-    <%}else if(type.equals("3")){ %>
+    <%}else if(type.equals("2")){ %>
     <div class="layui-logo">航空管理系统</div>
     <%} %> 
     
@@ -61,7 +61,7 @@ type=session.getAttribute("utype").toString();
           <dd><a href="../Index/safe.jsp" target="aaa">修改密码</a></dd>
         </dl>
       </li>
-      <li class="layui-nav-item loginout"><a href="">退出</a></li>
+      <li class="layui-nav-item"><a href="../exit.jsp">退出</a></li>
     </ul>
   </div>
   
@@ -83,7 +83,7 @@ type=session.getAttribute("utype").toString();
             <%} %>
           </dl>
         </li>
-         <%if(type.equals("2")){ %>
+         <%if(type.equals("1")){ %>
          <li class="layui-nav-item">
           <a href="javascript:;"  >信息管理</a>
           <dl class="layui-nav-child">
@@ -121,7 +121,7 @@ type=session.getAttribute("utype").toString();
           </dl>
         </li>
          
-        <%}else if(type.equals("1")){ %>
+        <%}else if(type.equals("3")){ %>
         	 <li class="layui-nav-item">
           <a href="javascript:;"  >票务管理</a>
           <dl class="layui-nav-child">
@@ -137,7 +137,32 @@ type=session.getAttribute("utype").toString();
          
           </dl>
         </li>
-        <%} %>
+     <%}else if(type.equals("2")){ %>
+       <li class="layui-nav-item">
+          <a href="javascript:;"  >信息管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="sales" target="aaa" >营业员管理</a></dd>
+            <dd><a href="planflight" target="aaa" >航班计划</a></dd>
+            <dd><a href="queryflight" target="aaa" >航班查询</a></dd>
+          </dl>
+        </li>
+       <li class="layui-nav-item">
+          <a href="javascript:;"  >票务管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="sellticket" target="aaa" >已售机票</a></dd>
+            <dd><a href="changeticket" target="aaa" >改签机票</a></dd>
+            <dd><a href="refundticket" target="aaa" >退订机票</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">财务管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="dailyfinancial"  target="aaa">每日财报</a></dd>
+            <dd><a href="quarterfinancial"  target="aaa">季度财报</a></dd>
+            <dd><a href="yearlyfinancial"  target="aaa">年度财报</a></dd>
+          </dl>
+        </li>
+     <%} %>
       </ul>
     </div>
   </div>
@@ -154,4 +179,6 @@ type=session.getAttribute("utype").toString();
 </div>
 </body>
 </html>
+  
+
   

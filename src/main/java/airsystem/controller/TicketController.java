@@ -35,25 +35,47 @@ public class TicketController {
 	}
 	
 	@RequestMapping("/sellticket")
-	public ModelAndView listTicketView() {
-	   ModelAndView mv=new ModelAndView("sellticket");
-	   List<TicketBo> listTicket=ticketService.listPaged(); 
-	  mv.addObject("ticket", listTicket);
-	 
+	public ModelAndView listTicketView(HttpSession session) {	
+		
+		 List<TicketBo> listTicket=null;
+		if((int)session.getAttribute("type")==1) {
+			    listTicket=ticketService.listPaged(); 
+		}else {
+			listTicket=ticketService.listTicket((int)session.getAttribute("adminId"));
+		}				
+	   ModelAndView mv=new ModelAndView("sellticket");	
+	  mv.addObject("ticket", listTicket);	 
 	 return mv;		
 	}
 	
+
+	
 	@RequestMapping("/changeticket")
-	public ModelAndView listChangeTicketView() {
+	public ModelAndView listChangeTicketView(HttpSession session) {
+		 List<TicketBo> listTicket=null;
+		 if((int)session.getAttribute("type")==1) {
+			 listTicket=ticketService.listPagedChange();
+		 }else {
+			 listTicket=ticketService.listTicketChange((int)session.getAttribute("adminId"));
+		 }
 	   ModelAndView mv=new ModelAndView("changeticket");
-	   List<TicketBo> listTicket=ticketService.listPagedChange();
+	
 	  mv.addObject("ticket", listTicket);
 	 return mv;		
 	}
+	
+
+	
 	@RequestMapping("/refundticket")
-	public ModelAndView listRefundTicketView() {
+	public ModelAndView listRefundTicketView(HttpSession session) {
+		 List<TicketBo> listTicket=null;
+		 if((int)session.getAttribute("type")==1) {
+			 listTicket=ticketService.listPagedRefund();
+		 }else {
+			 listTicket=ticketService.listTicketRefund((int)session.getAttribute("adminId"));
+		 }
 	   ModelAndView mv=new ModelAndView("refundticket");
-	   List<TicketBo> listTicket=ticketService.listPagedRefund();
+	
 	  mv.addObject("ticket", listTicket);
 	 return mv;		
 	}

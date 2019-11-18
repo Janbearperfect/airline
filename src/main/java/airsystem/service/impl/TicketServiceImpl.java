@@ -70,6 +70,36 @@ public class TicketServiceImpl implements TicketService{
 	public List<Ticket> searchSelfRefundTicket(int userId) {
 		return ticketDao.searchSelfRefundTicket(userId);
 	}
+	@Override
+	public List<TicketBo> listTicket(int branchId) {
+		// TODO Auto-generated method stub
+		return ticketDao.listTicket(branchId);
+	}
+	@Override
+	public int countTicketTotal(int branchId) {
+		// TODO Auto-generated method stub
+		return ticketDao.countTicketTotal(branchId);
+	}
+	@Override
+	public List<TicketBo> listTicketChange(int branchId) {
+		// TODO Auto-generated method stub
+		return ticketDao.listTicketChange(branchId);
+	}
+	@Override
+	public int countTicketChangeTotal(int branchId) {
+		// TODO Auto-generated method stub
+		return ticketDao.countTicketChangeTotal(branchId);
+	}
+	@Override
+	public List<TicketBo> listTicketRefund(int branchId) {
+		// TODO Auto-generated method stub
+		return ticketDao.listTicketRefund(branchId);
+	}
+	@Override
+	public int countTicketRefundTotal(int branchId) {
+		// TODO Auto-generated method stub
+		return ticketDao.countTicketRefundTotal(branchId);
+	}
 
 
 }

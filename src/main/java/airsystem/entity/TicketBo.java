@@ -10,18 +10,32 @@ public class TicketBo {
     private Date orderDate;
     private int classes;
     private int passengerType;
-    private int  salesId;
+
+    private String saleName;
     private double tPrice;
-	public TicketBo(String uname, String flightNumber, Date orderDate, int classes, int passengerType, int salesId,
-			double tPrice) {
+	public TicketBo(String uname, String flightNumber, Date orderDate, int classes, int passengerType, 
+			String saleName,double tPrice) {
 		super();
 		this.uname = uname;
 		this.flightNumber = flightNumber;
 		this.orderDate = orderDate;
 		this.classes = classes;
 		this.passengerType = passengerType;
-		this.salesId = salesId;
+	
 		this.tPrice = tPrice;
+		this.saleName=saleName;
+	}
+	/**
+	 * @return the saleName
+	 */
+	public String getSaleName() {
+		return saleName;
+	}
+	/**
+	 * @param saleName the saleName to set
+	 */
+	public void setSaleName(String saleName) {
+		this.saleName = saleName;
 	}
 	public TicketBo() {
 		super();
@@ -94,15 +108,7 @@ public class TicketBo {
 	/**
 	 * @return the salesId
 	 */
-	public int getSalesId() {
-		return salesId;
-	}
-	/**
-	 * @param salesId the salesId to set
-	 */
-	public void setSalesId(int salesId) {
-		this.salesId = salesId;
-	}
+
 	/**
 	 * @return the tPrice
 	 */
@@ -118,11 +124,15 @@ public class TicketBo {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "TicketBo [uname=" + uname + ", flightNumber=" + flightNumber + ", orderDate=" + orderDate + ", classes="
-				+ classes + ", passengerType=" + passengerType + ", salesId=" + salesId + ", tPrice=" + tPrice + "]";
+				+ classes + ", passengerType=" + passengerType + ", saleName=" + saleName + ", tPrice=" + tPrice + "]";
 	}
+
 	
 	
     
