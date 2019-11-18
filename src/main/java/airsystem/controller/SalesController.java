@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,9 +26,15 @@ public class SalesController {
 	@Autowired
 	private BranchService branchService;
 	@RequestMapping("/sales")
-	public ModelAndView showSales() {
+	public ModelAndView showSales(HttpSession session) {
+		List<Sales> sales=null;;
 		ModelAndView mv = new ModelAndView("sales");
-		List<Sales> sales = salesService.listSales();
+		if((int)session.getAttribute("type")==1) {
+			sales = salesService.listSales();
+		}else {
+			sales = salesService.listSales((int)session.getAttribute("adminId"));
+		}
+		 
 		mv.addObject("sales", sales);
 		return mv; 
 	}

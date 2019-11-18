@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="/airline/assets/css/bootstrap.css">
 <link rel="stylesheet" href="/airline/assets/css/sales.css">
 </head>
+
+<%String type=session.getAttribute("type").toString(); %>
 <body>
 <div class="box">
 	<button type="button" class="btn btn-lg add"data-toggle="modal" data-target="#myModal">添加</button>
@@ -18,7 +20,10 @@
 			<th>工号</th>
 			<th>姓名</th>
 			<th>密码</th>
+			<%if(type.equals(1)) {%>
 			<th>归属</th>
+			<%} else{%>
+			<%} %>
 			<th>操作</th>
 		</tr>
 		<%int i=1; %>
@@ -28,7 +33,10 @@
 				<td>${sale.number}</td>
 				<td>${sale.saleName}</td>
 				<td>${sale.password}</td>
+				<%if(type.equals(1)) {%>
 				<td>${sale.name}</td>
+				<%} else{%>
+				<%} %>
 				<td>
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">编辑</button>
 					<button type="button" class="btn btn-danger delete"data-toggle="modal" data-target=".bs-example-modal-md">删除</button>

@@ -11,4 +11,5 @@ public interface SalesDao {
 	Sales getSale(int id);
 	void updateSale(int id, String name, String number, String password, int branchId);
 	List<Sales> listSales(int branchId);
+	
 }
