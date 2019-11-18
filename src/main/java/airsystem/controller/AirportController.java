@@ -52,23 +52,16 @@ public class AirportController {
 	@RequestMapping(value="/updateAirport/{airportCode}/{city}/{airportName}")
 	@ResponseBody
 	public String updateAirport(@PathVariable("airportCode") String airportCode,@PathVariable("city") String city,@PathVariable("airportName") String airportName) {
-//		try {
-//			airportCode = new String(airportCode.getBytes("8859_1"),"utf-8");
-//			city = new String(city.getBytes("8859_1"),"utf-8");
-//			airportName = new String(airportName.getBytes("8859_1"),"utf-8");
-//		} catch (UnsupportedEncodingException e) {
-//			e.printStackTrace();
-//		}
 		airportService.updateAirport(airportCode, city, airportName);
 		return "success";
 	}
-	@RequestMapping("/saveAirport")
+	@RequestMapping("/saveAirport/{airportCode}/{city}/{airportName}")
 	@ResponseBody
-	public String saveAirport(HttpServletRequest request , HttpServletResponse response) {
+	public String saveAirport(@PathVariable("airportCode") String airportCode,@PathVariable("city") String city,@PathVariable("airportName") String airportName) {
 		Airport airport = new Airport();
-		String airportCode  = request.getParameter("airportCode");
-		String city = request.getParameter("city");
-		String airportName = request.getParameter("airportName");
+//		String airportCode  = request.getParameter("airportCode");
+//		String city = request.getParameter("city");
+//		String airportName = request.getParameter("airportName");
 		airport.setAirportCode(airportCode);
 		airport.setCity(city);
 		airport.setAirportName(airportName);

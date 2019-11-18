@@ -25,7 +25,7 @@
 				<td>${airport.city}</td>
 				<td>${airport.airportName}</td>
 				<td>
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">编辑</button>
+					<button type="button" class="btn btn-primary get" data-toggle="modal" data-target=".bs-example-modal-sm">编辑</button>
 					<button type="button" class="btn btn-danger delete"data-toggle="modal" data-target=".bs-example-modal-md">删除</button>
 				</td>
 			<tr>
@@ -87,17 +87,17 @@
 			  <form action="">
 			      <div class="form-group">
 			   		<label for="exampleInputEmail1">机场编号</label>
-			    	<input type="text" class="form-control" id="exampleInputEmail1" name="">
+			    	<input type="text" class="form-control airportCode1" id="exampleInputEmail1" name="airportCode">
 			  	  </div>
 				  <div class="form-group">
 				    <label for="exampleInputPassword1">城市</label>
-				    <input type="text" class="form-control" id="exampleInputPassword1" >
+				    <input type="text" class="form-control city1"  id="exampleInputPassword1" name="city">
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputPassword1">机场名字</label>
-				    <input type="text" class="form-control" id="exampleInputPassword1" >
+				    <input type="text" class="form-control airportName1" id="exampleInputPassword1" name="airportName">
 				  </div>
-				  <button type="submit" class="btn btn-success save">保存</button>
+				  <button type="submit" class="btn btn-success addone">保存</button>
 			  </form>
 		  </div>
     </div>

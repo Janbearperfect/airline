@@ -1,5 +1,5 @@
 $(function(){
-	$(".btn-primary").click(function(){
+	$(".get").click(function(){
 		var value = $(this).parents("tr").attr("id");
 		$.get("getAirport/"+value,function(e){
 			$(".airportCode").val(e.airportCode);
@@ -8,9 +8,9 @@ $(function(){
 		},"json")
 	})
 	$(".save").click(function(){
-
 		$.get("updateAirport/"+$(".airportCode").val()+"/"+$(".city").val()+"/"+$(".airportName").val(),function(e){
-			if("success".equals(e)){
+			if("success"==e){
+				location.href="airport";
 				}
 		})
 	})
@@ -20,15 +20,18 @@ $(function(){
 	})
 	$(".confirmdelete").click(function(){
 		$.get("deleteAirport/"+$(".putid").val(),function(e){
-			if("success".equals(e)){
+			if("success"==e){
 				location.href="airport";
 			}
 		})
 	})
-	$(".add").click(function(){
-		alert(a);
+	$(".addone").click(function(){
+		$.get("saveAirport/"+$(".airportCode1").val()+"/"+$(".city1").val()+"/"+$(".airportName1").val(),function(e){
+			if("success"==e){
+				location.href="airport";
+				}
+		})
 	})
-	
 	
 	
 	
