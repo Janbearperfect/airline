@@ -10,6 +10,7 @@
  <script type="text/javascript" src="/airline/assets/js/jquery-1.9.1.js"></script>
  <script src="/airline/assets/js/main.js"></script>
  <script src="/airline/assets/layui/layui.js"></script>
+ <script src="/airline/assets/js/main.js"></script>
  <script>
 layui.use('element', function(){
   var element = layui.element;
@@ -60,7 +61,7 @@ type=session.getAttribute("utype").toString();
           <dd><a href="../Index/safe.jsp" target="aaa">修改密码</a></dd>
         </dl>
       </li>
-      <li class="layui-nav-item"><a href="../exit.jsp">退出</a></li>
+      <li class="layui-nav-item loginout"><a href="">退出</a></li>
     </ul>
   </div>
   

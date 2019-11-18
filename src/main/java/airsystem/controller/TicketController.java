@@ -122,29 +122,4 @@ public class TicketController {
 		return "success";
 	}
 	
-	@RequestMapping("/searchSelfAllTicket")
-	public ModelAndView searchSelfAllTicket(HttpSession session) {
-		int userId = (int) session.getAttribute("userId");
-		ModelAndView mv = new ModelAndView();
-		List<Ticket> allTickets  = ticketService.searchSelfAllTicket(userId);
-		mv.addObject("allTickets" , allTickets);
-		return mv;
-	}
-	@RequestMapping("/searchSelfChangeTicket")
-	public ModelAndView searchSelfChangeTicket(HttpSession session) {
-		int userId = (int) session.getAttribute("userId");
-		ModelAndView mv = new ModelAndView();
-		List<Ticket> changeTickets  = ticketService.searchSelfChangeTicket(userId);
-		mv.addObject("changeTickets" , changeTickets);
-		return mv;
-	}
-	@RequestMapping("/searchSelfRefundTicket")
-	public ModelAndView searchSelfRefundTicket(HttpSession session) {
-		int userId = (int) session.getAttribute("userId");
-		ModelAndView mv = new ModelAndView();
-		List<Ticket> refundTickets  = ticketService.searchSelfRefundTicket(userId);
-		mv.addObject("refundTickets" , refundTickets);
-		return mv;
-	}
-	
 }

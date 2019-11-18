@@ -42,9 +42,9 @@
                 <h2>您希望以什么方式支付行程费用？</h2>
                 <div class="pay">
                     <ul>
-                        <li><input type="radio"><img src="/airline/assets/img/card-alipay.png" alt="" width="113" height="30"></li>
-                        <li><input type="radio"><img src="/airline/assets/img/UnionPay_logo.png" alt="" width="47.5" height="30"></li>
-                        <li><input type="radio"><span class="CDcard">信用卡</span></li>
+                        <li><input type="radio" name="method"><img src="/airline/assets/img/card-alipay.png" alt="" width="113" height="30"></li>
+                        <li><input type="radio" name="method"><img src="/airline/assets/img/UnionPay_logo.png" alt="" width="47.5" height="30"></li>
+                        <li><input type="radio" name="method"><span class="CDcard">信用卡</span></li>
                     </ul>
                 </div>
             </div>
