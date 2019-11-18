@@ -33,7 +33,7 @@ public class QueryFlightDaoTest {
 	}
 	@Test
 	public void listquert() {
-		List<PersonalTicket> list=qf.listPersonalFutureTicket("111222");
+		List<PersonalTicket> list=qf.listPersonalBeforeTicket("111222");
 		for (PersonalTicket personalTicket : list) {
 			System.out.println(personalTicket);
 		}

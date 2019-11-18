@@ -96,7 +96,6 @@ function tabs(selector1,selector2) {
     }
 }
 window.onload=function () {
-    console.log(3)
     var num=0;
     var boxs=document.querySelectorAll(".main-img-container-xj .img-container-xj")
     var box=document.querySelectorAll(".img-container-xj")
@@ -129,12 +128,8 @@ window.onload=function () {
 
 
     tabs(".search-header-li-xj",".search-bottom-xj")
-
-}
-
-
-
-$("#signupForm").validate({
+    
+    $("#signupForm").validate({
     rules: {
     
       name: {
@@ -243,3 +238,9 @@ $("#signupForm").validate({
      }
     
     })
+    	$(".select").click(function(){
+    	
+    	/*	location.href="http://localhost:8888/airline/personalTicket";*/
+    	});
+
+}

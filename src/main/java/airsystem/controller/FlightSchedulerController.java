@@ -149,12 +149,54 @@ public class FlightSchedulerController {
 	}
 	
 	//查询个人未出行航班
-	@RequestMapping("")
+	@RequestMapping(value="/personalTicketInfo",produces="application/json;charset=utf-8")
 	@ResponseBody
 	public String listPersonal(HttpServletRequest request){
 		String IDNumber=request.getParameter("IDNumber");
 		List<PersonalTicket> list=qfs.listPersonalFutureTicket(IDNumber);
+		System.out.println(list);
 		return JSON.toJSONString(list);
+	}
+	
+	@RequestMapping("/personalIdNumber")
+	public ModelAndView getPersonal(HttpServletRequest request) {
+		String IdNumber=request.getParameter("IDNumber");
+		ModelAndView mv=new ModelAndView("personalTicket");
+		mv.addObject("IdNumber", IdNumber);
+		return mv;
+		
+	}
+	
+	@RequestMapping("/personalTicket")
+	public String getShowViewP() {
+		return "personalTicket";
+	}
+	
+	@RequestMapping(value="/personalTicketInfoBefore",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String listBeforePersonal(HttpServletRequest request) {
+		String IdNumber=request.getParameter("IDNumber");
+		List<PersonalTicket> list=qfs.listPersonalBeforeTicket(IdNumber);
+		System.out.println(list);
+		return JSON.toJSONString(list);	
+	}
+	
+	@RequestMapping(value="/personalTicketInfoUser",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String listUserPersonal(HttpServletRequest request) {
+		int IdNumber=Integer.parseInt(request.getParameter("IDNumber"));
+		List<PersonalTicket> list=qfs.listPersonalFutureTicketId(IdNumber);
+		System.out.println(list);
+		return JSON.toJSONString(list);	
+	}
+	
+	@RequestMapping(value="/personalTicketInfoBeforeUser",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String listUserBeforePersonal(HttpServletRequest request) {
+		int IdNumber=Integer.parseInt(request.getParameter("IDNumber"));
+		List<PersonalTicket> list=qfs.listPersonalBeforeTicketId(IdNumber);
+		System.out.println(list);
+		return JSON.toJSONString(list);	
 	}
 	
 	

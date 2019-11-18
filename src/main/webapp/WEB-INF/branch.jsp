@@ -49,21 +49,22 @@
     <div class="modal-content">
 			  <form class="form-inline" style="margin-left:30px;margin-top: 20px" action="branchUpdate">
                     <div class="form-group">
-                        <label for="exampleInputName2" style="width=100px;height=100%">营业点ID</label>
+                        <label for="exampleInputName2" style="width=100px;height=100%">&nbsp;营业点ID&nbsp;</label>
                         <input type="text" class="form-control branchId" id="flightNumber" name="branchId" readOnly>
                     </div>
+                    <div style="width: 100%;height: 20px"></div>
                     <div class="form-group">
                         <label for="exampleInputEmail2">营业点编号</label>
                         <input type="text" class="form-control branchNumber" id="airplane" name="branchNumber">
                          <label for="exampleInputEmail2">密码</label>
                         <input type="text" class="form-control branchPassword" id="startDate" name="branchPassword">
                     </div>
-                    <div style="width: 100%;height: 10px"></div>
+                    <div style="width: 100%;height: 20px"></div>
                     <div class="form-group">
                         <label for="exampleInputEmail2">营业点名称</label>
                         <input type="text" class="form-control branchName" id="fromCity" name="branchName">
                     </div>
-                    <div style="width: 100%;height: 10px"></div>
+                    <div style="width: 100%;height: 20px"></div>
                     <div class="form-group">
                         <label for="exampleInputEmail2">营业点地址</label>
                         <input type="text" class="form-control  branchAddress" id="fromAirport"  name="branchAddress">
@@ -71,19 +72,19 @@
                     <br>
                     <div style="width: 100%;height: 10px"></div>
                     <div class="form-group">
-                        <label for="exampleInputEmail2">电话</label>
+                        <label for="exampleInputEmail2" style="width: 55px;text-align: center">&nbsp;&nbsp;电&nbsp;话&nbsp;&nbsp;</label>
                         <input type="datetime_local" class="form-control branchTele" id="departureTime" name="branchTele">
                     </div>
                     <br>
                     <div style="width: 100%;height: 10px"></div>
                     <div class="form-group">
-                        <label for="exampleInputEmail2" style="width: 55px;text-align: center">省份</label>
+                        <label for="exampleInputEmail2" style="width: 55px;text-align: center">&nbsp;省&nbsp;份&nbsp;&nbsp;</label>
                         <input type="text" class="form-control BranchPro" id="scheduler" name="BranchPro">
                     </div>
 
             
                     <br>
-                    <div style="width: 100%;height: 10px"></div>
+                    <div style="width: 100%;height: 20px"></div>
                         <button type="submit" class="btn btn-success" style="margin-left: 460px;margin-bottom: 20px">修改</button>
                 </form>
 

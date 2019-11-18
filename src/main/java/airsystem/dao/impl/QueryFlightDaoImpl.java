@@ -81,6 +81,28 @@ public class QueryFlightDaoImpl implements QueryFlightDao{
 		List<PersonalTicket> listTicket=new ArrayList<>();
 		List<PersonalTicket>list= jdbcTemplate.query("select ticket_order.id,ticket_order.ID_number,flight.flight_number,user_info.name,ticket_order.order_date,ticket_order.classes,ticket_order.passenger_type,ticket_order.status,ticket_order.t_price,flight_scheduler.departure_time,flight_scheduler.arrival_time,flight_scheduler.sail_length,flight_scheduler.from_city,flight_scheduler.to_city from ticket_order left join user_info on ticket_order.ID_number=user_info.ID_number left join flight on ticket_order.flight_id=flight.flight_id left join flight_scheduler on flight.flight_number =flight_scheduler.flight_number where ticket_order.ID_number=? and NOW()<flight_scheduler.departure_time;", new Object[]{IDNumber},new BeanPropertyRowMapper<PersonalTicket>(PersonalTicket.class));
 		for (PersonalTicket personalTicket : list) {
+			if(personalTicket.getClasses().equals("1")) {
+				personalTicket.setClasses("头等舱");
+			}else if(personalTicket.getClasses().equals("2")) {
+				personalTicket.setClasses("商务舱");
+			}else if(personalTicket.getClasses().equals("3")) {
+				personalTicket.setClasses("经济舱");
+			}
+			if(personalTicket.getPassengerType().equals("1")) {
+				personalTicket.setPassengerType("成人票");
+			}else if(personalTicket.getPassengerType().equals("2")) {
+				personalTicket.setPassengerType("儿童票");
+			}else if(personalTicket.getPassengerType().equals("3")) {
+				personalTicket.setPassengerType("婴儿票");
+			}
+			if(personalTicket.getStatus().equals("1")) {
+				personalTicket.setStatus("正常");
+			}else if(personalTicket.getStatus().equals("2")) {
+				personalTicket.setStatus("改签");
+			}else if(personalTicket.getStatus().equals("3")) {
+				personalTicket.setStatus("退票");
+			}
+				
 			personalTicket.setFromCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getFromCity()},java.lang.String.class));
 			personalTicket.setToCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getToCity()},java.lang.String.class));
 			listTicket.add(personalTicket);
@@ -91,8 +113,29 @@ public class QueryFlightDaoImpl implements QueryFlightDao{
 	@Override
 	public List<PersonalTicket> listPersonalBeforeTicket(String IDNumber) {
 		List<PersonalTicket> listTicket=new ArrayList<>();
-		List<PersonalTicket>list=jdbcTemplate.query("select ticket_order.id,flight.flight_number,user_info.name,ticket_order.order_date,ticket_order.classes,ticket_order.passenger_type,ticket_order.status,ticket_order.t_price,flight_scheduler.departure_time,flight_scheduler.arrival_time,flight_scheduler.sail_length,flight_scheduler.from_city,flight_scheduler.to_city from ticket_order left join user_info on ticket_order.ID_number=user_info.ID_number left join flight on ticket_order.flight_id=flight.flight_id left join flight_scheduler on flight.flight_number =flight_scheduler.flight_number where ticket_order.ID_number=? and NOW()>flight_scheduler.departure_time;", new Object[]{IDNumber},new BeanPropertyRowMapper<PersonalTicket>(PersonalTicket.class));
+		List<PersonalTicket>list=jdbcTemplate.query("select ticket_order.id,flight.flight_number,ticket_order.ID_number,user_info.name,ticket_order.order_date,ticket_order.classes,ticket_order.passenger_type,ticket_order.status,ticket_order.t_price,flight_scheduler.departure_time,flight_scheduler.arrival_time,flight_scheduler.sail_length,flight_scheduler.from_city,flight_scheduler.to_city from ticket_order left join user_info on ticket_order.ID_number=user_info.ID_number left join flight on ticket_order.flight_id=flight.flight_id left join flight_scheduler on flight.flight_number =flight_scheduler.flight_number where ticket_order.ID_number=? and NOW()>flight_scheduler.departure_time;", new Object[]{IDNumber},new BeanPropertyRowMapper<PersonalTicket>(PersonalTicket.class));
 		 for (PersonalTicket personalTicket : list) {
+				if(personalTicket.getClasses().equals("1")) {
+					personalTicket.setClasses("头等舱");
+				}else if(personalTicket.getClasses().equals("2")) {
+					personalTicket.setClasses("商务舱");
+				}else if(personalTicket.getClasses().equals("3")) {
+					personalTicket.setClasses("经济舱");
+				}
+				if(personalTicket.getPassengerType().equals("1")) {
+					personalTicket.setPassengerType("成人票");
+				}else if(personalTicket.getPassengerType().equals("2")) {
+					personalTicket.setPassengerType("儿童票");
+				}else if(personalTicket.getPassengerType().equals("3")) {
+					personalTicket.setPassengerType("婴儿票");
+				}
+				if(personalTicket.getStatus().equals("1")) {
+					personalTicket.setStatus("正常");
+				}else if(personalTicket.getStatus().equals("2")) {
+					personalTicket.setStatus("改签");
+				}else if(personalTicket.getStatus().equals("3")) {
+					personalTicket.setStatus("退票");
+				}
 				personalTicket.setFromCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getFromCity()},java.lang.String.class));
 				personalTicket.setToCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getToCity()},java.lang.String.class));
 				listTicket.add(personalTicket);
@@ -105,6 +148,27 @@ public class QueryFlightDaoImpl implements QueryFlightDao{
 		List<PersonalTicket> listTicket=new ArrayList<>();
 		List<PersonalTicket>list=jdbcTemplate.query("select ticket_order.id,ticket_order.ID_number,flight.flight_number,user_info.name,ticket_order.order_date,ticket_order.classes,ticket_order.passenger_type,ticket_order.status,ticket_order.t_price,flight_scheduler.departure_time,flight_scheduler.arrival_time,flight_scheduler.sail_length,flight_scheduler.from_city,flight_scheduler.to_city.from ticket_order left join user_info on ticket_order.ID_number=user_info.ID_number left join flight on ticket_order.flight_id=flight.flight_id left join flight_scheduler on flight.flight_number =flight_scheduler.flight_number where ticket_order.user_id=? and NOW()<flight_scheduler.departure_time;", new Object[]{userId},new BeanPropertyRowMapper<PersonalTicket>(PersonalTicket.class));
 		 for (PersonalTicket personalTicket : list) {
+			 if(personalTicket.getClasses().equals("1")) {
+					personalTicket.setClasses("头等舱");
+				}else if(personalTicket.getClasses().equals("2")) {
+					personalTicket.setClasses("商务舱");
+				}else if(personalTicket.getClasses().equals("3")) {
+					personalTicket.setClasses("经济舱");
+				}
+				if(personalTicket.getPassengerType().equals("1")) {
+					personalTicket.setPassengerType("成人票");
+				}else if(personalTicket.getPassengerType().equals("2")) {
+					personalTicket.setPassengerType("儿童票");
+				}else if(personalTicket.getPassengerType().equals("3")) {
+					personalTicket.setPassengerType("婴儿票");
+				}
+				if(personalTicket.getStatus().equals("1")) {
+					personalTicket.setStatus("正常");
+				}else if(personalTicket.getStatus().equals("2")) {
+					personalTicket.setStatus("改签");
+				}else if(personalTicket.getStatus().equals("3")) {
+					personalTicket.setStatus("退票");
+				}
 				personalTicket.setFromCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getFromCity()},java.lang.String.class));
 				personalTicket.setToCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getToCity()},java.lang.String.class));
 				listTicket.add(personalTicket);
@@ -117,6 +181,27 @@ public class QueryFlightDaoImpl implements QueryFlightDao{
 		List<PersonalTicket> listTicket=new ArrayList<>();
 		List<PersonalTicket>list=jdbcTemplate.query("select ticket_order.id,ticket_order.ID_number,flight.flight_number,user_info.name,ticket_order.order_date,ticket_order.classes,ticket_order.passenger_type,ticket_order.status,ticket_order.t_price,flight_scheduler.departure_time,flight_scheduler.arrival_time,flight_scheduler.sail_length,flight_scheduler.from_city,flight_scheduler.to_city from ticket_order left join user_info on ticket_order.ID_number=user_info.ID_number left join flight on ticket_order.flight_id=flight.flight_id left join flight_scheduler on flight.flight_number =flight_scheduler.flight_number where ticket_order.user_id=? and NOW()>flight_scheduler.departure_time;", new Object[]{userId},new BeanPropertyRowMapper<PersonalTicket>(PersonalTicket.class));
 		 for (PersonalTicket personalTicket : list) {
+			 if(personalTicket.getClasses().equals("1")) {
+					personalTicket.setClasses("头等舱");
+				}else if(personalTicket.getClasses().equals("2")) {
+					personalTicket.setClasses("商务舱");
+				}else if(personalTicket.getClasses().equals("3")) {
+					personalTicket.setClasses("经济舱");
+				}
+				if(personalTicket.getPassengerType().equals("1")) {
+					personalTicket.setPassengerType("成人票");
+				}else if(personalTicket.getPassengerType().equals("2")) {
+					personalTicket.setPassengerType("儿童票");
+				}else if(personalTicket.getPassengerType().equals("3")) {
+					personalTicket.setPassengerType("婴儿票");
+				}
+				if(personalTicket.getStatus().equals("1")) {
+					personalTicket.setStatus("正常");
+				}else if(personalTicket.getStatus().equals("2")) {
+					personalTicket.setStatus("改签");
+				}else if(personalTicket.getStatus().equals("3")) {
+					personalTicket.setStatus("退票");
+				}
 				personalTicket.setFromCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getFromCity()},java.lang.String.class));
 				personalTicket.setToCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getToCity()},java.lang.String.class));
 				listTicket.add(personalTicket);

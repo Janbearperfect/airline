@@ -1,0 +1,233 @@
+/*头部信息*/
+header{
+    width: 100%;
+    height: 96px;
+}
+body{
+    height: auto;
+}
+.container-xj {
+    padding: 4px;
+    width: 80%;
+    height: 92px;
+    margin: 0px auto;
+}
+.header-row-xj{
+    width: 100%;
+    height: 31px;
+    line-height: 31px;
+}
+.name-zst{
+    width: 100px;
+    height: 100%;
+    float: left;
+}
+.header-row-a-xj{
+    color: #0D3349;
+    float: right;
+}
+.header-row-register-xj{
+
+    height: 27px;
+}
+.header-main-xj{
+    width: 100%;
+    height: 61px;
+}
+.header-main-xj h1{
+    float: left;
+    margin-right: 20px;
+}
+.header-main-xj ul{
+    margin-top: 20px;
+    float: left;
+    height: 25px;
+}
+.header-main-xj ul li{
+    height: 25px;
+    color: #0078d2;
+    line-height: 25px;
+    font-size: 21px;
+    float: left;
+
+}
+.header-main-xj ul li:nth-child(2){
+    margin-left: 150px;
+    margin-right: 150px;
+}
+.header-main-xj ul li:nth-child(3){
+    margin-right: 50px;
+}
+
+/*主要*/
+.ticketInfo-zst{
+    width:80% ;
+    height: auto;
+    min-height: 200px;
+    margin:40px auto;
+}
+
+.ticketInfo-title{
+    width: 100%;
+    height: 70px;
+    background: #dee7eadb;
+}
+.title-name{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-right: 1px solid #99CCFF;
+    font-size: 28px;
+    float: left;
+    font-weight: 300;
+    margin-left: 10px;
+    margin-top: 10px;
+    /*background: #75b1d0d6;*/
+}
+.title-name a{
+    color: #9a6e3a;
+}
+.ticketInfo-list{
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    /*background: #0D8BBD;*/
+}
+
+.list-info{
+    width: 100%;
+    height: 150px;
+    border: 1px solid #bddae8e8;
+}
+.listInfo-title{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+.listInfo-first,.listInfo-first-card{
+    float: left;
+    width: 100px;
+    text-align: center;
+    margin: 0 10px ;
+}
+.listInfo-info{
+    width: 100%;
+    height: 100px;
+}
+.info-city{
+    width: 150px;
+    height: 50px;
+    margin-left: 15px;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    font-size: 18px;
+    color: #1883ba;
+    font-weight:500;
+}
+.info-date-zst{
+    float: left;
+    width: 250px;
+    height: 100%;
+}
+.info-date-first{
+    width: 100%;
+    height: 25px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 25px;
+    margin-top: 20px;
+}
+.info-date-second{
+    width: 100%;
+    height: 25px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 25px;
+}
+.info-length{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin-top: 30px;
+    line-height: 40px;
+    float: left;
+}
+.info-button{
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    margin-top: 30px;
+    line-height: 40px;
+    float: left;
+    margin-left: 30px;
+}
+.ticket-change{
+    margin-right: 20px;
+}
+
+
+
+/*底部*/
+.end-zst{
+    width: 100%;
+    height: 442px;
+    margin-top: 50px;
+    background: #d0dae0;
+}
+.end-content-zst{
+    width: 1240px;
+    height: 370px;
+    margin:auto ;
+    padding-top: 40px;
+}
+.end-content-first-zst{
+    float: left;
+    width: 283px;
+    height: 291px;
+    margin-left: 30px;
+
+}
+.end-content-first-zst span{
+    width: 100%;
+    height: 31px;
+    font-size: 20px;
+    color:  #36495a;
+}
+.content-border-zst{
+    margin: 10px 0;
+    width: 260px;
+    height: 2px;
+    background: #0d33496e;
+}
+.end-content-first-zst ul{
+    margin-top: 20px;
+    width: 100%;
+    height: 207px;
+}
+.end-content-first-zst ul li{
+    width: 100%;
+    height: 25px;
+
+}
+.end-content-first-zst ul li a{
+    width: 100%;
+    height: 100%;
+    float: left;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #36495a;
+}
+.end-content-first-zst ul li a:hover{
+    color: #0D3349;
+}
+.bottom-border-zst{
+    width: 100%;
+    height: 2px;
+    background:#0d33496e ;
+    float: left;
+    margin-top: 20px;
+}

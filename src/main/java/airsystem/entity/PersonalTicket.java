@@ -23,7 +23,6 @@ public class PersonalTicket {
 	private String  fromCity;     //机场名
 	private String toCity;		//到达机场名
 	
-	
 	public String getIdNumber() {
 		return IdNumber;
 	}
