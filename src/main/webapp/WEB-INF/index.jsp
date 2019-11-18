@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>index</title>
      <link rel="stylesheet" href="/airline/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/airline/assets/css/base.css">
     <link rel="stylesheet" href="/airline/assets/css/index.css">
@@ -23,7 +23,7 @@
         String ifLogin=session.getAttribute("login").toString();
         if("yes".equals(ifLogin)){
         %>
-        <span>欢迎：<%out.print(session.getAttribute("uname")); %></span>&nbsp&nbsp&nbsp<a href="personalCenter">个人中心</a>&nbsp&nbsp&nbsp<a href="#">我的订单</a>&nbsp&nbsp&nbsp<a href="exitUser">退出</a>
+        <span>欢迎：<%out.print(session.getAttribute("uname")); %></span>&nbsp;&nbsp;&nbsp;<a href="personalCenter">个人中心</a>&nbsp;&nbsp;&nbsp;<a href="personalTicket">我的订单</a>&nbsp&nbsp&nbsp<a href="exitUser">退出</a>
         <% }
         if("no".equals(ifLogin)){ %>
          <a href="#" class="header-row-a-xj">
@@ -133,15 +133,15 @@
              </div>
              <div class="search-bottom-xj">
                  <h3 class="search-book-xj">确认预定</h3>
-                 <form action="">
+                 <form action="personalIdNumber" method="post">
                      <div class="form-group type-xj" style="margin:20px 0 30px 50px">
                          <label for="exampleInputName2">乘客名字</label>
-                         <input type="text" class="form-control" id="exampleInputName1" placeholder="城市或机场">
+                         <input type="text" class="form-control" id="exampleInputName1" placeholder="姓名">
                      </div>
 
                      <div class="form-group type-xj" style="margin:20px 0 30px 30px">
                          <label for="exampleInputEmail2">身份证号码</label>
-                         <input type="text" class="form-control" id="exampleInputEmail4" placeholder="城市或机场">
+                         <input type="text" class="form-control" id="exampleInputEmail4" placeholder="证件号码" name="IDNumber">
                      </div>
                      <button type="submit" class="btn button-book">查找预定</button>
 

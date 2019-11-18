@@ -15,9 +15,19 @@
   <!--头部-->
     <!--头部信息-->
     <header>
+    
         <div class="container-xj">
             <div class="header-row-xj">
-                <div class="name-zst">赵胜涛</div>
+                   <%
+        String ifLogin=session.getAttribute("login").toString();
+        if("yes".equals(ifLogin)){
+        %>
+        <div	class="name-zst"><%out.print(session.getAttribute("uname")); %></div>
+        <% }
+        if("no".equals(ifLogin)){ %>
+      <div class="name-zst"><a href="#" class="header-row-a-xj">请登录</a></div>
+        <%} %>
+             
                 <a href="index" class="header-row-a-xj">
                     首页
                 </a>
