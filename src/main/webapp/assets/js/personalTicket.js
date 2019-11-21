@@ -204,7 +204,7 @@ window.onload=function(){
 			   
 		   })
 		   //改签
-					   
+			$("body").on("click",".")		   
 			   
 		
 }
