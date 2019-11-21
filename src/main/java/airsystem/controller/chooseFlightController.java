@@ -32,25 +32,31 @@ public class chooseFlightController {
 	public void chooseFlightMainView(HttpSession session,HttpServletRequest request) {
 		String phone=request.getParameter("userNum");
 		String password=request.getParameter("userPass");
+
+		
 		if(phone !=null) {
 			
 			UserL user = us.findUser(phone);
-		
-			
 			if(user.getPassword().equals(password)) {
 				session.setAttribute("login", "yes");
 				session.setAttribute("phone", phone);
 				session.setAttribute("uname", user.getUname());
 				session.setAttribute("userId", user.getId());
 				session.setAttribute("user", user);
+			
 				
 			}else {
 				session.setAttribute("login", "no");
+				
 			}
 			
 		}else {
 			session.setAttribute("login", "no");
+			if(	session.getAttribute("user")!=null) {
+				session.setAttribute("login", "yes");
+			}
 		}
+
 	}
 	@RequestMapping("/exitUser")
 	public void exitUser(HttpSession session,HttpServletResponse response) throws IOException {
@@ -59,6 +65,7 @@ public class chooseFlightController {
 		session.setAttribute("login", "no");
 		
 		response.sendRedirect("index");
+		System.out.println(333333);
 	}
 	
 	@RequestMapping("/commitChooseView")
@@ -107,9 +114,7 @@ public class chooseFlightController {
 	
 		mv.addObject("piao",piao);
 	
-		return mv;
-		
-	
+		return mv;	
 	}
 	
 	

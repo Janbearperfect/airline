@@ -5,8 +5,8 @@ $(document).ready(function() {
  $.ajax({
 	    url: '/airline/dailyfinancialdata',
 	    success: function(point) {
-	    	e = JSON.parse(JSON.stringify(point))
-	    	view(e)
+	    	e = JSON.parse(JSON.stringify(point));
+	    	view(e);
 	  }
   })
 	function view(e){

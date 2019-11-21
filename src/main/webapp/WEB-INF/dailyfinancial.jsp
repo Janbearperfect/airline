@@ -33,6 +33,7 @@
 		        <td>${num}元</td> 
 		      </tr>
 </table>
+</div>
   <div class="container mark-two" style="margin-left:-15px">
  <table class="table table-bordered">
 		 <tr>
@@ -51,7 +52,7 @@
 		       <td>${num}元</td> 
 		      </tr>
 </table> 
-
+</div>
 </body>
 <script src="/airline/assets/js/jquery-1.9.1.js"></script>
 

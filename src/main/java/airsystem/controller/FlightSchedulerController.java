@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -154,19 +155,19 @@ public class FlightSchedulerController {
 	public String listPersonal(HttpServletRequest request){
 		String IDNumber=request.getParameter("IDNumber");
 		List<PersonalTicket> list=qfs.listPersonalFutureTicket(IDNumber);
-		System.out.println(list);
+//		System.out.println(list);
 		return JSON.toJSONString(list);
 	}
 	
 	@RequestMapping("/personalIdNumber")
 	public ModelAndView getPersonal(HttpServletRequest request) {
 		String IdNumber=request.getParameter("IDNumber");
+//		System.out.println(IdNumber);
 		ModelAndView mv=new ModelAndView("personalTicket");
 		mv.addObject("IdNumber", IdNumber);
 		return mv;
 		
 	}
-	
 	@RequestMapping("/personalTicket")
 	public String getShowViewP() {
 		return "personalTicket";
@@ -177,25 +178,26 @@ public class FlightSchedulerController {
 	public String listBeforePersonal(HttpServletRequest request) {
 		String IdNumber=request.getParameter("IDNumber");
 		List<PersonalTicket> list=qfs.listPersonalBeforeTicket(IdNumber);
-		System.out.println(list);
+//		System.out.println(list);
 		return JSON.toJSONString(list);	
 	}
 	
+	//我的订单
 	@RequestMapping(value="/personalTicketInfoUser",produces="application/json;charset=utf-8")
 	@ResponseBody
-	public String listUserPersonal(HttpServletRequest request) {
-		int IdNumber=Integer.parseInt(request.getParameter("IDNumber"));
-		List<PersonalTicket> list=qfs.listPersonalFutureTicketId(IdNumber);
-		System.out.println(list);
+	public String listUserPersonal(HttpSession session) {
+		int id=(int) session.getAttribute("userId");
+		List<PersonalTicket> list=qfs.listPersonalFutureTicketId(id);
+//		System.out.println(list);
 		return JSON.toJSONString(list);	
 	}
 	
 	@RequestMapping(value="/personalTicketInfoBeforeUser",produces="application/json;charset=utf-8")
 	@ResponseBody
-	public String listUserBeforePersonal(HttpServletRequest request) {
-		int IdNumber=Integer.parseInt(request.getParameter("IDNumber"));
-		List<PersonalTicket> list=qfs.listPersonalBeforeTicketId(IdNumber);
-		System.out.println(list);
+	public String listUserBeforePersonal(HttpSession session) {
+		int id=(int) session.getAttribute("userId");
+		List<PersonalTicket> list=qfs.listPersonalBeforeTicketId(id);
+		
 		return JSON.toJSONString(list);	
 	}
 	
