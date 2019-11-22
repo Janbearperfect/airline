@@ -53,6 +53,7 @@ public class chooseFlightController {
 		}else {
 			session.setAttribute("login", "no");
 			if(	session.getAttribute("user")!=null) {
+				System.out.println(session.getAttribute("user"));
 				session.setAttribute("login", "yes");
 			}
 		}
@@ -60,8 +61,10 @@ public class chooseFlightController {
 	}
 	@RequestMapping("/exitUser")
 	public void exitUser(HttpSession session,HttpServletResponse response) throws IOException {
-		Enumeration em = session.getAttributeNames();
-		session.removeAttribute(em.nextElement().toString());
+//		Enumeration em = session.getAttributeNames();
+//		session.removeAttribute(em.nextElement().toString());
+		session.removeAttribute("phone");
+		session.removeAttribute("user");
 		session.setAttribute("login", "no");
 		
 		response.sendRedirect("index");

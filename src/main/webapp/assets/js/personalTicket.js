@@ -29,7 +29,7 @@ window.onload=function(){
 		   "personalTicketInfo",
 		   {IDNumber:$(".IdNumber").val()},
 		   function(e){
-			   
+			   console.log(e);
 			   for(var i=0;i<e.length;i++){
 				   var a="";
 				   if(e[i].status!="退票"){
@@ -110,7 +110,7 @@ window.onload=function(){
 		 $.post(
 		   "personalTicketInfoUser",
 		   function(e){
-			 
+			   console.log(e);
 			   for(var i=0;i<e.length;i++){
 				   var a="";
 				   if(e[i].status!="退票"){
@@ -204,7 +204,9 @@ window.onload=function(){
 			   
 		   })
 		   //改签
-			$("body").on("click",".")		   
+			$("body").on("click",".ticketchange",function(){
+				var id=$(this).parents().parents().parents().children(".listInfo-title").children("span:eq(5)").html();
+			})		   
 			   
 		
 }

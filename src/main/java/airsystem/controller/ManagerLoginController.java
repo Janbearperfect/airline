@@ -75,8 +75,14 @@ public class ManagerLoginController {
 	@RequestMapping("/removeSession")
 	@ResponseBody
 	public String removeSession(HttpSession session) {
-		Enumeration em = session.getAttributeNames();
-		session.removeAttribute(em.nextElement().toString());
+//		Enumeration<String> em = session.getAttributeNames();
+		session.removeAttribute("name");
+		session.removeAttribute("type");
+		session.removeAttribute("login");
+		session.removeAttribute("adminId");
+
+//		session.removeAttribute(em.nextElement().toString());
+		System.out.println(session.getAttribute("type"));
 		return "success";
 	}
 }

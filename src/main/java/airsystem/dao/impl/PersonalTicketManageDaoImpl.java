@@ -19,4 +19,9 @@ public class PersonalTicketManageDaoImpl implements PersonalTicketManageDao {
 		}
 		
 	}
+	@Override
+	public boolean personalChangeTicket() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
