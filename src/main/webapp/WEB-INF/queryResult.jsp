@@ -61,6 +61,7 @@
                     </div>
                     <div class="first-price">${queryflight.price*queryflight.seasonDiscount}￥</div>
                 </div>
+                <div class="list-book"><button class="btn btn-info">预订</button></div>
             </li>
             </c:forEach>
         </ul>

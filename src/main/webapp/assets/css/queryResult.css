@@ -114,10 +114,10 @@ header{
     line-height: 100px;
 }
 .list-first{
-    width:130px;
+    width:115px;
     height: 100%;
     float: left;
-    margin-left: 25px;
+    margin-left: 20px;
 }
 .first-count{
     width: 130px;
@@ -134,4 +134,8 @@ header{
     margin-left: 20px;
     font-weight: bold;
     color: #ec8d1ced;
+}
+.list-book{
+	float:right;
+	margin-top: 35px;
 }
