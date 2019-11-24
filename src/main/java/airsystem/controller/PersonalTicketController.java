@@ -26,6 +26,10 @@ public class PersonalTicketController {
 		public void againchooseflight() {
 			
 		}
+		@RequestMapping("/success")
+		public void success() {
+			
+		}
 		@RequestMapping(value ="/changeFlight" , method = RequestMethod.POST)
 		public ModelAndView change(HttpServletRequest req) {
 			String toCity = req.getParameter("tocity-yzy");

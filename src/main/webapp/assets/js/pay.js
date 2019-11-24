@@ -1,0 +1,11 @@
+$(function(){
+	$(".quickpay").click(function(){
+		$.post("saveTicket",function(e){
+			if(e=="success"){
+				location.href="success";
+			}else{
+				alert("失败");
+			}
+		})
+	})
+})

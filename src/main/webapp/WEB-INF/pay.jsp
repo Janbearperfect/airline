@@ -107,7 +107,7 @@
     </div>
     <div class="wrapper-yzy last"></div>
     <div class="quickpay">
-        <a href="saveTicket"><div class="paybutton"> <span class="payspan">立即支付</span></div></a>
+        <div class="paybutton"> <span class="payspan">立即支付</span></div>
     </div>
 <!--底部-->
     <div class="end-zst">

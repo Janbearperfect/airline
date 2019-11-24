@@ -102,7 +102,7 @@
     <div class="modal-content">
       <h3>添加营业员</h3>
 			<div class="formbox">
-			  <form action="saveSale">
+			  <form action="">
 			      <div class="form-group">
 			   		<label for="exampleInputEmail1">工号</label>
 			    	<input type="text" class="form-control number1" id="exampleInputEmail1" name="number">
