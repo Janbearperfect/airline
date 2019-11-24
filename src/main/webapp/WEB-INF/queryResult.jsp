@@ -10,6 +10,16 @@
 <link rel="stylesheet" href="/airline/assets/css/base.css">
 </head>
 <body>
+<%
+String type="";
+  try{
+type=session.getAttribute("type").toString();
+}catch(Exception e){
+	response.sendRedirect("managerLogin");
+}  
+  
+%>
+
 <a href="queryflight" style="color:#333333">《 返回</a>
  <header>航班信息查询</header>
 <div class="main-list-zst">
@@ -61,7 +71,15 @@
                     </div>
                     <div class="first-price">${queryflight.price*queryflight.seasonDiscount}￥</div>
                 </div>
-                <div class="list-book"><button class="btn btn-info">预订</button></div>
+                <%if(type.equals("3")){ %>
+                
+                <div class="list-book">
+                <form action="salesbuyticket1" method="post">
+                 	<input type="hidden" name="flightId" value="${queryflight.id }" class="flightId">
+                	<input type="submit" class="btn btn-info book" value="预订">
+                </form>
+                </div>
+                <%} %>
             </li>
             </c:forEach>
         </ul>

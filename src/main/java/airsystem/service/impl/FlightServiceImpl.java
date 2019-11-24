@@ -21,7 +21,7 @@ public class FlightServiceImpl implements FlightService{
 	@Override
 	public Flight getFlight(String flightNumber) {
 		// TODO Auto-generated method stub
-		return null;
+		return flightDao.getFlight(flightNumber);
 	}
 
 	@Override

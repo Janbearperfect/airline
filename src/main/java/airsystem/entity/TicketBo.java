@@ -5,12 +5,12 @@ import java.util.Date;
 import airsystem.util.DateUtil;
 
 public class TicketBo {
+	
     private String uname;
     private String flightNumber;
     private Date orderDate;
     private int classes;
     private int passengerType;
-
     private String saleName;
     private double tPrice;
 	public TicketBo(String uname, String flightNumber, Date orderDate, int classes, int passengerType, 

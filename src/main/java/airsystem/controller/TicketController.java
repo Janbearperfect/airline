@@ -79,6 +79,7 @@ public class TicketController {
 	  mv.addObject("ticket", listTicket);
 	 return mv;		
 	}
+	
 	@RequestMapping("/pushTicket")
 	public ModelAndView pushTicket(HttpServletRequest request , HttpServletResponse response , HttpSession session) {
 		String[] names = request.getParameterValues("name");
@@ -122,6 +123,46 @@ public class TicketController {
 		session.setAttribute("tickets", tickets);
 		return mv;
 	}
+	
+	//营业员提交票
+	@RequestMapping("/salesTicketSubmit")
+	public ModelAndView salesTicketSubmit(HttpServletRequest request,HttpSession session) {
+		int type=Integer.parseInt(request.getParameter("type"));
+		String IdNumber=request.getParameter("IDnumber");
+		int flightId=Integer.parseInt(request.getParameter("flightId"));
+		String classesname=request.getParameter("classes");
+		double price=Double.parseDouble(request.getParameter("price"));
+		int salesId=(int)session.getAttribute("adminId");
+		Ticket ticket=new Ticket();
+		int status=1;
+		int  classes=0;
+		System.out.println(flightId);
+		if(classesname.equals("头等舱")) {
+			classes = 1;
+		}else if(classesname.equals("公务舱")){
+			classes = 2;
+		}else {
+			classes = 3;
+		}
+		ticket.setClasses(classes);
+		ticket.setIdNumber(IdNumber);
+		ticket.setFlightId(flightId);
+		ticket.setpassengerType(type);
+		ticket.setSalesId(salesId);
+		ticket.setStatus(status);
+		ticket.settPrice(price);
+		ticket.setUserId(0);
+		System.out.println(ticket);
+		boolean flag=ticketService.saveTicket(ticket);
+		flightService.updateFlightSeat( flightId,classes,1);
+		System.out.println(flag);
+		ModelAndView mv = new ModelAndView("salesTicketSuccess");
+		return mv;
+		
+	}
+	
+	
+	
 	@RequestMapping("/saveTicket")
 	@ResponseBody
 	public String saveTicket(HttpServletRequest request , HttpServletResponse response , HttpSession session) {

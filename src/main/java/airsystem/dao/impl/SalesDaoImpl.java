@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import airsystem.dao.prototype.SalesDao;
+import airsystem.entity.Flight;
 import airsystem.entity.Sales;
 @Component
 public class SalesDaoImpl implements SalesDao {
@@ -34,6 +35,11 @@ public class SalesDaoImpl implements SalesDao {
 	@Override
 	public List<Sales> listSales(int branchId) {
 		return jdbcTemplate.query("select * from sales where branch_id=?",new Object[] {branchId}, new BeanPropertyRowMapper<Sales>(Sales.class));
+	}
+	@Override
+	public Flight getSaleflightId(String id) {
+		return jdbcTemplate.queryForObject("select * from flight join flight_scheduler on flight_scheduler.flight_number=flight.flight_number where flight_scheduler.id=?", new Object[] {id},new BeanPropertyRowMapper<Flight>(Flight.class));
+//		return null;
 	}
 
 //		return jdbcTemplate.query("select branch_id where branchName=?",new Object[] {branchName},new BeanPropertyRowMapper());

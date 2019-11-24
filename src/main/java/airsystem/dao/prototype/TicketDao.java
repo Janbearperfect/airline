@@ -27,4 +27,5 @@ public interface TicketDao {
   int countTicketChangeTotal(int branchId);
   List<TicketBo> listTicketRefund(int branchId);
   int countTicketRefundTotal(int branchId);
+  
 }

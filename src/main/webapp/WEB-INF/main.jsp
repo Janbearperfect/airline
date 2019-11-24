@@ -122,19 +122,11 @@ type=session.getAttribute("type").toString();
         </li>
          
         <%}else if(type.equals("3")){ %>
-        	 <li class="layui-nav-item">
+         <li class="layui-nav-item">
           <a href="javascript:;"  >票务管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="../ribao/rb.jsp" target="aaa" >查看已售机票</a></dd>
-             <dd><a href="../Comment/comment.jsp" target="aaa" >我的评论</a></dd>
-          </dl>
-        </li>
-         <li class="layui-nav-item">
-          <a href="javascript:;"  >航班管理</a>
-          <dl class="layui-nav-child">
-            <dd><a href="../Student/student.html" target="aaa" >航班查询</a></dd>
-            <dd><a href="../Class/class_info.html" target="aaa" >个人信息查询</a></dd>
-         
+            <dd><a href="queryflight" target="aaa" >航班查询</a></dd>
+            <dd><a href="" target="aaa" >个人信息查询</a></dd>
           </dl>
         </li>
      <%}else if(type.equals("2")){ %>

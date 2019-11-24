@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import airsystem.dao.prototype.BranchDao;
 import airsystem.dao.prototype.SalesDao;
+import airsystem.entity.Flight;
 import airsystem.entity.Sales;
 import airsystem.service.prototype.SalesService;
 @Component
@@ -41,6 +42,11 @@ public class SalesSericeImpl implements SalesService {
 	@Override
 	public List<Sales> listSales(int branchId) {
 		return saleDao.listSales(branchId);
+	}
+	@Override
+	public Flight getBuyTicket(String id) {
+		
+		return saleDao.getSaleflightId(id);
 	}
 
 	

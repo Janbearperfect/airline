@@ -3,7 +3,6 @@ package airsystem.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 
+import airsystem.entity.Flight;
 import airsystem.entity.Sales;
 import airsystem.service.prototype.BranchService;
 import airsystem.service.prototype.SalesService;
@@ -64,6 +64,24 @@ public class SalesController {
 		salesService.saveSale(sale);
 		return "success";
 	}
+	
+	// €∆±‘±¬Ú∆±
+//	@RequestMapping("/salesbuyticket1/{id}")
+//	public ModelAndView buyticket(@PathVariable("id")String id) {
+	@RequestMapping("/salesbuyticket1")
+	public ModelAndView buyticket(HttpServletRequest request) {
+		String id=request.getParameter("flightId");
+		Flight flight=salesService.getBuyTicket(id);
+		flight.setPrice(flight.getPrice()*flight.getSeasonDiscount()*2);
+		ModelAndView mv=new ModelAndView("salesbuyticket");
+		mv.addObject("flight",flight);
+		return mv;
+	}
+	@RequestMapping("/salesbuy")
+	public String show() {
+		return "salesbuyticket";
+	}
+	
 }
 
 

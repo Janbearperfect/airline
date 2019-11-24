@@ -146,6 +146,7 @@ public class FlightSchedulerController {
 	@ResponseBody
 	public String personalInfo(HttpServletRequest request) {
 		String flag=request.getParameter("ID");
+		System.out.println(flag);
 		return qfs.getPersonalInfo(flag);
 	}
 	
@@ -197,7 +198,6 @@ public class FlightSchedulerController {
 	public String listUserBeforePersonal(HttpSession session) {
 		int id=(int) session.getAttribute("userId");
 		List<PersonalTicket> list=qfs.listPersonalBeforeTicketId(id);
-		
 		return JSON.toJSONString(list);	
 	}
 	

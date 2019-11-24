@@ -13,7 +13,6 @@
  <header>航班计划表</header>
     <div class="box">
         <div class="reminder">
-            <div class="count"><i></i>&nbsp;&nbsp;条</div>
             <button class="add btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sv">添加</button>
         </div>
         <table class="table table-bordered">

@@ -38,5 +38,9 @@ public class QueryFlightDaoTest {
 			System.out.println(personalTicket);
 		}
 	}
+	@Test
+	public void getPersonalInfo() {
+		System.out.println(qf.getPersonalInfo("123"));
+	}
 
 }

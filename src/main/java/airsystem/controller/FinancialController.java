@@ -101,7 +101,7 @@ public class FinancialController {
 					}
 					list1.add(new FinancialChange(name,financialClasses.getPrice())); 
 				}
-			
+				System.out.println(list1);
 				return JSON.toJSONString(list1);
 	}
 	@RequestMapping(value="/dailyfinancialdata2",produces = "application/json; charset=utf-8")
@@ -109,7 +109,7 @@ public class FinancialController {
 	public String listFinancialData1() {
 		List<FinancialType> list=financialService.listFinancialType();
 		FinancialChange financialChange=new FinancialChange();
-		List<FinancialChange> list1=new ArrayList();
+		List<FinancialChange> list1=new ArrayList<FinancialChange>();
 		for (FinancialType financialType : list) {
 			String name="";
 			if(financialType.getType()==1) {
@@ -121,7 +121,7 @@ public class FinancialController {
 			}
 			list1.add(new FinancialChange(name,financialType.getPrice()));
 		}
-		
+		System.out.println(list1);
 		return JSON.toJSONString(list1);
 		
 	}
@@ -130,7 +130,7 @@ public class FinancialController {
 	public String quarterfinancialData() {
 				List<FinancialClasses> list=financialService.listFinancialClassQuarter();
 				FinancialChange financialChange = new FinancialChange ();
-				List<FinancialChange> list1 = new ArrayList();
+				List<FinancialChange> list1 = new ArrayList<FinancialChange>();
 				for (FinancialClasses financialClasses : list) {
 					String name ="";
 					if(financialClasses.getClasses()==1) {
@@ -142,7 +142,8 @@ public class FinancialController {
 					}
 					list1.add(new FinancialChange(name,financialClasses.getPrice())); 
 				}
-				
+				System.out.println(list1);
+
 				return JSON.toJSONString(list1);
 	}
 	@RequestMapping(value="/quarterfinancialdata2",produces = "application/json; charset=utf-8")
@@ -150,7 +151,7 @@ public class FinancialController {
 	public String quarterfinancialData1() {
 		List<FinancialType> list=financialService.listFinancialTypeQuarter();
 		FinancialChange financialChange=new FinancialChange();
-		List<FinancialChange> list1=new ArrayList();
+		List<FinancialChange> list1=new ArrayList<FinancialChange>();
 		for (FinancialType financialType : list) {
 			String name="";
 			if(financialType.getType()==1) {
@@ -162,7 +163,8 @@ public class FinancialController {
 			}
 			list1.add(new FinancialChange(name,financialType.getPrice()));
 		}
-	
+		System.out.println(list1);
+
 		return JSON.toJSONString(list1);
 		
 	}
@@ -172,7 +174,7 @@ public class FinancialController {
 	public String yearlyfinancialData() {
 				List<FinancialClasses> list=financialService.listFinancialClassYear();
 				FinancialChange financialChange = new FinancialChange ();
-				List<FinancialChange> list1 = new ArrayList();
+				List<FinancialChange> list1 = new ArrayList<FinancialChange>();
 				for (FinancialClasses financialClasses : list) {
 					String name ="";
 					if(financialClasses.getClasses()==1) {
@@ -184,7 +186,8 @@ public class FinancialController {
 					}
 					list1.add(new FinancialChange(name,financialClasses.getPrice())); 
 				}
-				
+				System.out.println(list1);
+
 				return JSON.toJSONString(list1);
 	}
 	@RequestMapping(value="/yearlyfinancialdata2",produces = "application/json; charset=utf-8")
@@ -192,7 +195,7 @@ public class FinancialController {
 	public String yearlyfinancialData1() {
 		List<FinancialType> list=financialService.listFinancialTypeYear();
 		FinancialChange financialChange=new FinancialChange();
-		List<FinancialChange> list1=new ArrayList();
+		List<FinancialChange> list1=new ArrayList<FinancialChange>();
 		for (FinancialType financialType : list) {
 			String name="";
 			if(financialType.getType()==1) {
@@ -204,6 +207,8 @@ public class FinancialController {
 			}
 			list1.add(new FinancialChange(name,financialType.getPrice()));
 		}
+		System.out.println(list1);
+
 		return JSON.toJSONString(list1);
 		
 	}
