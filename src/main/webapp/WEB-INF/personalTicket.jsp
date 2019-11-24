@@ -120,6 +120,12 @@
             <div class="bottom-border-zst"></div>
         </div>
     </div>
+    <form action="changeFlight" name="form"  method="post" style="display:none">
+    	<input type="hidden" name="id-yzy">
+    	<input type="hidden" name="fromcity-yzy">
+    	<input type="hidden" name="tocity-yzy">
+    	<input type="hidden" name="startDate-yzy">
+    </form>
 </body>
 <script src="/airline/assets/js/jquery-1.9.1.js"></script>
 <script src="/airline/assets/js/personalTicket.js"></script>

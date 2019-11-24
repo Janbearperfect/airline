@@ -206,6 +206,14 @@ window.onload=function(){
 		   //改签
 			$("body").on("click",".ticketchange",function(){
 				var id=$(this).parents().parents().parents().children(".listInfo-title").children("span:eq(5)").html();
+				var fromcity=$(this).parents().parents().children("div:eq(0)").html();
+				var tocity=$(this).parents().parents().children("div:eq(2)").html();
+				var startDate=$(this).parents().parents().children("div:eq(1)").children("div:eq(0)").html();
+				$("input[name=id-yzy]").val(id);
+				$("input[name=fromcity-yzy]").val(fromcity);
+				$("input[name=tocity-yzy]").val(tocity);
+				$("input[name=startDate-yzy]").val(startDate);
+				document.form.submit();
 			})		   
 			   
 		
