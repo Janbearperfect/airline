@@ -98,9 +98,9 @@ public class TicketController {
 			ticket.setIdNumber(idNumber);
 			int classes = 0;
 			String classesname = request.getParameter("classes");
-			if(classesname=="头等舱") {
+			if(classesname.equals("头等舱")) {
 				classes = 1;
-			}else if(classesname=="商务舱"){
+			}else if(classesname.equals("商务舱")){
 				classes = 2;
 			}else {
 				classes = 3;

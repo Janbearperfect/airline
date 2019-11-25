@@ -3,12 +3,8 @@ package airsystem.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.junit.runner.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -62,9 +58,9 @@ public class PersonalTicketController {
 			String flightNumber = req.getParameter("flightId");
 			String classesname = req.getParameter("classes");
 			int classes=0;
-			if(classesname=="头等舱") {
+			if(classesname.equals("头等舱")) {
 				classes = 1;
-			}else if(classesname=="商务舱"){
+			}else if(classesname.equals("商务舱")){
 				classes = 2;
 			}else {
 				classes = 3;
