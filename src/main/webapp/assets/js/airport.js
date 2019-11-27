@@ -10,8 +10,8 @@ $(function(){
 					"<button type='button' class='btn btn-primary get' data-toggle='modal' data-target='.bs-example-modal-sm' style='margin-right:5px'>编辑</button>"+
 					"<button type='button' class='btn btn-danger delete'data-toggle='modal' data-target='.bs-example-modal-md'>删除</button></td><tr>")
 			}
-			 var list="<ul class='nums'><li><<</li>";
-			for(var j=0;j<(e.length/3);j++){
+			 var list="<ul class='nums'><li><<</li><li class='num' style='background:#b1b1fa'>1</li>";
+			for(var j=1;j<(e.length/3);j++){
 				list+="<li class='num'>"+(j+1)+"</li>";
 			}
 			lists+=list+"<li>>></li></ul>";
@@ -24,6 +24,8 @@ $(function(){
 		$("table").after(lists);
 	}])
 	$(".box").on("click",".num",function(){
+		$(".num").css("background","white");
+		$(this).css("background","#b1b1fa");
 		$("tbody:eq(1)").empty();
 		var num = $(this).html();
 		for(var i=((num-1)*3);i<num*3;i++){
