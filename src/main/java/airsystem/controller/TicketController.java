@@ -169,13 +169,13 @@ public class TicketController {
 		@SuppressWarnings("unchecked")
 		List<Ticket> tickets = (List<Ticket>) session.getAttribute("tickets");
 		for(int i=0 ; i<tickets.size();i++) {
-			Ticket ticket = new Ticket();
-			ticket.setUserId(tickets.get(i).getUserId());
-			ticket.setFlightId(tickets.get(i).getFlightId());
-			ticket.setIdNumber(tickets.get(i).getIdNumber());
-			ticket.setClasses(tickets.get(i).getClasses());
-			ticket.setpassengerType(tickets.get(i).getpassengerType());
-			ticket.setSalesId(tickets.get(i).getSalesId());
+//			Ticket ticket = new Ticket();
+//			ticket.setUserId(tickets.get(i).getUserId());
+//			ticket.setFlightId(tickets.get(i).getFlightId());
+//			ticket.setIdNumber(tickets.get(i).getIdNumber());
+//			ticket.setClasses(tickets.get(i).getClasses());
+//			ticket.setpassengerType(tickets.get(i).getpassengerType());
+//			ticket.setSalesId(tickets.get(i).getSalesId());
 			if(ticketService.saveTicket(tickets.get(i))) {
 				flightService.updateFlightSeat(tickets.get(i).getFlightId(), tickets.get(i).getClasses(),1);
 			}else {

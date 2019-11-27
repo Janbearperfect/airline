@@ -1,6 +1,8 @@
 package airsystem.entity;
 
-public class Airport {
+import java.io.Serializable;
+
+public class Airport implements Serializable{
 	private String airportCode;
 	private String city;
 	private String airportName;

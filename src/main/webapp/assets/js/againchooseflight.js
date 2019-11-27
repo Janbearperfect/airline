@@ -42,7 +42,8 @@ $(function(){
 						if(confirm("改签成功")){
 								location.href="personalTicket";
 						}
-					
+					}else{
+						location.href="personalTicket";
 					}
 				}
 			)

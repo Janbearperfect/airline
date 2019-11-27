@@ -2,7 +2,6 @@ package airsystem.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -87,7 +86,8 @@ public class chooseFlightController {
 		String[] date = goDate.split("-");
 		
 		List<QueryFlight> qfs=qf.listqueryFlight(fromCity, toCity, goDate);
-	
+		System.out.println("a");
+	System.out.println(qfs.size());
 		List<PiaoObject> piao = new ArrayList<>();
 		for(int i=0;i<qfs.size();i++) {
 			PiaoObject pj = new PiaoObject();

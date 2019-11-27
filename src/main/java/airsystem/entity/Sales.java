@@ -1,6 +1,8 @@
 package airsystem.entity;
 
-public class Sales {
+import java.io.Serializable;
+
+public class Sales implements Serializable{
 	private int id;
 	private String saleName;
 	private String number;

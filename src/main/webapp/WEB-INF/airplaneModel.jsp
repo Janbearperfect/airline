@@ -13,7 +13,9 @@
 </style>
 </head>
 <body>
+<header>飞机管理表</header>
 <div class="box">
+	<button type="button" class="btn  btn-lg add"data-toggle="modal" data-target="#myModal">添加</button>
 	<table class="table table-bordered">
 	<tr>
 		<th>飞机编号</th>
@@ -40,7 +42,6 @@
 				</tr>
 			</c:forEach>
 	</table>
-	<button type="button" class="btn  btn-lg add"data-toggle="modal" data-target="#myModal">添加</button>
 	</div>
 	
 	
