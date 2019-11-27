@@ -8,12 +8,9 @@
 <head>
     <meta charset="UTF-8">
     <title>航班查询</title>
-    
     <link rel="stylesheet" href="/airline/assets/css/flight.css">
     <link rel="stylesheet" href="/airline/assets/css/base.css">
-    <style type="text/css">
-    
-    </style>
+    <link rel="stylesheet" href="/airline/assets/css/againchooseflight.css">
 </head>
 <body>
     <!--导航栏-->
@@ -50,11 +47,11 @@
             <i class="info-place-zst">${flights[0].toCity}</i>
         </div>
         <div class="main-date-zst">
-            <i class="date-year-zst">${dateyear}</i>
+            <i class="date-year-zst">${fn:substring(date,0,4)}</i>
             <span>年</span>
-            <i class="date-month-zst">${datemoth}</i>
+            <i class="date-month-zst">${fn:substring(date,5,7)}</i>
             <span>月</span>
-            <i class="date-day-zst">${dateday}</i>
+            <i class="date-day-zst">${fn:substring(date,8,10)}</i>
             <span>日</span>
         </div>
         <div class="main-list-zst">

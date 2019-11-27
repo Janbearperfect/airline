@@ -10,8 +10,9 @@
 <link rel="stylesheet" href="/airline/assets/css/airport.css">
 </head>
 <body>
+<header>机场管理表</header>
 <div class="box">
-	<button type="button" class="btn btn-primary btn-lg add"data-toggle="modal" data-target="#myModal">添加</button>
+	<button type="button" class="btn btn-lg add"data-toggle="modal" data-target="#myModal">添加</button>
 	<table class="table table-bordered">
 		<tr>
 			<th>机场编号</th>
@@ -19,17 +20,7 @@
 			<th>机场名</th>
 			<th>操作</th>
 		</tr>
-		<c:forEach items="${airports}" var="airport">
-			<tr id="${airport.airportCode}">
-				<td>${airport.airportCode}</td>
-				<td>${airport.city}</td>
-				<td>${airport.airportName}</td>
-				<td>
-					<button type="button" class="btn btn-primary get" data-toggle="modal" data-target=".bs-example-modal-sm">编辑</button>
-					<button type="button" class="btn btn-danger delete"data-toggle="modal" data-target=".bs-example-modal-md">删除</button>
-				</td>
-			<tr>
-		</c:forEach>
+		<tbody class="abcd"></tbody>
 	</table>
 </div>
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">

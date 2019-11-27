@@ -8,12 +8,11 @@
 
 <link rel="stylesheet" href="/airline/assets/css/bootstrap.css">
 <link rel="stylesheet" href="/airline/assets/css/branch.css">
-<style>
-  
-</style>
 </head>
 <body>
+<header>营业点管理表</header>
 <div class="box">
+<button type="button" class="btn  btn-lg add"data-toggle="modal" data-target="#myModal">添加</button>
 	<table class="table table-bordered">
 		<tr>
 		<th>营业点ID</th>
@@ -41,7 +40,7 @@
 			<tr>
 		</c:forEach>
 	</table>
-<button type="button" class="btn  btn-lg add"data-toggle="modal" data-target="#myModal">添加</button>
+
 </div>
 
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">

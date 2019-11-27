@@ -2,17 +2,14 @@ package airsystem.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 
@@ -28,14 +25,15 @@ public class AirportController {
 //		System.out.println(session.getAttribute("adminId"));
 		
 	}
-	
 	@RequestMapping("/airport")
-	public ModelAndView showAirport(HttpSession session) {
-		ModelAndView mv = new ModelAndView("airport");
+	public void airport() {
+		
+	}
+	@GetMapping(value = "/airport/list",produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String Airportlsit() {
 		List<Airport> airports = airportService.listAirport();
-		mv.addObject("airports", airports);
-//		System.out.println(session.getAttribute("adminId"));
-		return mv; 
+		return JSON.toJSONString(airports); 
 	}
 	@RequestMapping("/deleteAirport/{airportCode}")
 	@ResponseBody

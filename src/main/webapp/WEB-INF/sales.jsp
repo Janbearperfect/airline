@@ -5,13 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>机场管理</title>
+<title>营业员管理</title>
 <link rel="stylesheet" href="/airline/assets/css/bootstrap.css">
 <link rel="stylesheet" href="/airline/assets/css/sales.css">
 </head>
 
 <%String type=session.getAttribute("type").toString(); %>
 <body>
+<header>营业员管理表</header>
 <div class="box">
 	<button type="button" class="btn btn-lg add"data-toggle="modal" data-target="#myModal">添加</button>
 	<table class="table table-bordered">
