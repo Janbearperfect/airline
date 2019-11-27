@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="airsystem.mapper.TicketMapper">
+	<!-- id:值代表接口方法名字，必须对应 -->
+	<select id="listTickets" resultType="airsystem.entity.TicketBo" parameterType="airsystem.entity.TicketBo" >
+	 select flight_number,uname,order_date,classes,passenger_type,sales.sale_name,t_price FROM ticket_order LEFT JOIN flight ON ticket_order.flight_id=flight.flight_id LEFT JOIN user ON user.id=ticket_order.user_id LEFT JOIN sales ON sales.id=ticket_order.sales_id LEFT JOIN branch ON branch.id=sales.branch_id 
+	 <where>
+	     <choose>
+	        <when test="branchId !=null and branchId != ' ' ">
+	             AND   status=1 AND branch.id=#{branchId} or status=2 AND branch.id=#{branchId}
+	        </when>
+	        <otherwise>
+	           AND   status=1  or status=2 
+	        </otherwise>
+	     </choose>
+	 </where>
+
+	</select>
+	
+	
+	
+    <select id="countTickets" resultType="int" parameterType="airsystem.entity.TicketBo">
+     select count(*)  from ticket_order LEFT JOIN sales ON ticket_order.sales_id=sales.id LEFT JOIN branch ON branch.id=sales.branch_id 
+     <where>
+          <choose>
+             <when test="branchId !=null and branchId != ' ' ">
+                 AND   status=1 AND branch.id=#{branchId} or status=2 AND branch.id=#{branchId}
+             </when>
+            <otherwise>
+              AND  status=1 or status=2
+            </otherwise>
+          </choose>
+     </where>
+    </select>
+</mapper> 

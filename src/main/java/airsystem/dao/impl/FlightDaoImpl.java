@@ -32,11 +32,11 @@ public class FlightDaoImpl implements FlightDao{
 		return jdbcTemplate.queryForObject("select * from flight where flight_number=?", new Object[] {flightNumber},new BeanPropertyRowMapper<Flight>(Flight.class));
 	}
 
-	@Override
+	/*@Override
 	public List<Flight> listFlight() {
 		
 		return jdbcTemplate.query("select * from flight", new BeanPropertyRowMapper<Flight>(Flight.class));
-	}
+	}*/
 
 	@Override
 	public int totalItems() {

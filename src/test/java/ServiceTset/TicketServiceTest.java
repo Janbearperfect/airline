@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.github.pagehelper.PageHelper;
+
 import airsystem.config.TestConfig;
 import airsystem.entity.Ticket;
 import airsystem.entity.TicketBo;
@@ -20,9 +22,13 @@ public class TicketServiceTest {
 	@Autowired
 	private TicketService ticketService;
 	
+	
+	
 	@Test
 	public void test() {
-		List<TicketBo> list=ticketService.listPaged();
+	    TicketBo t=new TicketBo();
+	    t.setBranchId(1);
+		List<TicketBo> list=ticketService.listPaged(t);
 		for (TicketBo ticket : list) {
 			System.out.println(ticket);
 		}		
@@ -45,7 +51,9 @@ public class TicketServiceTest {
 	
 	@Test
 	public void test3() {
-		System.out.println(ticketService.countTicketRefund());
+		TicketBo t=new TicketBo();
+		t.setBranchId(2);
+		System.out.println(ticketService.countTicket(t));
 	}
 	@Test
 	public void test4() {

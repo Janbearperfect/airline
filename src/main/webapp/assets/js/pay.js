@@ -2,7 +2,7 @@ $(function(){
 	$(".quickpay").click(function(){
 		$.post("saveTicket",function(e){
 			if(e=="success"){
-				location.href="success";
+				location.href="alipayindex";
 			}else{
 				alert("失败");
 			}

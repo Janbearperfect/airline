@@ -97,7 +97,7 @@ type=session.getAttribute("type").toString();
          <li class="layui-nav-item">
           <a href="javascript:;"  >票务管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="sellticket" target="aaa" >已售机票</a></dd>
+            <dd><a href="selljknticket/1" target="aaa" >已售机票</a></dd>
             <dd><a href="changeticket" target="aaa" >改签机票</a></dd>
             <dd><a href="refundticket" target="aaa" >退订机票</a></dd>
           </dl>
@@ -141,7 +141,7 @@ type=session.getAttribute("type").toString();
        <li class="layui-nav-item">
           <a href="javascript:;"  >票务管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="sellticket" target="aaa" >已售机票</a></dd>
+            <dd><a href="selljknticket/1" target="aaa" >已售机票</a></dd>
             <dd><a href="changeticket" target="aaa" >改签机票</a></dd>
             <dd><a href="refundticket" target="aaa" >退订机票</a></dd>
           </dl>

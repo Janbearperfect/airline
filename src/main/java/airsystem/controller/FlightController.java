@@ -26,6 +26,7 @@ public class FlightController {
 	@RequestMapping("/flightview")
 	public ModelAndView listFlightView() {
 		ModelAndView mv=new ModelAndView("flightview");
+		
 		List<Flight> list=flightService.listFlight();
 		mv.addObject("flights",list);
 		return mv;

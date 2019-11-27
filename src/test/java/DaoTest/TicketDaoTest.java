@@ -9,10 +9,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.github.pagehelper.PageHelper;
+
 import airsystem.config.TestConfig;
 import airsystem.dao.prototype.TicketDao;
 import airsystem.entity.Ticket;
 import airsystem.entity.TicketBo;
+import airsystem.mapper.TicketMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= {TestConfig.class})
@@ -20,10 +23,13 @@ public class TicketDaoTest {
 	
     @Autowired
 	private TicketDao tdao;
+    @Autowired
+    private TicketMapper tMapper;
 	
     @Test
     public void test(){
-		List<TicketBo> list=tdao.listTicket();
+    
+		List<TicketBo> list=tMapper.listTickets();
 		for (TicketBo ticket : list) {
 			System.out.println(ticket.toString());
 		}
@@ -46,7 +52,7 @@ public class TicketDaoTest {
     
     @Test
     public void test3() {
-    	System.out.println(tdao.countTicketTotal());
+    	System.out.println(tMapper.countTickets());
     }
     @Test
     public void test4() {
@@ -77,7 +83,9 @@ public class TicketDaoTest {
     
     @Test
     public void test8() {
-    	List<TicketBo> list=tdao.listTicket(1);
+    	TicketBo t=new TicketBo();
+    	t.setBranchId(1);
+    	List<TicketBo> list=tMapper.listTickets(t);
     	for (TicketBo ticketBo : list) {
 			System.out.println(ticketBo);
 		}
@@ -100,7 +108,9 @@ public class TicketDaoTest {
     }
     @Test
     public void test11() {
-    	System.out.println(tdao.countTicketTotal(1));
+    	TicketBo t=new TicketBo();
+    	t.setBranchId(1);
+    	System.out.println(tMapper.countTickets());
     }
     @Test
     public void test12() {

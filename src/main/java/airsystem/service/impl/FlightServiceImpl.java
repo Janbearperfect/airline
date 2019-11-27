@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import airsystem.dao.prototype.FlightDao;
 import airsystem.entity.Flight;
+import airsystem.mapper.FlightMapper;
 import airsystem.service.prototype.FlightService;
 
 @Service
@@ -14,6 +15,8 @@ public class FlightServiceImpl implements FlightService{
     
 	@Autowired
 	private FlightDao  flightDao;
+	
+	private FlightMapper flightMapper;
 	
 
 	
@@ -27,7 +30,7 @@ public class FlightServiceImpl implements FlightService{
 	@Override
 	public List<Flight> listFlight() {
 		// TODO Auto-generated method stub
-		return flightDao.listFlight();
+		return flightMapper.listFlight();
 	}
 
 	@Override

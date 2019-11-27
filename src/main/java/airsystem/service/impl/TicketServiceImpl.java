@@ -5,9 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+
 import airsystem.dao.prototype.TicketDao;
 import airsystem.entity.Ticket;
 import airsystem.entity.TicketBo;
+import airsystem.mapper.TicketMapper;
 import airsystem.service.prototype.TicketService;
 
 /*
@@ -15,12 +18,19 @@ import airsystem.service.prototype.TicketService;
  * */
 @Service
 public class TicketServiceImpl implements TicketService{
-    
+	@Autowired
+	private TicketMapper ticketMapper;
+	
+	
 	@Autowired
 	private TicketDao ticketDao;
+
+	
 	@Override
 	public List<TicketBo> listPaged() {
-		return ticketDao.listTicket();
+		
+		
+		return ticketMapper.listTickets();
 		
 
 		
@@ -38,7 +48,7 @@ public class TicketServiceImpl implements TicketService{
 	@Override
 	public int countTicket() {
 		
-		return ticketDao.countTicketTotal();
+		return ticketMapper.countTickets();
 	}
 	@Override
 	public int countTicketChange() {
@@ -70,16 +80,8 @@ public class TicketServiceImpl implements TicketService{
 	public List<Ticket> searchSelfRefundTicket(int userId) {
 		return ticketDao.searchSelfRefundTicket(userId);
 	}
-	@Override
-	public List<TicketBo> listTicket(int branchId) {
-		// TODO Auto-generated method stub
-		return ticketDao.listTicket(branchId);
-	}
-	@Override
-	public int countTicketTotal(int branchId) {
-		// TODO Auto-generated method stub
-		return ticketDao.countTicketTotal(branchId);
-	}
+
+	
 	@Override
 	public List<TicketBo> listTicketChange(int branchId) {
 		// TODO Auto-generated method stub
@@ -99,6 +101,16 @@ public class TicketServiceImpl implements TicketService{
 	public int countTicketRefundTotal(int branchId) {
 		// TODO Auto-generated method stub
 		return ticketDao.countTicketRefundTotal(branchId);
+	}
+	@Override
+	public List<TicketBo> listPaged(TicketBo t) {
+		
+		return ticketMapper.listTickets(t);
+	}
+	@Override
+	public int countTicket(TicketBo t) {
+		// TODO Auto-generated method stub
+		return ticketMapper.countTickets(t);
 	}
 
 

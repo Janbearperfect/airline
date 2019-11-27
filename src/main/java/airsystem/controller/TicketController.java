@@ -9,9 +9,15 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 
 import airsystem.entity.Ticket;
 import airsystem.entity.TicketBo;
@@ -34,17 +40,30 @@ public class TicketController {
 		return "pay";
 	}
 	
-	@RequestMapping("/sellticket")
-	public ModelAndView listTicketView(HttpSession session) {	
-		
-		 List<TicketBo> listTicket=null;
+
+	
+	@RequestMapping("/selljknticket/{pageNum}")
+	public ModelAndView listTicketView(@PathVariable("pageNum") int pageNum, HttpSession session,HttpServletRequest request ) {	
+
+		Page<TicketBo> listTicket=null;
+		 int num=0;
 		if((int)session.getAttribute("type")==1) {
-			    listTicket=ticketService.listPaged(); 
+			PageHelper.startPage(pageNum, 10);
+			  listTicket=(Page<TicketBo>) ticketService.listPaged(); 
+			//    num=ticketService.countTicket();
+			  num=(int) listTicket.getTotal();
 		}else {
-			listTicket=ticketService.listTicket((int)session.getAttribute("adminId"));
-		}				
+			PageHelper.startPage(pageNum, 10);
+			TicketBo t=new TicketBo();
+			t.setBranchId((int)session.getAttribute("adminId"));
+			listTicket=(Page<TicketBo>) ticketService.listPaged(t);
+			num=(int) listTicket.getTotal();
+		}
+	
+		session.setAttribute("num", num);
 	   ModelAndView mv=new ModelAndView("sellticket");	
 	  mv.addObject("ticket", listTicket);	 
+	
 	 return mv;		
 	}
 	

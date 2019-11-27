@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="/airline/assets/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="/airline/assets/js/ticket.js"></script>
+
 <link rel="stylesheet" href="/airline/assets/css/ticket.css">
 <link rel="stylesheet" href="/airline/assets/css/bootstrap.css">
 <title></title>
@@ -41,8 +43,24 @@
 		          <td>${ticket.tPrice}元</td>		     
 		     </tr>
 		      </c:forEach>
+		      
+		   
+		      
 </table>		     
-		
+		   <ul style="list-style:none" class="page">
+              <<
+              <%
+              
+                  int total=Integer.parseInt(session.getAttribute("num").toString());
+                
+                  for(int i=0;i<(total/10)+1;i++){
+               
+              %>
+              
+               <span class="mark"><%=i+1%></span>
+             <%} %>
+              >>
+          </ul>
          
       
  

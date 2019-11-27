@@ -1,5 +1,6 @@
 package airsystem.config;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @ComponentScan({"airsystem.dao","airsystem.service","airsystem.controller"})
 //@EnableWebMvc
 @EnableAspectJAutoProxy //启用Spring AOP的功能
+
 @Import(DBConfig.class)
 public class AppConfig  extends  WebMvcConfigurationSupport{
 

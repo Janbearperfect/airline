@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public void saveUser(UserL user) {
 		JdbcTemplate.update("insert into user(phone,password,uname,sex,age,address) values(?,?,?,?,?,?)",
-				new Object[] {user.getPhone(),user.getPassword(),user.getUname(),user.getSex(),user.getAge(),user.getAddress(),user.getId()});
+				new Object[] {user.getPhone(),user.getPassword(),user.getUname(),user.getSex(),user.getAge(),user.getAddress()});
 		
 	}
 

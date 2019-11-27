@@ -11,8 +11,8 @@ import airsystem.entity.TicketBo;
  * */
 
 public interface TicketDao {
-  List<TicketBo> listTicket();
-  int countTicketTotal();
+  //List<TicketBo> listTicket();
+ // int countTicketTotal();
   List<TicketBo> listTicketChange();
   int countTicketChangeTotal();
   List<TicketBo> listTicketRefund();
@@ -21,8 +21,8 @@ public interface TicketDao {
   List<Ticket> searchSelfAllTicket(int userId);
   List<Ticket> searchSelfChangeTicket(int userId);
   List<Ticket> searchSelfRefundTicket(int userId);
-  List<TicketBo> listTicket(int branchId);
-  int countTicketTotal(int branchId);
+//  List<TicketBo> listTicket(int branchId);
+ // int countTicketTotal(int branchId);
   List<TicketBo> listTicketChange(int branchId);
   int countTicketChangeTotal(int branchId);
   List<TicketBo> listTicketRefund(int branchId);

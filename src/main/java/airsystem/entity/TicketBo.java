@@ -5,7 +5,7 @@ import java.util.Date;
 import airsystem.util.DateUtil;
 
 public class TicketBo {
-	
+	private int branchId;
     private String uname;
     private String flightNumber;
     private Date orderDate;
@@ -13,17 +13,29 @@ public class TicketBo {
     private int passengerType;
     private String saleName;
     private double tPrice;
-	public TicketBo(String uname, String flightNumber, Date orderDate, int classes, int passengerType, 
+	public TicketBo(int branchId, String uname, String flightNumber, Date orderDate, int classes, int passengerType, 
 			String saleName,double tPrice) {
 		super();
+		this.branchId=branchId;
 		this.uname = uname;
 		this.flightNumber = flightNumber;
 		this.orderDate = orderDate;
 		this.classes = classes;
-		this.passengerType = passengerType;
-	
+		this.passengerType = passengerType;	
 		this.tPrice = tPrice;
 		this.saleName=saleName;
+	}
+	/**
+	 * @return the branchId
+	 */
+	public int getBranchId() {
+		return branchId;
+	}
+	/**
+	 * @param branchId the branchId to set
+	 */
+	public void setBranchId(int branchId) {
+		this.branchId = branchId;
 	}
 	/**
 	 * @return the saleName
@@ -127,10 +139,14 @@ public class TicketBo {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "TicketBo [uname=" + uname + ", flightNumber=" + flightNumber + ", orderDate=" + orderDate + ", classes="
-				+ classes + ", passengerType=" + passengerType + ", saleName=" + saleName + ", tPrice=" + tPrice + "]";
+		return "TicketBo [branchId=" + branchId + ", uname=" + uname + ", flightNumber=" + flightNumber + ", orderDate="
+				+ orderDate + ", classes=" + classes + ", passengerType=" + passengerType + ", saleName=" + saleName
+				+ ", tPrice=" + tPrice + "]";
 	}
 
 	

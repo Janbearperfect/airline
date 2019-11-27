@@ -20,13 +20,13 @@ public class TicketDaoImpl implements TicketDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	@Override
+	/*@Override
 	public List<TicketBo> listTicket() {
 		
 		return jdbcTemplate.query("select flight_number,uname,order_date,classes,passenger_type,sale_name,t_price FROM ticket_order LEFT JOIN flight ON ticket_order.flight_id=flight.flight_id LEFT JOIN user ON user.id=ticket_order.user_id  LEFT JOIN sales ON sales.id=ticket_order.sales_id WHERE status=1 or status=2 "
 				,new Object[] {},
 				new BeanPropertyRowMapper<TicketBo>(TicketBo.class));
-	}
+	}*/
 
 	@Override
 	public List<TicketBo> listTicketChange() {
@@ -43,12 +43,12 @@ public class TicketDaoImpl implements TicketDao{
 				new Object[] {},new BeanPropertyRowMapper<TicketBo>(TicketBo.class));
 	}
 
-	@Override
+/*	@Override
 	public int countTicketTotal() {
 		
 		return jdbcTemplate.queryForObject("select count(*)  from ticket_order WHERE status=1 or status=2",
 				new Object[] {},Integer.class);
-	}
+	}*/
 
 	@Override
 	public int countTicketChangeTotal() {
@@ -91,12 +91,12 @@ public class TicketDaoImpl implements TicketDao{
 				new Object[] {userId} , new BeanPropertyRowMapper<Ticket>(Ticket.class));
 	}
 
-	@Override
+	/*@Override
 	public List<TicketBo> listTicket(int branchId) {
 		
 		return jdbcTemplate.query("select flight_number,uname,order_date,classes,passenger_type,sales.sale_name,t_price FROM ticket_order LEFT JOIN flight ON ticket_order.flight_id=flight.flight_id LEFT JOIN user ON user.id=ticket_order.user_id LEFT JOIN sales ON sales.id=ticket_order.sales_id LEFT JOIN branch ON branch.id=sales.branch_id WHERE status=1 AND branch.id=? or status=2 AND branch.id=?;",
 				new Object[] {branchId,branchId},new BeanPropertyRowMapper<TicketBo>(TicketBo.class));
-	}
+	}*/
 	
 	@Override
 	public List<TicketBo> listTicketChange(int branchId) {
@@ -113,12 +113,12 @@ public class TicketDaoImpl implements TicketDao{
 				new Object[] {branchId},new BeanPropertyRowMapper<TicketBo>(TicketBo.class));
 	}
 
-	@Override
+/*	@Override
 	public int countTicketTotal(int branchId) {
 		
 		return jdbcTemplate.queryForObject("select count(*)  from ticket_order LEFT JOIN sales ON ticket_order.sales_id=sales.id LEFT JOIN branch ON branch.id=sales.branch_id WHERE status=1 AND branch.id=? or status=2 AND branch.id=?;", 
 				new Object[] {branchId,branchId},Integer.class);
-	}
+	}*/
 
 	@Override
 	public int countTicketChangeTotal(int branchId) {

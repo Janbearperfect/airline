@@ -11,7 +11,7 @@ import airsystem.entity.Flight;
 public interface FlightDao {
 	Flight getFlight(int flightId); //根据航班id查询
 	Flight getFlight(String flightNumber); //航班编号
-	List<Flight> listFlight(); //所有的航班查询
+//	List<Flight> listFlight(); //所有的航班查询
 	int totalItems();    // 总条数
 	
 	String updateFlight(double seasonDiscount,double price,int flightId); //更新或者插入

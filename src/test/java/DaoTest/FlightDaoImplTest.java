@@ -35,13 +35,13 @@ public class FlightDaoImplTest {
 		System.out.println(f.getFlight("zst01"));
 	}
 	
-	@Test
+	/*@Test
 	public void test1() {
 		List<Flight> list=f.listFlight();
 		for (Flight flight : list) {
 			System.out.println(flight);
 		}
-	}
+	}*/
 	
 	@Test
 	public void test2() {

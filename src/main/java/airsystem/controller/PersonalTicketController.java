@@ -3,6 +3,8 @@ package airsystem.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import airsystem.entity.QueryFlight;
+import airsystem.entity.Ticket;
 import airsystem.service.prototype.PersonalTicketService;
 
 @Controller
@@ -26,6 +29,22 @@ public class PersonalTicketController {
 		public void success() {
 			
 		}
+		
+		
+        @RequestMapping("/alipayindex")
+		public ModelAndView alipay(HttpSession session) {
+        	List<Ticket> tickets=(List<Ticket>)session.getAttribute("tickets");
+        	double price=0;
+        	for(int i=0;i<tickets.size();i++) {
+        		price+= tickets.get(i).gettPrice();
+        	}
+        	System.out.println(price);
+        	System.out.println("4534");
+        	ModelAndView mv=new ModelAndView("alipayindex");
+        	mv.addObject("price",price);
+			return mv;		
+		}
+		
 		@RequestMapping(value ="/changeFlight" , method = RequestMethod.POST)
 		public ModelAndView change(HttpServletRequest req) {
 			String toCity = req.getParameter("tocity-yzy");

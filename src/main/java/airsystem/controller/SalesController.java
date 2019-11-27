@@ -65,7 +65,7 @@ public class SalesController {
 		return "success";
 	}
 	
-	// €∆±‘±¬Ú∆±
+
 //	@RequestMapping("/salesbuyticket1/{id}")
 //	public ModelAndView buyticket(@PathVariable("id")String id) {
 	@RequestMapping("/salesbuyticket1")

@@ -34,7 +34,7 @@
 		      </tr>
 </table>
 </div>
-  <div class="container mark-two" style="margin-left:-15px">
+  <div class="container mark-two" style="">
  <table class="table table-bordered">
 		 <tr>
 		     <th>头等舱</th>		     
