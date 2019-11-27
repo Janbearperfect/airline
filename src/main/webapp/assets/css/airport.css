@@ -48,3 +48,9 @@ h3,h2{
 #smallmodal{
 	height:200px;
 }
+ul li{
+	float:left;
+	margin:0 5px;
+	list-style: none;
+	cursor: pointer;
+}

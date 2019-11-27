@@ -3,6 +3,8 @@ package airsystem.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,29 +34,22 @@ public class PersonalTicketController {
 			int id = Integer.parseInt(req.getParameter("id-yzy"));
 			String startDate = req.getParameter("startDate-yzy");
 			String fromCity = req.getParameter("fromcity-yzy");
-			
 			ModelAndView mv = new ModelAndView("againchooseflight");
 			String startdate = startDate.substring(0,10);
-			String dateyear = startdate.substring(0, 4);
-			String datemonth = startdate.substring(5, 7);
-			String dateday = startdate.substring(8, 10);
 			List<QueryFlight> flights = pts.returnChooseTicket(fromCity, toCity, startdate);
+			for(int i= 0;i<flights.size();i++) {
+				System.out.println(flights.get(i));
+			}
 			mv.addObject("ticketId", id);
 			mv.addObject("fromCity",fromCity);
 			mv.addObject("toCity",toCity);
-			mv.addObject("dateday",dateday);
-			mv.addObject("dateyear",dateyear);
-			mv.addObject("datemoth",datemonth);
 			mv.addObject("date",startdate);
 			mv.addObject("flights",flights);
-			for (QueryFlight queryFlight : flights) {
-				System.out.println(queryFlight);
-			}
 			return mv;
 		}
 		@PostMapping("/changeTicket")
 		@ResponseBody
-		public String changeTicket(HttpServletRequest req) {
+		public String changeTicket(HttpServletRequest req , HttpSession session) {
 			String flightNumber = req.getParameter("flightId");
 			String classesname = req.getParameter("classes");
 			int classes=0;
@@ -68,7 +63,12 @@ public class PersonalTicketController {
 			double price =Double.parseDouble(req.getParameter("price"));
 			int ticketId = Integer.parseInt(req.getParameter("Id"));
 			pts.changeTicket(flightNumber, classes, price, ticketId);
-			return "success";
+//			System.out.println(session.getAttribute("userId"));
+//			if(session.getAttribute("userId") !=null) {
+//				return "Tsuccess";
+//			}else {
+				return "success";
+//			}
 		}
 		
 		

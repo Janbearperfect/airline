@@ -20,17 +20,7 @@
 			<th>机场名</th>
 			<th>操作</th>
 		</tr>
-		<c:forEach items="${airports}" var="airport">
-			<tr id="${airport.airportCode}">
-				<td>${airport.airportCode}</td>
-				<td>${airport.city}</td>
-				<td>${airport.airportName}</td>
-				<td>
-					<button type="button" class="btn btn-primary get" data-toggle="modal" data-target=".bs-example-modal-sm">编辑</button>
-					<button type="button" class="btn btn-danger delete"data-toggle="modal" data-target=".bs-example-modal-md">删除</button>
-				</td>
-			<tr>
-		</c:forEach>
+		<tbody class="abcd"></tbody>
 	</table>
 </div>
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
