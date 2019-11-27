@@ -1,5 +1,6 @@
 body{
-	
+	background:url("../img/airplane1.jpg") no-repeat;
+	background-size: 100%;
 }
 label.error{
 	color:red;
@@ -11,7 +12,7 @@ label.error{
 	height:280px;
 	position:absolute;
 	left:460px;
-	top:160px;
+	top:110px;
 	background-color: #898787;
 	border-radius:10px;	
 	border:10px solid #ecebeb;
