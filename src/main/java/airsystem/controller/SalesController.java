@@ -15,8 +15,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSON;
 
 import airsystem.entity.Flight;
+import airsystem.entity.PersonalTicket;
 import airsystem.entity.Sales;
 import airsystem.service.prototype.BranchService;
+import airsystem.service.prototype.QueryFlightService;
 import airsystem.service.prototype.SalesService;
 
 @Controller
@@ -25,6 +27,9 @@ public class SalesController {
 	private SalesService salesService;
 	@Autowired
 	private BranchService branchService;
+	@Autowired
+	private QueryFlightService qfs;
+	
 	@RequestMapping("/sales")
 	public ModelAndView showSales(HttpSession session) {
 		List<Sales> sales=null;;
@@ -65,9 +70,7 @@ public class SalesController {
 		return "success";
 	}
 	
-
-//	@RequestMapping("/salesbuyticket1/{id}")
-//	public ModelAndView buyticket(@PathVariable("id")String id) {
+	//售票员买票
 	@RequestMapping("/salesbuyticket1")
 	public ModelAndView buyticket(HttpServletRequest request) {
 		String id=request.getParameter("flightId");
@@ -81,7 +84,34 @@ public class SalesController {
 	public String show() {
 		return "salesbuyticket";
 	}
+	@RequestMapping("/salesqueryuser")
+	public String showuser() {
+		return "salesqueryuser";
+	}
+	//查询未出行航班
+	@RequestMapping(value="/salesqueryresult",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String salesRequest(HttpServletRequest req) {
+		String IdNumber=req.getParameter("IdNumber");
+		List<PersonalTicket> list=qfs.listPersonalFutureTicket(IdNumber);
+		return JSON.toJSONString(list);
+	}
 	
+	//查询往期航班
+	@RequestMapping(value="/salesqueryresultbefore",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String salesRequestBefore(HttpServletRequest req) {
+		String IdNumber=req.getParameter("IdNumber");
+		List<PersonalTicket> list=qfs.listPersonalBeforeTicket(IdNumber);
+//		System.out.println(list);
+		return JSON.toJSONString(list);
+	}
+	
+	@RequestMapping("salesqueryflight")
+	public String salesQuery() {
+		return "salesqueryuser";
+		
+	}
 }
 
 

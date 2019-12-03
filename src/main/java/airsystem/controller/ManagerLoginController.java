@@ -48,7 +48,7 @@ public class ManagerLoginController {
 			}
 		}else if(type==2) {
 			Branch branch = ms.findBranch(num);
-			System.out.println(branch.getId());
+//			System.out.println(branch.getId());
 			if(password.equals(branch.getbPassword())) {
 				
 				session.setAttribute("adminId", branch.getId());
@@ -82,7 +82,7 @@ public class ManagerLoginController {
 		session.removeAttribute("adminId");
 
 //		session.removeAttribute(em.nextElement().toString());
-		System.out.println(session.getAttribute("type"));
+//		System.out.println(session.getAttribute("type"));
 		return "success";
 	}
 }

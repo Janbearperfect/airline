@@ -1,6 +1,5 @@
 package airsystem.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 
-import airsystem.entity.Airport;
 import airsystem.entity.Flight;
 import airsystem.service.prototype.FlightService;
 

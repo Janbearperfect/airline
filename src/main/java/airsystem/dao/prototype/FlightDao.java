@@ -17,4 +17,5 @@ public interface FlightDao {
 	String updateFlight(double seasonDiscount,double price,int flightId); //更新或者插入
 	void updateFlightSeat(int flightId,int classes,int num);
 	int searchFlightId(String flightNumber);
+	List<Flight> listFlight();
 }

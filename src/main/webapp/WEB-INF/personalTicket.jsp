@@ -125,6 +125,7 @@
     	<input type="hidden" name="fromcity-yzy">
     	<input type="hidden" name="tocity-yzy">
     	<input type="hidden" name="startDate-yzy">
+    	<input type="hidden" name="IdNumber" value="${IdNumber}">
     </form>
 </body>
 <script src="/airline/assets/js/jquery-1.9.1.js"></script>

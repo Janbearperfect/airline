@@ -11,7 +11,9 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import airsystem.dao.prototype.AirplaneModelDao;
 import airsystem.dao.prototype.FlightSchedulerDao;
+import airsystem.entity.AirplaneModel;
 import airsystem.entity.FlightScheduler;
 
 
@@ -25,6 +27,8 @@ public class FlightSchdulerDaoImpl implements FlightSchedulerDao{
 	@Autowired
 	JdbcTemplate jdbctemplate;
 	
+	@Autowired
+	AirplaneModelDao amd;
 	@Override
 	public List<FlightScheduler> listFlightScheduler() {
 		return jdbctemplate.query("select * from flight_scheduler left join airport on flight_scheduler.from_city=airport.airport_code", new BeanPropertyRowMapper<FlightScheduler>(FlightScheduler.class));
@@ -45,7 +49,9 @@ public class FlightSchdulerDaoImpl implements FlightSchedulerDao{
 	@Override
 	public String saveFlightScheduler(String flightNumber, String startDate, String endDate, String fromCity, String toCity,
 			String departureTime, String arrivalTime, String airplane, String scheduler, int sailLength) {
-		int sf=jdbctemplate.update("insert into flight(flight_number,first_class_remain_seats,business_class_remain_seats,economy_class_remain_seats,season_discount,price) values(?,0,0,0,1,0)",new Object[] {flightNumber});
+		AirplaneModel am=amd.getAirportModel(airplane);
+		
+		int sf=jdbctemplate.update("insert into flight(flight_number,first_class_remain_seats,business_class_remain_seats,economy_class_remain_seats,season_discount,price) values(?,?,?,?,1,0)",new Object[] {flightNumber,am.getFirst_class_seats(),am.getBusiness_class_seats(),am.getEconomy_class_seats()});
 		int success= jdbctemplate.update("insert into flight_scheduler(flight_number,start_date,end_date,from_city,to_city,departure_time,arrival_time,airplane,scheduler,sail_length) values(?,?,?,?,?,?,?,?,?,?)",new Object[] {flightNumber,startDate,endDate,fromCity,toCity,departureTime,arrivalTime,airplane,scheduler,sailLength});
 		if(success!=0&& sf !=0) {
 			return "success";

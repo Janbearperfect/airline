@@ -146,34 +146,42 @@ public class FlightSchedulerController {
 	@ResponseBody
 	public String personalInfo(HttpServletRequest request) {
 		String flag=request.getParameter("ID");
-		System.out.println(flag);
+//		System.out.println(flag);
 		return qfs.getPersonalInfo(flag);
 	}
 	
-	//查询个人未出行航班
+	//查询未出行航班
 	@RequestMapping(value="/personalTicketInfo",produces="application/json;charset=utf-8")
 	@ResponseBody
-	public String listPersonal(HttpServletRequest request){
-		String IDNumber=request.getParameter("IDNumber");
-		List<PersonalTicket> list=qfs.listPersonalFutureTicket(IDNumber);
-//		System.out.println(list);
-		return JSON.toJSONString(list);
+	public String listPersonal(HttpServletRequest request,HttpSession session){
+		int id = 0;
+		try {
+			id = (int) session.getAttribute("userId");
+			List<PersonalTicket> list=qfs.listPersonalFutureTicketId(id);
+			return JSON.toJSONString(list);
+		}catch (Exception e) {
+			String IdNumber=(String) session.getAttribute("IdNumber");
+//			System.out.println(IdNumber+"这是idnumber");
+			List<PersonalTicket> list=qfs.listPersonalFutureTicket(IdNumber);
+			return JSON.toJSONString(list);
+		}
+	
 	}
 	
 	@RequestMapping("/personalIdNumber")
-	public ModelAndView getPersonal(HttpServletRequest request) {
-		String IdNumber=request.getParameter("IDNumber");
-//		System.out.println(IdNumber);
+	public ModelAndView getPersonal(HttpServletRequest request,HttpSession session) {
 		ModelAndView mv=new ModelAndView("personalTicket");
+		String IdNumber=request.getParameter("IDNumber");
+//		System.out.println("这是id" +IdNumber);
+		session.setAttribute("IdNumber", IdNumber);
 		mv.addObject("IdNumber", IdNumber);
 		return mv;
-		
 	}
 	@RequestMapping("/personalTicket")
 	public String getShowViewP() {
 		return "personalTicket";
 	}
-	
+	//查询游客往期航班
 	@RequestMapping(value="/personalTicketInfoBefore",produces="application/json;charset=utf-8")
 	@ResponseBody
 	public String listBeforePersonal(HttpServletRequest request) {
@@ -183,16 +191,16 @@ public class FlightSchedulerController {
 		return JSON.toJSONString(list);	
 	}
 	
-	//我的订单
-	@RequestMapping(value="/personalTicketInfoUser",produces="application/json;charset=utf-8")
-	@ResponseBody
-	public String listUserPersonal(HttpSession session) {
-		int id=(int) session.getAttribute("userId");
-		List<PersonalTicket> list=qfs.listPersonalFutureTicketId(id);
-//		System.out.println(list);
-		return JSON.toJSONString(list);	
-	}
-	
+//	//我的订单
+//	@RequestMapping(value="/personalTicketInfoUser",produces="application/json;charset=utf-8")
+//	@ResponseBody
+//	public String listUserPersonal(HttpSession session) {
+//		int id=(int) session.getAttribute("userId");
+//		List<PersonalTicket> list=qfs.listPersonalFutureTicketId(id);
+////		System.out.println(list);
+//		return JSON.toJSONString(list);	
+//	}
+	//用户往期订单
 	@RequestMapping(value="/personalTicketInfoBeforeUser",produces="application/json;charset=utf-8")
 	@ResponseBody
 	public String listUserBeforePersonal(HttpSession session) {

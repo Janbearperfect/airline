@@ -16,7 +16,7 @@ public class PersonalTicketManageController {
 	@RequestMapping("/returnTicket/{id}")
 	@ResponseBody
 	public String returnTicket(@PathVariable("id") int  id) {
-		System.out.println(id);
+//		System.out.println(id);
 		if(ptms.personalReturnTicket(id)) {
 			return "success";
 		}else {

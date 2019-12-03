@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import airsystem.dao.prototype.PersonalTicketDao;
+import airsystem.entity.Flight;
 import airsystem.entity.QueryFlight;
 @Repository
 public class PersonalTicketDaoImpl implements PersonalTicketDao {
@@ -26,5 +27,11 @@ public class PersonalTicketDaoImpl implements PersonalTicketDao {
 	@Override
 	public void changeTicket(String flightNumber,int classes,double price,int ticketId) {
 		jdbcTemplate.update("update ticket_order set flight_id=(select flight_id from flight where flight_number=?),order_date=now(),classes=?,status=2,t_price=? where id=?",new Object[] {flightNumber,classes,price,ticketId});
+	}
+
+	@Override
+	public Flight getPrice(String flightId) {
+		
+		return jdbcTemplate.queryForObject("select * from flight where flight_number=?", new Object[] {flightId},new BeanPropertyRowMapper<Flight>(Flight.class));
 	}
 }

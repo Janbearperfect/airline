@@ -40,10 +40,16 @@ $(function(){
 				function(e){
 					if(e=="success"){
 						if(confirm("改签成功")){
-								location.href="personalTicket";
+								$.post(
+									"personalTicketInfo",
+									 {IdNumber:$(".IdNumber").val()},
+									function(e){
+										 location.href="personalTicket";
+									}
+								)
+							
+//							location.href="personalTicket";
 						}
-					}else{
-						location.href="personalTicket";
 					}
 				}
 			)

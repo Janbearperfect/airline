@@ -37,7 +37,7 @@ public class PersonalController {
 		PassengerInfo pif=new PassengerInfo(adult,bady,child, classes, price,flightNumber);
 		ModelAndView mv=new ModelAndView("buyticket");
 		mv.addObject("numbers",pif);
-		System.out.println(adult);
+//		System.out.println(adult);
 		return mv;
 	}
 	@RequestMapping("/buyticketinfo")

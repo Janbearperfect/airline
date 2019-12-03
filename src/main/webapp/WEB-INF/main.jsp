@@ -126,7 +126,7 @@ type=session.getAttribute("type").toString();
           <a href="javascript:;"  >票务管理</a>
           <dl class="layui-nav-child">
             <dd><a href="queryflight" target="aaa" >航班查询</a></dd>
-            <dd><a href="" target="aaa" >个人信息查询</a></dd>
+            <dd><a href="salesqueryuser" target="aaa" >个人信息查询</a></dd>
           </dl>
         </li>
      <%}else if(type.equals("2")){ %>
@@ -161,7 +161,7 @@ type=session.getAttribute("type").toString();
   
   <div class="layui-body">
     <!-- 内容主体区域 -->
-			<iframe src="../Index/dazi.html" frameborder="0" name="aaa" style="width:100%; height:100%">
+			<iframe src="javascript:;" frameborder="0" name="aaa" style="width:100%; height:100%">
 			</iframe>
   </div>
   

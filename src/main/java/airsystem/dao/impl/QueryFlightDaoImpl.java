@@ -141,6 +141,7 @@ public class QueryFlightDaoImpl implements QueryFlightDao{
 				personalTicket.setToCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getToCity()},java.lang.String.class));
 				listTicket.add(personalTicket);
 			}
+		 System.out.println(listTicket);
 			return listTicket;
 	}
 
@@ -174,6 +175,7 @@ public class QueryFlightDaoImpl implements QueryFlightDao{
 				personalTicket.setToCity(jdbcTemplate.queryForObject("select airport_name from airport where airport_code=?", new Object[] {personalTicket.getToCity()},java.lang.String.class));
 				listTicket.add(personalTicket);
 			}
+		 
 			return listTicket;
 	}
 

@@ -22,7 +22,34 @@ header{
 	
 }
 .btn-info{
-	
 	float:right;
 }
-
+.box-two{
+	width:100%;
+	height:auto;
+	min-height:100px;
+	margin-top:10px;
+}
+.title-zst{
+	width:80%;
+	height:40px;
+	margin:auto;
+}
+.title-name{
+	width:100px;
+	hegiht:40px;
+	text-align:center;
+	line-height:40px;
+	float:left;
+	font-size:20px;
+}
+.title-name a{
+	margin-left:18px;
+}
+.table{
+	width:80%;
+	margin:auto;
+}
+td{
+	text-align:center;
+}

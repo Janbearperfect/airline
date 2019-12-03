@@ -101,7 +101,7 @@ public class FinancialController {
 					}
 					list1.add(new FinancialChange(name,financialClasses.getPrice())); 
 				}
-				System.out.println(list1);
+//				System.out.println(list1);
 				return JSON.toJSONString(list1);
 	}
 	@RequestMapping(value="/dailyfinancialdata2",produces = "application/json; charset=utf-8")
@@ -121,7 +121,7 @@ public class FinancialController {
 			}
 			list1.add(new FinancialChange(name,financialType.getPrice()));
 		}
-		System.out.println(list1);
+//		System.out.println(list1);
 		return JSON.toJSONString(list1);
 		
 	}

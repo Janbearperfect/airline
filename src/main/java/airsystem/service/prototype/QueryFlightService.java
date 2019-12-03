@@ -7,7 +7,7 @@ import airsystem.entity.QueryFlight;
 
 /**
  * 查询航班信息  以及用户航班信息
- * @author 赵胜涛
+ * 
  *
  */
 
